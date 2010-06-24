@@ -29,4 +29,12 @@ Reporter::Application.configure do
   # This is necessary if your schema can't be completely dumped by the schema dumper,
   # like if you have constraints or database-specific column types
   # config.active_record.schema_format = :sql
+  
+  Capybara.default_selector = :css
+  Capybara.default_wait_time = 10
+  Capybara.default_driver = :selenium
+  Capybara.debug = true
+  Capybara.ignore_hidden_elements = true
+  Capybara.run_server = true
+  
 end
