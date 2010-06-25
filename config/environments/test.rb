@@ -32,7 +32,7 @@ Reporter::Application.configure do
   
   Capybara.default_selector = :css
   Capybara.default_wait_time = 10
-  Capybara.default_driver = :selenium
+  # Capybara.default_driver = :selenium
   Capybara.debug = true
   Capybara.ignore_hidden_elements = true
   Capybara.run_server = true
