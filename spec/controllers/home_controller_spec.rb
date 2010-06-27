@@ -6,19 +6,19 @@ describe HomeController do
 
     it "routes / to home controller" do
       { :get => "/" }.should
-        route_to( :controller => 'home', :action => 'index' )
+        route_to( :controller => 'home', :action => 'periodical' )
     end
     it "generates home URL as /" do
-      assert_generates "/", { :controller => "home", :action => "index" }
+      assert_generates "/", { :controller => "home", :action => "periodical" }
     end
     it "generates http://domain.com with :host => domain.com" do
-      controller.url_for(:controller => 'home', :action => 'index',
+      controller.url_for(:controller => 'home', :action => 'periodical',
         :host => 'domain.com').should ==
         'http://domain.com/'
     end
     it "generates http://subdomain.domain.com with :host => domain.com, :subdomain => subdomain" do
       controller.url_for(
-        :controller => 'home', :action => 'index',
+        :controller => 'home', :action => 'periodical',
         :host => 'domain.com', :subdomain => 'subdomain').should ==
         'http://subdomain.domain.com/'
     end
