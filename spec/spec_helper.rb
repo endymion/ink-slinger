@@ -25,3 +25,13 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 end
+
+# Helper Method for setting the requesting host in a Rails functional test
+# Mocks the proper response for the domain() method, as well as the
+# @request.host value.
+# (Doesn't work, though.)
+def set_test_host(host)
+  # @request.host = host
+  # domain = host.split('.').last(2).join('.')
+  # ActionController::TestRequest.any_instance.stubs(:domain).returns(domain)
+end
