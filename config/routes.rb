@@ -1,6 +1,6 @@
 class BraveNewMediaDomain
   def self.matches?(request)
-    request.host == 'bravenewmedia.com'
+    request.host == /brave-new-media/
   end
 end
 
