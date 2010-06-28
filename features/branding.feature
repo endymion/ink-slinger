@@ -1,5 +1,10 @@
 Feature: Branding
 
+Scenario: Localhost
+  When my request is from the host localhost
+  And I am on the home page
+  Then I should see "Brave New Media"
+
 Scenario: Brave New Media
   When my request is from the host miami.bravenewmedia.com
   And I am on the home page
