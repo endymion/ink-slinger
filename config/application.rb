@@ -48,8 +48,5 @@ module Reporter
       g.test_framework :rspec
     end
     
-    # Disabled by default in Rails 3. 
-    config.serve_static_assets = true
-    
   end
 end

@@ -31,6 +31,10 @@ Reporter::Application.configure do
   # In production, Apache or nginx will already do this
   config.serve_static_assets = false
 
+  # Use multiple S3 buckets as asset hosts to eliminate a page fetch bottleneck on the
+  # browser side.  http://spattendesign.com/2007/10/24/setting-up-multiple-asset-hosts-in-rails
+  config.action_controller.asset_host = "http://miami-%d.night-club-events.com"
+  
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
 
