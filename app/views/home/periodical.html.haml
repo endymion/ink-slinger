@@ -1,1 +1,15 @@
-Hello from the nightlife bot.
+%p
+  Hello from the nightlife bot.
+%p
+  Site information:
+  %ul
+    %li
+      Host: #{request.host}
+    %li
+      Domain: #{current_domain}
+    %li
+      Subdomain: #{current_subdomain}
+    %li
+      Brand: #{@current_brand.inspect}
+    %li
+      Brand Location: #{@current_brand_location.inspect}
