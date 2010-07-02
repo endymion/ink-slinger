@@ -19,6 +19,8 @@ gem 'nokogiri', '1.4.1'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'aws-s3', :require => 'aws/s3'
 gem "subdomain-fu", :git => "git://github.com/nhowell/subdomain-fu.git"
+gem "haml", "2.2.21"
+gem "compass", "0.10.0.pre9"
 
 group :test do
   gem 'cucumber'
