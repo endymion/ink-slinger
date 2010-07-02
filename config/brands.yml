@@ -1,6 +1,6 @@
 brands:
-  - host: bravenewmedia.com
-    assets: static.bravenewmedia.com
+  - host: brave-new-media.com
+    assets: static.brave-new-media.com
     locations:
       - title: Brave New Media
         subdomain: www
@@ -16,7 +16,7 @@ brands:
     assets: performing-arts-events.com
     locations:
       - title: The New York Nightlife Herald
-        subdomain: miami
+        subdomain: new-york
 
   - host: nightlifeglobe.com
     assets: night-club-events.com
