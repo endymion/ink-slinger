@@ -7,7 +7,7 @@
 // Import the non-default scaffolding module.
 @import blueprint/scaffolding.sass
 
-$blueprint_grid_columns: 12
+!blueprint_grid_width: 32
 
 // To generate css equivalent to the blueprint css but with your configuration applied, uncomment:
 +blueprint
@@ -40,3 +40,16 @@ form.bp
 //     !content_columns = ceil(2 * !blueprint_grid_columns / 3)
 //     // true means it's the last column in the row
 //     +column(!content_columns, true)
+
+// Page layout can be done using mixins applied to your semantic classes and IDs:
+body.one-column
+  #container
+    +container
+    #header, #footer
+      +column($blueprint_grid_columns)
+    #content
+      // true means it's the last column in the row
+      +column($blueprint_grid_columns, true)
+      background: #ccc
+      p
+        margin: 0 10px 0 10px
