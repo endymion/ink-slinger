@@ -23,11 +23,11 @@ class Brand
 
   def self.asset_hosts
     brands.map { |brand|
-      brand['locations'].map {|location|
-        unless location['subdomain'].eql? 'www'
-          (0..3).to_a.map {|index| location['subdomain'] + "-#{index}." + brand['assets'] }.flatten
+      brand.locations.map {|location|
+        unless location.subdomain.eql? 'www'
+          (0..3).to_a.map {|index| location.subdomain + "-#{index}." + brand.assets }.flatten
         else
-          brand['assets']
+          brand.assets
         end
       }
     }.flatten
@@ -35,11 +35,11 @@ class Brand
 
   def self.application_hosts
     # The base brand domain name.
-    hosts = Brand.configuration_brands.map {|brand| brand['host']}
+    hosts = brands.map {|brand| brand.host}
 
     # Add all brand subdomains.
-    hosts += Brand.configuration_brands.map { |brand|
-      brand['locations'].map {|location| location['subdomain'] + '.' + brand['host']}
+    hosts += brands.map { |brand|
+      brand.locations.map {|location| location.subdomain + '.' + brand.host}
     }.flatten
   end
 
@@ -91,6 +91,10 @@ class BrandLocation
 
   def subdomain
     @location['subdomain']
+  end
+  
+  def asset_directory
+    
   end
   
 end
