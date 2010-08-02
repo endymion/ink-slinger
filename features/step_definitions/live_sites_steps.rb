@@ -6,7 +6,7 @@ end
 Then /^I should be able to reach a known test file on each host$/ do
   Capybara.current_driver = :selenium
   @urls.each do |url|
-    puts "Testing: #{url}"
+    puts "Testing asset server: #{url}"
     Capybara.app_host = url
     visit('/test.html')
     page.should have_content 'Success'
