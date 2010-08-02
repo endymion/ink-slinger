@@ -1,0 +1,8 @@
+access_key_id: AKIAIXFMQ7NATETYXHGA
+secret_access_key: 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
+bucket_name: static.brave-new-media.com
+assets:
+  - test.html
+  - images/*
+  - stylesheets/*
+  - javascripts/*
