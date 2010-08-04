@@ -11,7 +11,7 @@
 @include susy;
 
 body {
-  background-image: url('/images/layout-devices.png');
+/*  background-image: url('/images/layout-devices.png');*/
   background-repeat: no-repeat;
 }
 
@@ -22,53 +22,100 @@ body {
 
 /* Styles --------------------------------------------------------------*/
 
-ul {
+.rack {
+  @include clearfix;
   width: 100.75%;
-}
 
-li.square, li.portrait {
-  width: 25%;
-  display: block;
-  float: left;
-  
-  img {
-    width: 100%;
-    max-width: 100%;
+  .section {
+    width: 50%;
+    float: left;
+    overflow: hidden;
+    .mount {
+      float: left;
+      .tile {
+        display: block;
+        float: left;
+        img {
+          width: 100.75%;
+          max-width: 100.75%;
+        }
+      }
+    }
+    .mount.square {
+      width: 100.75%;
+      .tile.square, .tile.portrait {
+        width: 50%;
+      }
+      .tile.landscape {
+        width: 100%;
+      }
+    }
+    .mount.flexible {
+      width: 100.75%;
+      .tile.square {
+        width: 50%;
+      }
+    }
   }
 }
 
-li.landscape {
-  width: 50%;
-  display: block;
-  float: left;
-  
-  img {
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
-li.hd {
-  opacity: 0.5;
-}
 
 /* Width adaptations --------------------------------------------------------------*/
 
 @media screen and (max-width: 768px) {
-  li.square, li.portrait {
-    width: 33.33333333333333333333%;
-  }
-  li.landscape {
-    width: 66.66666666666666666666%;
+  .rack {
+    .section {
+      width: 100%;
+      .mount.square {
+        width: 66.6666666666%;
+        .tile.square, .tile.portrait {
+          width: 50%;
+        }
+        .tile.landscape {
+          width: 100%;
+        }
+      }
+      .mount.flexible {
+        width: 33.3333333333%;
+        .tile.square {
+          width: 100%;
+        }
+      }
+    }
   }
 }
 
 @media screen and (max-width: 512px) {
-  li.square, li.portrait {
-    width: 50%;
-  }
-  li.landscape {
-    width: 50%;
+  .rack {
+    .section {
+      width: 100%;
+      .mount {
+        float: left;
+        .tile {
+          display: block;
+          float: left;
+          img {
+            width: 100%;
+            max-width: 100%;
+          }
+        }
+      }
+      .mount.square {
+        width: 100%;
+        .tile.square, .tile.portrait {
+          width: 50%;
+        }
+        .tile.landscape {
+          width: 100%;
+        }
+      }
+      .mount.flexible {
+        width: 100%;
+        .tile.square {
+          width: 50%;
+        }
+      }
+    }
   }
 }
 

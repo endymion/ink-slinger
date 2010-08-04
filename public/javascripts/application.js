@@ -17,8 +17,8 @@ jQuery.fn.switchToSD = function() {
 
 jQuery(window).resize(function() {
   if ( jQuery(window).width() > 1024 ) {
-    jQuery('li img').switchToHD();
+    jQuery('.tile img').switchToHD();
   } else {
-    jQuery('li img').switchToSD();
+    jQuery('.tile img').switchToSD();
   }
 });

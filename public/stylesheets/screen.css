@@ -368,7 +368,7 @@ body {
 
 /* line 13, ../../app/stylesheets/screen.scss */
 body {
-  background-image: url("/images/layout-devices.png");
+  /*  background-image: url('/images/layout-devices.png');*/
   background-repeat: no-repeat;
 }
 
@@ -386,67 +386,124 @@ body {
 
 /* Styles --------------------------------------------------------------*/
 /* line 25, ../../app/stylesheets/screen.scss */
-ul {
+.rack {
+  overflow: hidden;
+  *zoom: 1;
   width: 100.75%;
 }
-
 /* line 29, ../../app/stylesheets/screen.scss */
-li.square, li.portrait {
-  width: 25%;
-  display: block;
-  float: left;
-}
-/* line 34, ../../app/stylesheets/screen.scss */
-li.square img, li.portrait img {
-  width: 100%;
-  max-width: 100%;
-}
-
-/* line 40, ../../app/stylesheets/screen.scss */
-li.landscape {
+.rack .section {
   width: 50%;
+  float: left;
+  overflow: hidden;
+}
+/* line 33, ../../app/stylesheets/screen.scss */
+.rack .section .mount {
+  float: left;
+}
+/* line 35, ../../app/stylesheets/screen.scss */
+.rack .section .mount .tile {
   display: block;
   float: left;
 }
-/* line 45, ../../app/stylesheets/screen.scss */
-li.landscape img {
-  width: 100%;
-  max-width: 100%;
+/* line 38, ../../app/stylesheets/screen.scss */
+.rack .section .mount .tile img {
+  width: 100.75%;
+  max-width: 100.75%;
 }
-
-/* line 51, ../../app/stylesheets/screen.scss */
-li.hd {
-  opacity: 0.5;
+/* line 44, ../../app/stylesheets/screen.scss */
+.rack .section .mount.square {
+  width: 100.75%;
+}
+/* line 46, ../../app/stylesheets/screen.scss */
+.rack .section .mount.square .tile.square, .rack .section .mount.square .tile.portrait {
+  width: 50%;
+}
+/* line 49, ../../app/stylesheets/screen.scss */
+.rack .section .mount.square .tile.landscape {
+  width: 100%;
+}
+/* line 53, ../../app/stylesheets/screen.scss */
+.rack .section .mount.flexible {
+  width: 100.75%;
+}
+/* line 55, ../../app/stylesheets/screen.scss */
+.rack .section .mount.flexible .tile.square {
+  width: 50%;
 }
 
 /* Width adaptations --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
-  /* line 58, ../../app/stylesheets/screen.scss */
-  li.square, li.portrait {
-    width: 33.33333333333333333333%;
+  /* line 67, ../../app/stylesheets/screen.scss */
+  .rack .section {
+    width: 100%;
   }
-
-  /* line 61, ../../app/stylesheets/screen.scss */
-  li.landscape {
-    width: 66.66666666666666666666%;
+  /* line 69, ../../app/stylesheets/screen.scss */
+  .rack .section .mount.square {
+    width: 66.6666666666%;
+  }
+  /* line 71, ../../app/stylesheets/screen.scss */
+  .rack .section .mount.square .tile.square, .rack .section .mount.square .tile.portrait {
+    width: 50%;
+  }
+  /* line 74, ../../app/stylesheets/screen.scss */
+  .rack .section .mount.square .tile.landscape {
+    width: 100%;
+  }
+  /* line 78, ../../app/stylesheets/screen.scss */
+  .rack .section .mount.flexible {
+    width: 33.3333333333%;
+  }
+  /* line 80, ../../app/stylesheets/screen.scss */
+  .rack .section .mount.flexible .tile.square {
+    width: 100%;
   }
 }
 
 @media screen and (max-width: 512px) {
-  /* line 67, ../../app/stylesheets/screen.scss */
-  li.square, li.portrait {
+  /* line 90, ../../app/stylesheets/screen.scss */
+  .rack .section {
+    width: 100%;
+  }
+  /* line 92, ../../app/stylesheets/screen.scss */
+  .rack .section .mount {
+    float: left;
+  }
+  /* line 94, ../../app/stylesheets/screen.scss */
+  .rack .section .mount .tile {
+    display: block;
+    float: left;
+  }
+  /* line 97, ../../app/stylesheets/screen.scss */
+  .rack .section .mount .tile img {
+    width: 100%;
+    max-width: 100%;
+  }
+  /* line 103, ../../app/stylesheets/screen.scss */
+  .rack .section .mount.square {
+    width: 100%;
+  }
+  /* line 105, ../../app/stylesheets/screen.scss */
+  .rack .section .mount.square .tile.square, .rack .section .mount.square .tile.portrait {
     width: 50%;
   }
-
-  /* line 70, ../../app/stylesheets/screen.scss */
-  li.landscape {
+  /* line 108, ../../app/stylesheets/screen.scss */
+  .rack .section .mount.square .tile.landscape {
+    width: 100%;
+  }
+  /* line 112, ../../app/stylesheets/screen.scss */
+  .rack .section .mount.flexible {
+    width: 100%;
+  }
+  /* line 114, ../../app/stylesheets/screen.scss */
+  .rack .section .mount.flexible .tile.square {
     width: 50%;
   }
 }
 
 /* Device adaptations --------------------------------------------------------------*/
 @media screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation:portrait) {
-  /* line 79, ../../app/stylesheets/screen.scss */
+  /* line 126, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;
@@ -455,7 +512,7 @@ li.hd {
 }
 
 @media screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation:landscape) {
-  /* line 87, ../../app/stylesheets/screen.scss */
+  /* line 134, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;
@@ -464,7 +521,7 @@ li.hd {
 }
 
 @media screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
-  /* line 95, ../../app/stylesheets/screen.scss */
+  /* line 142, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;
@@ -473,7 +530,7 @@ li.hd {
 }
 
 @media screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
-  /* line 103, ../../app/stylesheets/screen.scss */
+  /* line 150, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;
