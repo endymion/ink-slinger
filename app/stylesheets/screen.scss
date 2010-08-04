@@ -1,13 +1,107 @@
-// This import applies a global reset to any page that imports this stylesheet.
-@import "blueprint/reset";
+/* Welcome to Susy. Use this file to define screen styles.
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" /> */
 
-// To configure blueprint, edit the partials/base.sass file.
-@import "partials/base";
+// Imports --------------------------------------------------------------*/
 
-// Import all the default blueprint modules so that we can access their mixins.
-@import "blueprint";
+@import "defaults";
 
-// Combine the partials into a single screen stylesheet.
-@import "partials/page";
-@import "partials/form";
-@import "partials/two_col";
+/* Layout --------------------------------------------------------------*/
+
+@include susy;
+
+body {
+  background-image: url('/images/layout-devices.png');
+  background-repeat: no-repeat;
+}
+
+#page {
+  @include container;
+  width: 100%; // Always go to the full width of the available page.
+}
+
+/* Styles --------------------------------------------------------------*/
+
+ul {
+  width: 100.75%;
+}
+
+li.square, li.portrait {
+  width: 25%;
+  display: block;
+  float: left;
+  
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+li.landscape {
+  width: 50%;
+  display: block;
+  float: left;
+  
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+li.hd {
+  opacity: 0.5;
+}
+
+/* Width adaptations --------------------------------------------------------------*/
+
+@media screen and (max-width: 768px) {
+  li.square, li.portrait {
+    width: 33.33333333333333333333%;
+  }
+  li.landscape {
+    width: 66.66666666666666666666%;
+  }
+}
+
+@media screen and (max-width: 512px) {
+  li.square, li.portrait {
+    width: 50%;
+  }
+  li.landscape {
+    width: 50%;
+  }
+}
+
+/* Device adaptations --------------------------------------------------------------*/
+
+// iPhone, portrait
+@media screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation:portrait) {
+  #page {
+/*    font-size: 14px;
+    line-height: 22px;
+*/  }
+}
+
+// iPhone, landscape
+@media screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation:landscape) {
+  #page {
+/*    font-size: 14px;
+    line-height: 22px;
+*/  }
+}
+
+// iPad, portrait
+@media screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+  #page {
+/*    font-size: 14px;
+    line-height: 22px;
+*/  }
+}
+
+// iPad, landscape
+@media screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+  #page {
+/*    font-size: 14px;
+    line-height: 22px;
+*/  }
+}

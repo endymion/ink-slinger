@@ -20,6 +20,7 @@ gem 'aws-s3', :require => 'aws/s3'
 gem "subdomain-fu", :git => "git://github.com/nhowell/subdomain-fu.git"
 gem "haml"
 gem "compass"
+gem "compass-susy-plugin"
 
 group :test do
   gem 'nokogiri', '1.4.1'
