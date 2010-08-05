@@ -17,14 +17,24 @@ body {
 
 #page {
   @include container;
-  width: 100%; // Always go to the full width of the available page.
+
+  // Always go to the full width of the available page.
+  width: 100%;
+  
+  // The above will always introduce rounding errors unless the total page
+  // width is divisible by four.  Some jQuery code will fix that when
+  // necessary by setting an exact pixel width and an offset.
+  position: relative;
+/*  width: 992px;
+  left: 0px;
+*/
 }
 
 /* Styles --------------------------------------------------------------*/
 
 .rack {
   @include clearfix;
-  width: 100.75%;
+  width: 100%;
 
   .section {
     width: 50%;
@@ -33,25 +43,48 @@ body {
     .mount {
       float: left;
       .tile {
+        position: relative;
         display: block;
         float: left;
+        overflow: hidden;
         img {
-          width: 100.75%;
-          max-width: 100.75%;
+          width: 100%;
+          max-width: 100%;
+        }
+        p {
+          overflow: hidden;
+          position: absolute;
+          top: 0;
+          margin: 16px 6.25% 0 6.25%; // 16px at 1024px total page width. (256 * 0.0625)
         }
       }
     }
     .mount.square {
-      width: 100.75%;
+      width: 100%;
       .tile.square, .tile.portrait {
         width: 50%;
+        .spacer-1-1 {
+          width: 100%;
+        }
+        .spacer-1-2 {
+          width: 100%;
+        }
       }
       .tile.landscape {
         width: 100%;
+        .spacer-1-1 {
+          width: 50%;
+        }
+        .spacer-1-2 {
+          width: 50%;
+        }
+        .spacer-2-1 {
+          width: 100%;
+        }
       }
     }
     .mount.flexible {
-      width: 100.75%;
+      width: 100%;
       .tile.square {
         width: 50%;
       }
@@ -67,7 +100,7 @@ body {
     .section {
       width: 100%;
       .mount.square {
-        width: 66.6666666666%;
+        width: 66.7%;
         .tile.square, .tile.portrait {
           width: 50%;
         }
@@ -76,7 +109,7 @@ body {
         }
       }
       .mount.flexible {
-        width: 33.3333333333%;
+        width: 33.4%;
         .tile.square {
           width: 100%;
         }
