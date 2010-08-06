@@ -1,21 +1,21 @@
 jQuery.fn.switchTo512 = function() {
   return this.each( function() {
     var src= jQuery(this).attr('src'); // Initial src.
-    if (src.lastIndexOf('-512') != -1) return; // Abort if it's already there.
-    var src_without_extension = src.substring(0, src.lastIndexOf('.'));
-    jQuery(this).attr('src', src_without_extension + '-512.' + /[^.]+$/.exec(src));
+    if (src.lastIndexOf('width-256') == -1) return; // Abort if it's not there.
+    var src_without_extension = src.substring(0, src.lastIndexOf('width-256'));
+    jQuery(this).attr('src', src_without_extension + 'width-512/' + /[^\/]+$/.exec(src));
   });
 }
 jQuery.fn.switchTo256 = function() {
   return this.each( function() {
     var src= jQuery(this).attr('src');
-    if (src.lastIndexOf('-512') == -1) return; // Abort if it's not there.
-    var src_without_extension = src.substring(0, src.lastIndexOf('-512'));
-    jQuery(this).attr('src', src_without_extension + '.' + /[^.]+$/.exec(src));
+    if (src.lastIndexOf('width-512') == -1) return; // Abort if it's not there.
+    var src_without_extension = src.substring(0, src.lastIndexOf('width-512'));
+    jQuery(this).attr('src', src_without_extension + 'width-256/' + /[^\/]+$/.exec(src));
   });
 }
 
-jQuery(window).resize(function() {
+jQuery(window).bind('load resize', function() {
   var total_width = jQuery(window).width();
   var page_width = total_width;
   var left_offset = 0;
