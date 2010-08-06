@@ -1,6 +1,5 @@
-GIT
-  remote: git://github.com/nhowell/subdomain-fu.git
-  revision: c6fbf94
+PATH
+  remote: vendor/gems/subdomain-fu
   specs:
     subdomain-fu (1.0.0.beta2)
 
