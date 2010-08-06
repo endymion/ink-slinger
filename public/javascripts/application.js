@@ -15,10 +15,51 @@ jQuery.fn.switchTo256 = function() {
   });
 }
 
-jQuery(window).bind('load resize', function() {
+jQuery.periodic = function (callback, options) {
+      callback = callback || (function() { return false; });
+
+      options = jQuery.extend({ },
+                              { frequency : 10,
+                                allowParallelExecution : false},
+                              options);
+
+      var currentlyExecuting = false;
+      var timer;
+
+      var controller = {
+         stop : function () {
+           if (timer) {
+             window.clearInterval(timer);
+             timer = null;
+           }
+         },
+         currentlyExecuting : false,
+         currentlyExecutingAsync : false
+      };
+
+      timer = window.setInterval(function() {
+         if (options.allowParallelExecution || !
+(controller.currentlyExecuting || controller.currentlyExecutingAsync))
+{
+            try {
+                 controller.currentlyExecuting =
+true;
+                 if (!(callback(controller))) {
+                     controller.stop();
+                 }
+             } finally {
+              controller.currentlyExecuting = false;
+            }
+         }
+      }, options.frequency * 1000);
+};
+
+function layout_respond() {
   var total_width = jQuery(window).width();
   var page_width = total_width;
   var left_offset = 0;
+  
+  console.log('responding.');
   
   var columns = 4; // Default is four columns.
   if (total_width <= 768) { columns = 12; }
@@ -46,4 +87,12 @@ jQuery(window).bind('load resize', function() {
   } else {
     jQuery('.tile img.has512').switchTo256();
   }
+  
+  return true; // Continue periodic responding.
+}
+
+jQuery(window).bind('load resize', function() {
+  layout_respond();
 });
+// iPhone does not reliably send a resize event, so polling fixes that problem.
+jQuery.periodic(layout_respond, {frequency: 5});
