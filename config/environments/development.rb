@@ -17,4 +17,6 @@ Reporter::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
 
+  # The Rails 3.0.0.rc told me to do this.
+  config.active_support.deprecation = :log
 end
