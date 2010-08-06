@@ -24,7 +24,7 @@ Then /^I should be able to reach the index page on each host$/ do
     puts "Testing: #{url}"
     Capybara.app_host = url
     visit('/')
-    page.should have_content 'Hello'
+    page.should have_css '#page'
     puts "Success"
   end
 end
