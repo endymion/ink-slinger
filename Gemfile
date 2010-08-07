@@ -22,6 +22,7 @@ gem "subdomain-fu", :path => File.join(File.dirname(__FILE__), '/vendor/gems/sub
 gem "haml"
 gem "compass"
 gem "compass-susy-plugin"
+gem "rmagick"
 
 group :test do
   gem 'nokogiri', '1.4.1'
