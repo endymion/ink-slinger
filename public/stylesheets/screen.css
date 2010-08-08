@@ -534,769 +534,421 @@ body {
   }
 }
 
-@media screen and (min-width: 348px) {
-  /* line 157, ../../app/stylesheets/screen.scss */
+@media screen and (min-width: 360px) {
+  /* line 2, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 13px;
     line-height: 17px;
   }
 }
 
-@media screen and (min-width: 366px) {
-  /* line 163, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 14px;
-    line-height: 18px;
-  }
-}
-
-@media screen and (min-width: 384px) {
-  /* line 169, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 14px;
-    line-height: 19px;
-  }
-}
-
-@media screen and (min-width: 402px) {
-  /* line 175, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 15px;
-    line-height: 20px;
-  }
-}
-
-@media screen and (min-width: 420px) {
-  /* line 181, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 16px;
-    line-height: 21px;
-  }
-}
-
-@media screen and (min-width: 438px) {
-  /* line 187, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 16px;
-    line-height: 22px;
-  }
-}
-
-@media screen and (min-width: 456px) {
-  /* line 193, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 17px;
-    line-height: 23px;
-  }
-}
-
-@media screen and (min-width: 474px) {
-  /* line 199, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 18px;
-    line-height: 24px;
-  }
-}
-
-@media screen and (min-width: 492px) {
-  /* line 205, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 18px;
-    line-height: 25px;
-  }
-}
-
-@media screen and (min-width: 510px) {
-  /* line 211, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 19px;
-    line-height: 26px;
-  }
-}
-
-@media screen and (min-width: 528px) {
-  /* line 217, ../../app/stylesheets/screen.scss */
+@media screen and (min-width: 376px) {
+  /* line 8, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 13px;
     line-height: 18px;
   }
 }
 
-@media screen and (min-width: 546px) {
-  /* line 223, ../../app/stylesheets/screen.scss */
+@media screen and (min-width: 392px) {
+  /* line 14, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 14px;
     line-height: 18px;
   }
 }
 
-@media screen and (min-width: 564px) {
-  /* line 229, ../../app/stylesheets/screen.scss */
+@media screen and (min-width: 408px) {
+  /* line 20, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 14px;
     line-height: 19px;
   }
 }
 
-@media screen and (min-width: 582px) {
-  /* line 235, ../../app/stylesheets/screen.scss */
+@media screen and (min-width: 424px) {
+  /* line 26, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 15px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (min-width: 440px) {
+  /* line 32, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 15px;
+    line-height: 21px;
+  }
+}
+
+@media screen and (min-width: 456px) {
+  /* line 38, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 16px;
+    line-height: 21px;
+  }
+}
+
+@media screen and (min-width: 472px) {
+  /* line 44, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 17px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (min-width: 488px) {
+  /* line 50, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 17px;
+    line-height: 23px;
+  }
+}
+
+@media screen and (min-width: 504px) {
+  /* line 56, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@media screen and (min-width: 512px) {
+  /* line 62, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@media screen and (min-width: 513px) {
+  /* line 68, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+@media screen and (min-width: 532px) {
+  /* line 74, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 12px;
+    line-height: 17px;
+  }
+}
+
+@media screen and (min-width: 548px) {
+  /* line 80, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 13px;
+    line-height: 17px;
+  }
+}
+
+@media screen and (min-width: 564px) {
+  /* line 86, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 13px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (min-width: 580px) {
+  /* line 92, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (min-width: 596px) {
+  /* line 98, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 14px;
+    line-height: 19px;
+  }
+}
+
+@media screen and (min-width: 612px) {
+  /* line 104, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 14px;
+    line-height: 19px;
+  }
+}
+
+@media screen and (min-width: 628px) {
+  /* line 110, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 15px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (min-width: 644px) {
+  /* line 116, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 15px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (min-width: 660px) {
+  /* line 122, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 15px;
+    line-height: 21px;
+  }
+}
+
+@media screen and (min-width: 676px) {
+  /* line 128, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 16px;
+    line-height: 21px;
+  }
+}
+
+@media screen and (min-width: 692px) {
+  /* line 134, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (min-width: 708px) {
+  /* line 140, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 17px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (min-width: 724px) {
+  /* line 146, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 17px;
+    line-height: 23px;
+  }
+}
+
+@media screen and (min-width: 740px) {
+  /* line 152, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 17px;
+    line-height: 23px;
+  }
+}
+
+@media screen and (min-width: 756px) {
+  /* line 158, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* line 164, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  /* line 170, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (min-width: 780px) {
+  /* line 176, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (min-width: 796px) {
+  /* line 182, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 14px;
+    line-height: 19px;
+  }
+}
+
+@media screen and (min-width: 812px) {
+  /* line 188, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 14px;
+    line-height: 19px;
+  }
+}
+
+@media screen and (min-width: 828px) {
+  /* line 194, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 15px;
     line-height: 19px;
   }
 }
 
-@media screen and (min-width: 600px) {
-  /* line 241, ../../app/stylesheets/screen.scss */
+@media screen and (min-width: 844px) {
+  /* line 200, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 15px;
     line-height: 20px;
   }
 }
 
-@media screen and (min-width: 618px) {
-  /* line 247, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 15px;
-    line-height: 21px;
-  }
-}
-
-@media screen and (min-width: 636px) {
-  /* line 253, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 16px;
-    line-height: 21px;
-  }
-}
-
-@media screen and (min-width: 654px) {
-  /* line 259, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 16px;
-    line-height: 22px;
-  }
-}
-
-@media screen and (min-width: 672px) {
-  /* line 265, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 17px;
-    line-height: 22px;
-  }
-}
-
-@media screen and (min-width: 690px) {
-  /* line 271, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 17px;
-    line-height: 23px;
-  }
-}
-
-@media screen and (min-width: 708px) {
-  /* line 277, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 18px;
-    line-height: 24px;
-  }
-}
-
-@media screen and (min-width: 726px) {
-  /* line 283, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 18px;
-    line-height: 24px;
-  }
-}
-
-@media screen and (min-width: 744px) {
-  /* line 289, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 19px;
-    line-height: 25px;
-  }
-}
-
-@media screen and (min-width: 762px) {
-  /* line 295, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 19px;
-    line-height: 25px;
-  }
-}
-
-@media screen and (min-width: 780px) {
-  /* line 301, ../../app/stylesheets/screen.scss */
+@media screen and (min-width: 860px) {
+  /* line 206, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 15px;
     line-height: 20px;
   }
 }
 
-@media screen and (min-width: 798px) {
-  /* line 307, ../../app/stylesheets/screen.scss */
+@media screen and (min-width: 876px) {
+  /* line 212, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 15px;
-    line-height: 20px;
+    line-height: 21px;
   }
 }
 
-@media screen and (min-width: 816px) {
-  /* line 313, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 15px;
-    line-height: 20px;
-  }
-}
-
-@media screen and (min-width: 834px) {
-  /* line 319, ../../app/stylesheets/screen.scss */
+@media screen and (min-width: 892px) {
+  /* line 218, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 16px;
     line-height: 21px;
   }
 }
 
-@media screen and (min-width: 852px) {
-  /* line 325, ../../app/stylesheets/screen.scss */
+@media screen and (min-width: 908px) {
+  /* line 224, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 16px;
     line-height: 21px;
-  }
-}
-
-@media screen and (min-width: 870px) {
-  /* line 331, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 16px;
-    line-height: 22px;
-  }
-}
-
-@media screen and (min-width: 888px) {
-  /* line 337, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 17px;
-    line-height: 22px;
-  }
-}
-
-@media screen and (min-width: 906px) {
-  /* line 343, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 17px;
-    line-height: 23px;
   }
 }
 
 @media screen and (min-width: 924px) {
-  /* line 349, ../../app/stylesheets/screen.scss */
+  /* line 230, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (min-width: 940px) {
+  /* line 236, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 17px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (min-width: 956px) {
+  /* line 242, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 17px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  /* line 248, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 17px;
     line-height: 23px;
   }
 }
 
-@media screen and (min-width: 942px) {
-  /* line 355, ../../app/stylesheets/screen.scss */
+@media screen and (min-width: 961px) {
+  /* line 254, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 17px;
+    line-height: 23px;
   }
 }
 
-@media screen and (min-width: 960px) {
-  /* line 361, ../../app/stylesheets/screen.scss */
+@media screen and (min-width: 980px) {
+  /* line 260, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
-    font-size: 18px;
-    line-height: 24px;
-  }
-}
-
-@media screen and (min-width: 978px) {
-  /* line 367, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 17px;
+    line-height: 23px;
   }
 }
 
 @media screen and (min-width: 996px) {
-  /* line 373, ../../app/stylesheets/screen.scss */
+  /* line 266, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
-    font-size: 19px;
-    line-height: 25px;
+    font-size: 18px;
+    line-height: 23px;
   }
 }
 
-@media screen and (min-width: 1014px) {
-  /* line 379, ../../app/stylesheets/screen.scss */
+@media screen and (min-width: 1012px) {
+  /* line 272, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
-    font-size: 19px;
-    line-height: 25px;
+    font-size: 18px;
+    line-height: 24px;
   }
 }
 
-@media screen and (min-width: 1032px) {
-  /* line 385, ../../app/stylesheets/screen.scss */
+@media screen and (min-width: 1024px) {
+  /* line 278, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
-    font-size: 19px;
-    line-height: 26px;
+    font-size: 18px;
+    line-height: 24px;
   }
 }
 
-@media screen and (min-width: 1050px) {
-  /* line 391, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 20px;
-    line-height: 26px;
-  }
-}
-
-@media screen and (min-width: 1068px) {
-  /* line 397, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 20px;
-    line-height: 27px;
-  }
-}
-
-@media screen and (min-width: 1086px) {
-  /* line 403, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 20px;
-    line-height: 27px;
-  }
-}
-
-@media screen and (min-width: 1104px) {
-  /* line 409, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 21px;
-    line-height: 28px;
-  }
-}
-
-@media screen and (min-width: 1122px) {
-  /* line 415, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 21px;
-    line-height: 28px;
-  }
-}
-
-@media screen and (min-width: 1140px) {
-  /* line 421, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 21px;
-    line-height: 29px;
-  }
-}
-
-@media screen and (min-width: 1158px) {
-  /* line 427, ../../app/stylesheets/screen.scss */
+@media screen and (min-width: 1225px) {
+  /* line 284, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 22px;
     line-height: 29px;
   }
 }
 
-@media screen and (min-width: 1176px) {
-  /* line 433, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 22px;
-    line-height: 29px;
+/* ----- Not working due to a possible bug in the @media directive.
+
+$base_width: 960px;
+$base_column_width: $base_width / 4;
+$font_size: 18px;
+$line_height: 24px;
+
+$current_width: $base_width;
+@while $current_width > 360 {
+  $current_width: $current_width - $font_size;
+}
+
+@while $current_width < 2048 {
+  $current_width: $current_width + $font_size;
+  $columns: 4;
+  @if ($current_width <= 512) { $columns: 2; }
+  @if ($current_width > 512 and $current_width <= 768) { $columns: 3; }
+  $column_width: $current_width / $columns;
+
+  @media screen and (min-width: $current_width) {
+    html > body {
+      font-size: $column_width * $font_size / $base_column_width;
+      line-height: $column_width * $line_height / $base_column_width;
+    }
   }
 }
 
-@media screen and (min-width: 1194px) {
-  /* line 439, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 22px;
-    line-height: 30px;
-  }
-}
-
-@media screen and (min-width: 1212px) {
-  /* line 445, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 23px;
-    line-height: 30px;
-  }
-}
-
-@media screen and (min-width: 1230px) {
-  /* line 451, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 23px;
-    line-height: 31px;
-  }
-}
-
-@media screen and (min-width: 1248px) {
-  /* line 457, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 23px;
-    line-height: 31px;
-  }
-}
-
-@media screen and (min-width: 1266px) {
-  /* line 463, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 24px;
-    line-height: 32px;
-  }
-}
-
-@media screen and (min-width: 1284px) {
-  /* line 469, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 24px;
-    line-height: 32px;
-  }
-}
-
-@media screen and (min-width: 1302px) {
-  /* line 475, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 24px;
-    line-height: 33px;
-  }
-}
-
-@media screen and (min-width: 1320px) {
-  /* line 481, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 25px;
-    line-height: 33px;
-  }
-}
-
-@media screen and (min-width: 1338px) {
-  /* line 487, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 25px;
-    line-height: 33px;
-  }
-}
-
-@media screen and (min-width: 1356px) {
-  /* line 493, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 25px;
-    line-height: 34px;
-  }
-}
-
-@media screen and (min-width: 1374px) {
-  /* line 499, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 26px;
-    line-height: 34px;
-  }
-}
-
-@media screen and (min-width: 1392px) {
-  /* line 505, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 26px;
-    line-height: 35px;
-  }
-}
-
-@media screen and (min-width: 1410px) {
-  /* line 511, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 26px;
-    line-height: 35px;
-  }
-}
-
-@media screen and (min-width: 1428px) {
-  /* line 517, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 27px;
-    line-height: 36px;
-  }
-}
-
-@media screen and (min-width: 1446px) {
-  /* line 523, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 27px;
-    line-height: 36px;
-  }
-}
-
-@media screen and (min-width: 1464px) {
-  /* line 529, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 27px;
-    line-height: 37px;
-  }
-}
-
-@media screen and (min-width: 1482px) {
-  /* line 535, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 28px;
-    line-height: 37px;
-  }
-}
-
-@media screen and (min-width: 1500px) {
-  /* line 541, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 28px;
-    line-height: 38px;
-  }
-}
-
-@media screen and (min-width: 1518px) {
-  /* line 547, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 28px;
-    line-height: 38px;
-  }
-}
-
-@media screen and (min-width: 1536px) {
-  /* line 553, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 29px;
-    line-height: 38px;
-  }
-}
-
-@media screen and (min-width: 1554px) {
-  /* line 559, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 29px;
-    line-height: 39px;
-  }
-}
-
-@media screen and (min-width: 1572px) {
-  /* line 565, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 29px;
-    line-height: 39px;
-  }
-}
-
-@media screen and (min-width: 1590px) {
-  /* line 571, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 30px;
-    line-height: 40px;
-  }
-}
-
-@media screen and (min-width: 1608px) {
-  /* line 577, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 30px;
-    line-height: 40px;
-  }
-}
-
-@media screen and (min-width: 1626px) {
-  /* line 583, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 30px;
-    line-height: 41px;
-  }
-}
-
-@media screen and (min-width: 1644px) {
-  /* line 589, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 31px;
-    line-height: 41px;
-  }
-}
-
-@media screen and (min-width: 1662px) {
-  /* line 595, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 31px;
-    line-height: 42px;
-  }
-}
-
-@media screen and (min-width: 1680px) {
-  /* line 601, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 32px;
-    line-height: 42px;
-  }
-}
-
-@media screen and (min-width: 1698px) {
-  /* line 607, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 32px;
-    line-height: 42px;
-  }
-}
-
-@media screen and (min-width: 1716px) {
-  /* line 613, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 32px;
-    line-height: 43px;
-  }
-}
-
-@media screen and (min-width: 1734px) {
-  /* line 619, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 32px;
-    line-height: 43px;
-  }
-}
-
-@media screen and (min-width: 1752px) {
-  /* line 625, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 33px;
-    line-height: 44px;
-  }
-}
-
-@media screen and (min-width: 1770px) {
-  /* line 631, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 33px;
-    line-height: 44px;
-  }
-}
-
-@media screen and (min-width: 1788px) {
-  /* line 637, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 34px;
-    line-height: 45px;
-  }
-}
-
-@media screen and (min-width: 1806px) {
-  /* line 643, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 34px;
-    line-height: 45px;
-  }
-}
-
-@media screen and (min-width: 1824px) {
-  /* line 649, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 34px;
-    line-height: 46px;
-  }
-}
-
-@media screen and (min-width: 1842px) {
-  /* line 655, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 35px;
-    line-height: 46px;
-  }
-}
-
-@media screen and (min-width: 1860px) {
-  /* line 661, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 35px;
-    line-height: 47px;
-  }
-}
-
-@media screen and (min-width: 1878px) {
-  /* line 667, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 35px;
-    line-height: 47px;
-  }
-}
-
-@media screen and (min-width: 1896px) {
-  /* line 673, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 36px;
-    line-height: 47px;
-  }
-}
-
-@media screen and (min-width: 1914px) {
-  /* line 679, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 36px;
-    line-height: 48px;
-  }
-}
-
-@media screen and (min-width: 1932px) {
-  /* line 685, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 36px;
-    line-height: 48px;
-  }
-}
-
-@media screen and (min-width: 1950px) {
-  /* line 691, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 37px;
-    line-height: 49px;
-  }
-}
-
-@media screen and (min-width: 1968px) {
-  /* line 697, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 37px;
-    line-height: 49px;
-  }
-}
-
-@media screen and (min-width: 1986px) {
-  /* line 703, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 37px;
-    line-height: 50px;
-  }
-}
-
-@media screen and (min-width: 2004px) {
-  /* line 709, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 38px;
-    line-height: 50px;
-  }
-}
-
-@media screen and (min-width: 2022px) {
-  /* line 715, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 38px;
-    line-height: 51px;
-  }
-}
-
-@media screen and (min-width: 2040px) {
-  /* line 721, ../../app/stylesheets/screen.scss */
-  html > body {
-    font-size: 38px;
-    line-height: 51px;
-  }
-}
-
+   ----- Not working due to a possible bug in the @media directive. */
 /* Device adaptations --------------------------------------------------------------*/
 @media screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation:portrait) {
-  /* line 763, ../../app/stylesheets/screen.scss */
+  /* line 193, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;
@@ -1305,7 +957,7 @@ body {
 }
 
 @media screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation:landscape) {
-  /* line 771, ../../app/stylesheets/screen.scss */
+  /* line 201, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;
@@ -1314,7 +966,7 @@ body {
 }
 
 @media screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
-  /* line 779, ../../app/stylesheets/screen.scss */
+  /* line 209, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;
@@ -1323,7 +975,7 @@ body {
 }
 
 @media screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
-  /* line 787, ../../app/stylesheets/screen.scss */
+  /* line 217, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;

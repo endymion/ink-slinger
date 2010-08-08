@@ -1,4 +1,4 @@
-@base_width = 960
+@base_width = 1024
 @font_size = 18
 @line_height = 24
 
@@ -14,8 +14,18 @@ def column_width_at(width)
   width / columns_at(width)
 end
 
+def widths_in_range(start, stop)
+  width = start
+  widths = []
+  while width <= stop
+    widths << [width]
+    width = width + 16
+  end
+  widths
+end
+
 def scss_for(width)
-  puts <<EOS
+  return <<EOS
 @media screen and (min-width: #{width}px) {
   html > body {
     font-size: #{(column_width_at(width) * @font_size.to_f / column_width_at(@base_width.to_f)).round}px;
@@ -30,17 +40,19 @@ namespace :scss do
   desc "Generate SCSS code for responsive font style rules"
   task :generate_fonts do
 
-    # Step down to the smallest width supported.
-    current_width = @base_width
-    while current_width > 360
-      current_width = current_width - @font_size
-    end
+    scss = open(File.join(Rails.root, 'app', 'stylesheets', '_font_adjustments.scss'), 'w')
 
     # Step up through the widest width supported.
-    while current_width < 2048
-      scss_for(current_width)
-      current_width = current_width + @font_size
+    [
+      widths_in_range(360,511), 512, 513,
+      widths_in_range(532, 767), 768, 769,
+      widths_in_range(780, 959), 960, 961,
+      widths_in_range(980, 1023), 1024, 1225
+    ].flatten.each do |current_width|
+      scss << scss_for(current_width)
     end
+
+    scss.close
 
   end
 
