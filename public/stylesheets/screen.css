@@ -545,88 +545,112 @@ body {
   }
 }
 
-@media screen and (min-width: 360px) {
+@media screen and (min-width: 320px) {
   /* line 2, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 11px;
+    line-height: 15px;
+  }
+}
+
+@media screen and (min-width: 336px) {
+  /* line 8, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+@media screen and (min-width: 352px) {
+  /* line 14, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 12px;
+    line-height: 17px;
+  }
+}
+
+@media screen and (min-width: 368px) {
+  /* line 20, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 13px;
     line-height: 17px;
   }
 }
 
-@media screen and (min-width: 376px) {
-  /* line 8, ../../app/stylesheets/_font_adjustments.scss */
-  html > body {
-    font-size: 13px;
-    line-height: 18px;
-  }
-}
-
-@media screen and (min-width: 392px) {
-  /* line 14, ../../app/stylesheets/_font_adjustments.scss */
+@media screen and (min-width: 384px) {
+  /* line 26, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 14px;
     line-height: 18px;
   }
 }
 
-@media screen and (min-width: 408px) {
-  /* line 20, ../../app/stylesheets/_font_adjustments.scss */
+@media screen and (min-width: 400px) {
+  /* line 32, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 14px;
     line-height: 19px;
   }
 }
 
-@media screen and (min-width: 424px) {
-  /* line 26, ../../app/stylesheets/_font_adjustments.scss */
+@media screen and (min-width: 416px) {
+  /* line 38, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 15px;
     line-height: 20px;
   }
 }
 
-@media screen and (min-width: 440px) {
-  /* line 32, ../../app/stylesheets/_font_adjustments.scss */
+@media screen and (min-width: 432px) {
+  /* line 44, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 15px;
-    line-height: 21px;
+    line-height: 20px;
   }
 }
 
-@media screen and (min-width: 456px) {
-  /* line 38, ../../app/stylesheets/_font_adjustments.scss */
+@media screen and (min-width: 448px) {
+  /* line 50, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 16px;
     line-height: 21px;
   }
 }
 
-@media screen and (min-width: 472px) {
-  /* line 44, ../../app/stylesheets/_font_adjustments.scss */
+@media screen and (min-width: 464px) {
+  /* line 56, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 22px;
   }
 }
 
-@media screen and (min-width: 488px) {
-  /* line 50, ../../app/stylesheets/_font_adjustments.scss */
+@media screen and (min-width: 480px) {
+  /* line 62, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 17px;
     line-height: 23px;
   }
 }
 
-@media screen and (min-width: 504px) {
-  /* line 56, ../../app/stylesheets/_font_adjustments.scss */
+@media screen and (min-width: 481px) {
+  /* line 68, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 17px;
+    line-height: 23px;
+  }
+}
+
+@media screen and (min-width: 496px) {
+  /* line 74, ../../app/stylesheets/_font_adjustments.scss */
+  html > body {
+    font-size: 17px;
+    line-height: 23px;
   }
 }
 
 @media screen and (min-width: 512px) {
-  /* line 62, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 80, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 18px;
     line-height: 24px;
@@ -634,7 +658,7 @@ body {
 }
 
 @media screen and (min-width: 513px) {
-  /* line 68, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 86, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 12px;
     line-height: 16px;
@@ -642,7 +666,7 @@ body {
 }
 
 @media screen and (min-width: 532px) {
-  /* line 74, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 92, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 12px;
     line-height: 17px;
@@ -650,7 +674,7 @@ body {
 }
 
 @media screen and (min-width: 548px) {
-  /* line 80, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 98, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 13px;
     line-height: 17px;
@@ -658,7 +682,7 @@ body {
 }
 
 @media screen and (min-width: 564px) {
-  /* line 86, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 104, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 13px;
     line-height: 18px;
@@ -666,7 +690,7 @@ body {
 }
 
 @media screen and (min-width: 580px) {
-  /* line 92, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 110, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 14px;
     line-height: 18px;
@@ -674,7 +698,7 @@ body {
 }
 
 @media screen and (min-width: 596px) {
-  /* line 98, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 116, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 14px;
     line-height: 19px;
@@ -682,7 +706,7 @@ body {
 }
 
 @media screen and (min-width: 612px) {
-  /* line 104, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 122, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 14px;
     line-height: 19px;
@@ -690,7 +714,7 @@ body {
 }
 
 @media screen and (min-width: 628px) {
-  /* line 110, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 128, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 15px;
     line-height: 20px;
@@ -698,7 +722,7 @@ body {
 }
 
 @media screen and (min-width: 644px) {
-  /* line 116, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 134, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 15px;
     line-height: 20px;
@@ -706,7 +730,7 @@ body {
 }
 
 @media screen and (min-width: 660px) {
-  /* line 122, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 140, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 15px;
     line-height: 21px;
@@ -714,7 +738,7 @@ body {
 }
 
 @media screen and (min-width: 676px) {
-  /* line 128, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 146, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 16px;
     line-height: 21px;
@@ -722,7 +746,7 @@ body {
 }
 
 @media screen and (min-width: 692px) {
-  /* line 134, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 152, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 16px;
     line-height: 22px;
@@ -730,7 +754,7 @@ body {
 }
 
 @media screen and (min-width: 708px) {
-  /* line 140, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 158, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 17px;
     line-height: 22px;
@@ -738,7 +762,7 @@ body {
 }
 
 @media screen and (min-width: 724px) {
-  /* line 146, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 164, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 17px;
     line-height: 23px;
@@ -746,7 +770,7 @@ body {
 }
 
 @media screen and (min-width: 740px) {
-  /* line 152, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 170, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 17px;
     line-height: 23px;
@@ -754,7 +778,7 @@ body {
 }
 
 @media screen and (min-width: 756px) {
-  /* line 158, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 176, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 18px;
     line-height: 24px;
@@ -762,7 +786,7 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  /* line 164, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 182, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 18px;
     line-height: 24px;
@@ -770,7 +794,7 @@ body {
 }
 
 @media screen and (min-width: 769px) {
-  /* line 170, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 188, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 14px;
     line-height: 18px;
@@ -778,7 +802,7 @@ body {
 }
 
 @media screen and (min-width: 780px) {
-  /* line 176, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 194, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 14px;
     line-height: 18px;
@@ -786,7 +810,7 @@ body {
 }
 
 @media screen and (min-width: 796px) {
-  /* line 182, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 200, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 14px;
     line-height: 19px;
@@ -794,7 +818,7 @@ body {
 }
 
 @media screen and (min-width: 812px) {
-  /* line 188, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 206, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 14px;
     line-height: 19px;
@@ -802,7 +826,7 @@ body {
 }
 
 @media screen and (min-width: 828px) {
-  /* line 194, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 212, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 15px;
     line-height: 19px;
@@ -810,7 +834,7 @@ body {
 }
 
 @media screen and (min-width: 844px) {
-  /* line 200, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 218, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 15px;
     line-height: 20px;
@@ -818,7 +842,7 @@ body {
 }
 
 @media screen and (min-width: 860px) {
-  /* line 206, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 224, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 15px;
     line-height: 20px;
@@ -826,7 +850,7 @@ body {
 }
 
 @media screen and (min-width: 876px) {
-  /* line 212, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 230, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 15px;
     line-height: 21px;
@@ -834,7 +858,7 @@ body {
 }
 
 @media screen and (min-width: 892px) {
-  /* line 218, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 236, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 16px;
     line-height: 21px;
@@ -842,7 +866,7 @@ body {
 }
 
 @media screen and (min-width: 908px) {
-  /* line 224, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 242, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 16px;
     line-height: 21px;
@@ -850,7 +874,7 @@ body {
 }
 
 @media screen and (min-width: 924px) {
-  /* line 230, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 248, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 16px;
     line-height: 22px;
@@ -858,7 +882,7 @@ body {
 }
 
 @media screen and (min-width: 940px) {
-  /* line 236, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 254, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 17px;
     line-height: 22px;
@@ -866,7 +890,7 @@ body {
 }
 
 @media screen and (min-width: 956px) {
-  /* line 242, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 260, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 17px;
     line-height: 22px;
@@ -874,7 +898,7 @@ body {
 }
 
 @media screen and (min-width: 960px) {
-  /* line 248, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 266, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 17px;
     line-height: 23px;
@@ -882,7 +906,7 @@ body {
 }
 
 @media screen and (min-width: 961px) {
-  /* line 254, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 272, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 17px;
     line-height: 23px;
@@ -890,7 +914,7 @@ body {
 }
 
 @media screen and (min-width: 980px) {
-  /* line 260, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 278, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 17px;
     line-height: 23px;
@@ -898,7 +922,7 @@ body {
 }
 
 @media screen and (min-width: 996px) {
-  /* line 266, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 284, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 18px;
     line-height: 23px;
@@ -906,7 +930,7 @@ body {
 }
 
 @media screen and (min-width: 1012px) {
-  /* line 272, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 290, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 18px;
     line-height: 24px;
@@ -914,7 +938,7 @@ body {
 }
 
 @media screen and (min-width: 1024px) {
-  /* line 278, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 296, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 18px;
     line-height: 24px;
@@ -922,7 +946,7 @@ body {
 }
 
 @media screen and (min-width: 1225px) {
-  /* line 284, ../../app/stylesheets/_font_adjustments.scss */
+  /* line 302, ../../app/stylesheets/_font_adjustments.scss */
   html > body {
     font-size: 22px;
     line-height: 29px;

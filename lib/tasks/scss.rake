@@ -44,7 +44,8 @@ namespace :scss do
 
     # Step up through the widest width supported.
     [
-      widths_in_range(360,511), 512, 513,
+      widths_in_range(320, 479), 480, 481,
+      widths_in_range(496, 511), 512, 513,
       widths_in_range(532, 767), 768, 769,
       widths_in_range(780, 959), 960, 961,
       widths_in_range(980, 1023), 1024, 1225
