@@ -95,4 +95,4 @@ jQuery(window).bind('load resize', function() {
   layout_respond();
 });
 // iPhone does not reliably send a resize event, so polling fixes that problem.
-jQuery.periodic(layout_respond, {frequency: 5});
+jQuery.periodic(layout_respond, {frequency: 3});
