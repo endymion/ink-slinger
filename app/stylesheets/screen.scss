@@ -30,6 +30,14 @@ body {
 */
 }
 
+.headline {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+#footer {
+  font-size: 0.8em;
+}
+
 /* Styles --------------------------------------------------------------*/
 
 .rack {
@@ -51,7 +59,7 @@ body {
           width: 100%;
           max-width: 100%;
         }
-        p {
+        .copy {
           overflow: hidden;
           position: absolute;
           top: 0;

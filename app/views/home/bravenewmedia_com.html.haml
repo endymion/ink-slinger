@@ -51,12 +51,12 @@
     #A.mount.square
       .tile.portrait
         %img.spacer-1-2{ :src => '/images/spacers/1x2.gif' }
-        %p
+        %p.copy
           <b>A HEADLINE</b>
           Lorem ipsum dolor sit amet, <b>maintaining a</b> consectetur adipiscing elit. Suspendisse tristique tortor eu lectus posuere sed lobortis lacus dignissim. Ut eu urna lorem, nec lobortis tortor. Aliquam erat volutpat. <b>Nulla suscipit scelerisque felis, vitae pretium nulla semper non.</b> Donec molestie, tortor ut adipiscing venenatis, velit enim imperdiet tellus, vel euismod urna nibh vel urna. Integer viverra pellentesque imperdiet. In imperdiet neque velit.
       .tile.portrait
         %img.spacer-1-2{ :src => '/images/spacers/1x2.gif' }
-        %p
+        %p.copy
           <b>STAYS ALIGNED</b>
           Nunc non est massa, sit amet <b>vertical rhythm</b> vulputate turpis. Donec semper dignissim convallis. Nullam in lectus nec mi accumsan fermentum. Ut suscipit lacus vel nulla pulvinar vitae euismod ante vulputate. Aenean augue sem, pulvinar quis posuere ac, sollicitudin malesuada massa. Suspendisse nec enim dui, eget ullamcorper diam. <b>Mauris rhoncus leo eget nisl adipiscing sed vehicula nulla vulputate.</b> Mauris eu dui at dolor elementum commodo ac eget elit.
     #B.mount.flexible
@@ -71,10 +71,19 @@
       .tile.square
         %img{ :src => '/images/square-test/1x1.jpg' }
     #D.mount.square
-      .tile.landscape
-        %img.has512{ :src => '/images/examples/tiles/10/width-256/10.jpg' }
-      .tile.landscape
-        %img{ :src => '/images/square-test/2x1.jpg' }
-
-- content_for :footer do
-  / Atom logo credit: http://commons.wikimedia.org/wiki/File:Atom_of_Atheism-Zanaq.svg
+      .tile.portrait
+        %img.has512{ :src => '/images/examples/tiles/2/width-256/2.jpg' }
+      .tile.portrait
+        %img.spacer-1-2{ :src => '/images/spacers/1x2.gif' }
+        .copy
+          %p.headline
+            Post your flyer<br/>
+            (It's FREE!)
+          %ul#footer
+            %li
+              A Brave New Media publication
+            %li
+              Built by Endymion
+            %li
+              Copyright &copy; <%= Time.now.year %> Brave New Media
+          / Atom logo credit: http://commons.wikimedia.org/wiki/File:Atom_of_Atheism-Zanaq.svg
