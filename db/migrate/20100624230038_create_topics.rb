@@ -1,8 +1,9 @@
 class CreateTopics < ActiveRecord::Migration
   def self.up
     create_table :topics do |t|
-      t.string :title
-      t.text :body
+      t.string  :title
+      t.string  :panel
+      t.text    :body
       t.boolean :published
 
       t.timestamps
