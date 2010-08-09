@@ -11,6 +11,7 @@
 @include susy;
 
 body {
+  background-image: url('/images/paper-texture.jpg');
 }
 
 #page {
@@ -23,8 +24,6 @@ body {
   // width is divisible by four.  Some jQuery code will fix that when
   // necessary by setting an exact pixel width and an offset.
   position: relative;
-
-  background-image: url('/images/paper-texture.jpg');
 }
 
 .headline {

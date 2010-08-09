@@ -1,4 +1,6 @@
 class TopicsController < ApplicationController
+  layout 'editor'
+
   # GET /topics
   # GET /topics.xml
   def index

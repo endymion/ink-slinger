@@ -2,7 +2,7 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" /> */
 /* Reset --------------------------------------------------------------*/
-/* line 14, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 14, /Users/rap/.gem/ruby/1.8/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -22,48 +22,48 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   vertical-align: baseline;
 }
 
-/* line 17, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, /Users/rap/.gem/ruby/1.8/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 body {
   line-height: 1;
   color: black;
   background: white;
 }
 
-/* line 19, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 19, /Users/rap/.gem/ruby/1.8/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 21, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 21, /Users/rap/.gem/ruby/1.8/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: separate;
   border-spacing: 0;
   vertical-align: middle;
 }
 
-/* line 23, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 23, /Users/rap/.gem/ruby/1.8/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 25, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 25, /Users/rap/.gem/ruby/1.8/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: "" "";
 }
-/* line 96, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 96, /Users/rap/.gem/ruby/1.8/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
 }
 
-/* line 27, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 27, /Users/rap/.gem/ruby/1.8/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
 /* HTML5 Reset --------------------------------------------------------------*/
-/* line 107, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 107, /Users/rap/.gem/ruby/1.8/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 section, article, aside, header, footer, nav, dialog, figure {
   display: block;
 }
@@ -350,23 +350,28 @@ textarea, input:not([type="radio"]) {
 }
 
 /* Layout --------------------------------------------------------------*/
-/* line 29, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-susy-plugin-0.7.0/sass/susy/_vertical_rhythm.scss */
+/* line 29, /Users/rap/.gem/ruby/1.8/gems/compass-susy-plugin-0.7.0/sass/susy/././_vertical_rhythm.scss */
 body {
   font-size: 100%;
   line-height: 1.5em;
 }
 
-/* line 33, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-susy-plugin-0.7.0/sass/susy/_vertical_rhythm.scss */
+/* line 33, /Users/rap/.gem/ruby/1.8/gems/compass-susy-plugin-0.7.0/sass/susy/././_vertical_rhythm.scss */
 html > body {
   font-size: 16px;
 }
 
-/* line 18, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-susy-plugin-0.7.0/sass/susy/_susy.scss */
+/* line 18, /Users/rap/.gem/ruby/1.8/gems/compass-susy-plugin-0.7.0/sass/susy/_susy.scss */
 body {
   text-align: center;
 }
 
-/* line 16, ../../app/stylesheets/screen.scss */
+/* line 13, ../../app/stylesheets/screen.scss */
+body {
+  background-image: url("/images/paper-texture.jpg");
+}
+
+/* line 17, ../../app/stylesheets/screen.scss */
 #page {
   overflow: hidden;
   *zoom: 1;
@@ -377,166 +382,165 @@ body {
   max-width: 100%;
   width: 100%;
   position: relative;
-  background-image: url("/images/paper-texture.jpg");
 }
 
-/* line 30, ../../app/stylesheets/screen.scss */
+/* line 29, ../../app/stylesheets/screen.scss */
 .headline {
   font-size: 1.2em;
   font-weight: bold;
 }
 
-/* line 34, ../../app/stylesheets/screen.scss */
+/* line 33, ../../app/stylesheets/screen.scss */
 #footer {
   font-size: 0.8em;
 }
 
 /* Styles --------------------------------------------------------------*/
-/* line 40, ../../app/stylesheets/screen.scss */
+/* line 39, ../../app/stylesheets/screen.scss */
 .rack {
   overflow: hidden;
   *zoom: 1;
   width: 100%;
 }
-/* line 44, ../../app/stylesheets/screen.scss */
+/* line 43, ../../app/stylesheets/screen.scss */
 .rack .section {
   width: 50%;
   float: left;
   overflow: hidden;
 }
-/* line 48, ../../app/stylesheets/screen.scss */
+/* line 47, ../../app/stylesheets/screen.scss */
 .rack .section .mount {
   float: left;
 }
-/* line 50, ../../app/stylesheets/screen.scss */
+/* line 49, ../../app/stylesheets/screen.scss */
 .rack .section .mount .tile {
   position: relative;
   display: block;
   float: left;
   overflow: hidden;
 }
-/* line 55, ../../app/stylesheets/screen.scss */
+/* line 54, ../../app/stylesheets/screen.scss */
 .rack .section .mount .tile img {
   width: 100%;
   max-width: 100%;
 }
-/* line 59, ../../app/stylesheets/screen.scss */
+/* line 58, ../../app/stylesheets/screen.scss */
 .rack .section .mount .tile .copy {
   overflow: hidden;
   position: absolute;
   top: 0;
   margin: 16px 6.25% 0 6.25%;
 }
-/* line 67, ../../app/stylesheets/screen.scss */
+/* line 66, ../../app/stylesheets/screen.scss */
 .rack .section .mount.square {
   width: 100%;
 }
-/* line 69, ../../app/stylesheets/screen.scss */
+/* line 68, ../../app/stylesheets/screen.scss */
 .rack .section .mount.square .tile.square, .rack .section .mount.square .tile.portrait {
   width: 50%;
 }
-/* line 71, ../../app/stylesheets/screen.scss */
+/* line 70, ../../app/stylesheets/screen.scss */
 .rack .section .mount.square .tile.square .spacer-1-1, .rack .section .mount.square .tile.portrait .spacer-1-1 {
   opacity: 0;
   width: 100%;
 }
-/* line 75, ../../app/stylesheets/screen.scss */
+/* line 74, ../../app/stylesheets/screen.scss */
 .rack .section .mount.square .tile.square .spacer-1-2, .rack .section .mount.square .tile.portrait .spacer-1-2 {
   opacity: 0;
   width: 100%;
 }
-/* line 80, ../../app/stylesheets/screen.scss */
+/* line 79, ../../app/stylesheets/screen.scss */
 .rack .section .mount.square .tile.landscape {
   width: 100%;
 }
-/* line 82, ../../app/stylesheets/screen.scss */
+/* line 81, ../../app/stylesheets/screen.scss */
 .rack .section .mount.square .tile.landscape .spacer-1-1 {
   opacity: 0;
   width: 50%;
 }
-/* line 86, ../../app/stylesheets/screen.scss */
+/* line 85, ../../app/stylesheets/screen.scss */
 .rack .section .mount.square .tile.landscape .spacer-1-2 {
   opacity: 0;
   width: 50%;
 }
-/* line 90, ../../app/stylesheets/screen.scss */
+/* line 89, ../../app/stylesheets/screen.scss */
 .rack .section .mount.square .tile.landscape .spacer-2-1 {
   opacity: 0;
   width: 100%;
 }
-/* line 96, ../../app/stylesheets/screen.scss */
+/* line 95, ../../app/stylesheets/screen.scss */
 .rack .section .mount.flexible {
   width: 100%;
 }
-/* line 98, ../../app/stylesheets/screen.scss */
+/* line 97, ../../app/stylesheets/screen.scss */
 .rack .section .mount.flexible .tile.square {
   width: 50%;
 }
 
 /* Width adaptations --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
-  /* line 110, ../../app/stylesheets/screen.scss */
+  /* line 109, ../../app/stylesheets/screen.scss */
   .rack .section {
     width: 100%;
   }
-  /* line 112, ../../app/stylesheets/screen.scss */
+  /* line 111, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square {
     width: 66.7%;
   }
-  /* line 114, ../../app/stylesheets/screen.scss */
+  /* line 113, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square .tile.square, .rack .section .mount.square .tile.portrait {
     width: 50%;
   }
-  /* line 117, ../../app/stylesheets/screen.scss */
+  /* line 116, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square .tile.landscape {
     width: 100%;
   }
-  /* line 121, ../../app/stylesheets/screen.scss */
+  /* line 120, ../../app/stylesheets/screen.scss */
   .rack .section .mount.flexible {
     width: 33.4%;
   }
-  /* line 123, ../../app/stylesheets/screen.scss */
+  /* line 122, ../../app/stylesheets/screen.scss */
   .rack .section .mount.flexible .tile.square {
     width: 100%;
   }
 }
 
 @media screen and (max-width: 512px) {
-  /* line 133, ../../app/stylesheets/screen.scss */
+  /* line 132, ../../app/stylesheets/screen.scss */
   .rack .section {
     width: 100%;
   }
-  /* line 135, ../../app/stylesheets/screen.scss */
+  /* line 134, ../../app/stylesheets/screen.scss */
   .rack .section .mount {
     float: left;
   }
-  /* line 137, ../../app/stylesheets/screen.scss */
+  /* line 136, ../../app/stylesheets/screen.scss */
   .rack .section .mount .tile {
     display: block;
     float: left;
   }
-  /* line 140, ../../app/stylesheets/screen.scss */
+  /* line 139, ../../app/stylesheets/screen.scss */
   .rack .section .mount .tile img {
     width: 100%;
     max-width: 100%;
   }
-  /* line 146, ../../app/stylesheets/screen.scss */
+  /* line 145, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square {
     width: 100%;
   }
-  /* line 148, ../../app/stylesheets/screen.scss */
+  /* line 147, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square .tile.square, .rack .section .mount.square .tile.portrait {
     width: 50%;
   }
-  /* line 151, ../../app/stylesheets/screen.scss */
+  /* line 150, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square .tile.landscape {
     width: 100%;
   }
-  /* line 155, ../../app/stylesheets/screen.scss */
+  /* line 154, ../../app/stylesheets/screen.scss */
   .rack .section .mount.flexible {
     width: 100%;
   }
-  /* line 157, ../../app/stylesheets/screen.scss */
+  /* line 156, ../../app/stylesheets/screen.scss */
   .rack .section .mount.flexible .tile.square {
     width: 50%;
   }
@@ -980,7 +984,7 @@ $current_width: $base_width;
    ----- Not working due to a possible bug in the @media directive. */
 /* Device adaptations --------------------------------------------------------------*/
 @media screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation:portrait) {
-  /* line 203, ../../app/stylesheets/screen.scss */
+  /* line 202, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;
@@ -989,7 +993,7 @@ $current_width: $base_width;
 }
 
 @media screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation:landscape) {
-  /* line 211, ../../app/stylesheets/screen.scss */
+  /* line 210, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;
@@ -998,7 +1002,7 @@ $current_width: $base_width;
 }
 
 @media screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
-  /* line 219, ../../app/stylesheets/screen.scss */
+  /* line 218, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;
@@ -1007,7 +1011,7 @@ $current_width: $base_width;
 }
 
 @media screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
-  /* line 227, ../../app/stylesheets/screen.scss */
+  /* line 226, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;
