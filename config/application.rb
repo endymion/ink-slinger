@@ -36,6 +36,9 @@ module Reporter
     #   g.template_engine :erb
     #   g.test_framework  :test_unit, :fixture => true
     # end
+    config.generators do |g|
+      g.template_engine :haml
+    end
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
