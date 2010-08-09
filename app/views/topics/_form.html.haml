@@ -1,11 +1,16 @@
-= form_for(@topic) do |f|
-  - if @topic.errors.any?
+= semantic_form_for(@topic) do |f|
+  = if @topic.errors.any?
     #errorExplanation
       %h2= "#{pluralize(@topic.errors.count, 'error')} prohibited this user from being saved:"
       %ul
       - @topic.errors.full_messages.each do |msg|
         %li= msg
   
+  = f.inputs do
+    = f.input :title, :label => 'Title'
+    = f.input :panel, :label => 'Panel'
+    = f.input :body, :label => 'Body'
+    = f.input :published, :label => 'Published'
 
   .actions
     = f.submit
