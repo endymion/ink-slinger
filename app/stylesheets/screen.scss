@@ -46,7 +46,7 @@ body {
     overflow: hidden;
     .mount {
       float: left;
-      .tile {
+      .panel {
         position: relative;
         display: block;
         float: left;
@@ -65,7 +65,7 @@ body {
     }
     .mount.square {
       width: 100%;
-      .tile.square, .tile.portrait {
+      .panel.square, .panel.portrait {
         width: 50%;
         .spacer-1-1 {
           opacity: 0;
@@ -76,7 +76,7 @@ body {
           width: 100%;
         }
       }
-      .tile.landscape {
+      .panel.landscape {
         width: 100%;
         .spacer-1-1 {
           opacity: 0;
@@ -94,7 +94,7 @@ body {
     }
     .mount.flexible {
       width: 100%;
-      .tile.square {
+      .panel.square {
         width: 50%;
       }
     }
@@ -110,16 +110,16 @@ body {
       width: 100%;
       .mount.square {
         width: 66.7%;
-        .tile.square, .tile.portrait {
+        .panel.square, .panel.portrait {
           width: 50%;
         }
-        .tile.landscape {
+        .panel.landscape {
           width: 100%;
         }
       }
       .mount.flexible {
         width: 33.4%;
-        .tile.square {
+        .panel.square {
           width: 100%;
         }
       }
@@ -133,7 +133,7 @@ body {
       width: 100%;
       .mount {
         float: left;
-        .tile {
+        .panel {
           display: block;
           float: left;
           img {
@@ -144,16 +144,16 @@ body {
       }
       .mount.square {
         width: 100%;
-        .tile.square, .tile.portrait {
+        .panel.square, .panel.portrait {
           width: 50%;
         }
-        .tile.landscape {
+        .panel.landscape {
           width: 100%;
         }
       }
       .mount.flexible {
         width: 100%;
-        .tile.square {
+        .panel.square {
           width: 50%;
         }
       }
