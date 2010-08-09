@@ -40,6 +40,16 @@ body {
   @include clearfix;
   width: 100%;
 
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+  .copy {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    margin: 16px 6.25% 0 6.25%; // 16px at 1024px total page width. (256 * 0.0625)
+  }
   .section {
     width: 50%;
     float: left;
@@ -99,6 +109,25 @@ body {
       }
     }
   }
+  .header {
+    float: left;
+    .panel {
+      float: left;
+    }
+    width: 100%;
+    .panel.landscape {
+      width: 50%; 
+    }
+    .panel.auto-width {
+      width: 50%;
+      .spacer-2-1 {
+        display: block;
+      };
+      .spacer-1-2 {
+        display: none;
+      };
+    }
+  }
 }
 
 
@@ -122,6 +151,15 @@ body {
         .panel.square {
           width: 100%;
         }
+      }
+    }
+    .header {
+      width: 100%;
+      .panel.landscape {
+        width: 66.7%; 
+      }
+      .panel.auto-width {
+        width: 33.4%;
       }
     }
   }
@@ -156,6 +194,15 @@ body {
         .panel.square {
           width: 50%;
         }
+      }
+    }
+    .header {
+      width: 100%;
+      .panel.landscape {
+        width: 100%; 
+      }
+      .panel.auto-width {
+        width: 100%;
       }
     }
   }

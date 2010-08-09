@@ -1,4 +1,6 @@
-%h1= t '.title'
+- content_for :header do
+  %h1= t '.title'
+
 %p
   = link_to t('back'), topics_path
   = link_to t('show'), @topic

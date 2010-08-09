@@ -14,4 +14,13 @@
         - unless flash[key].blank? 
           %p{ :class => "flash flash_#{key}" }= flash[key]
     #content
-      = yield
+      .rack
+        .header
+          .panel.auto-width
+            %img.spacer-1-2{ :src => '/images/spacers/1x2.gif' }
+            %img.spacer-2-1{ :src => '/images/spacers/2x1.gif' }
+            .copy
+              = yield :header
+          .panel.landscape
+            %img.has512{ :src => '/images/brands/miami_nightlifeobserver_com/width-256/header.jpg' }
+        = yield
