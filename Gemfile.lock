@@ -33,6 +33,7 @@ GEM
       activemodel (= 3.0.0.rc)
       activesupport (= 3.0.0.rc)
     activesupport (3.0.0.rc)
+    acts-as-taggable-on (2.0.6)
     arel (0.4.0)
       activesupport (>= 3.0.0.beta)
     aws-s3 (0.6.2)
@@ -152,6 +153,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   aws-s3
   capistrano
   capybara

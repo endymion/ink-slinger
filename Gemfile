@@ -23,6 +23,7 @@ gem "haml"
 gem "compass"
 gem "compass-susy-plugin"
 gem "rmagick"
+gem 'acts-as-taggable-on'
 
 group :test do
   gem 'nokogiri', '1.4.1'
