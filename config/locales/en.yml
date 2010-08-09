@@ -2,4 +2,18 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  actions: actions
+  back: back
+  show: show
+  edit: edit
+  are_you_sure: are you sure?
+  destroy: destroy
+  topics:
+    index:
+      title: Topics
+      new_topic: new topic
+      actions: actions
+    edit:
+      title: Edit Topic
+    show:
+      title: Show Topic
