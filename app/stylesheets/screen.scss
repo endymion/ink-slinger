@@ -40,15 +40,13 @@ body {
   @include clearfix;
   width: 100%;
 
-  img {
+  img.stretch {
     width: 100%;
     max-width: 100%;
   }
   .copy {
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    margin: 16px 6.25% 0 6.25%; // 16px at 1024px total page width. (256 * 0.0625)
+    clear: left;
+    margin: 1em 8px 2em 8px;
   }
   .section {
     width: 50%;
@@ -61,10 +59,6 @@ body {
         display: block;
         float: left;
         overflow: hidden;
-        img {
-          width: 100%;
-          max-width: 100%;
-        }
         .copy {
           overflow: hidden;
           position: absolute;
@@ -114,18 +108,43 @@ body {
     .panel {
       float: left;
     }
+    .panel.landscape {
+      float: right;
+    }
     width: 100%;
     .panel.landscape {
       width: 50%; 
     }
+    .copy {
+      margin: 16px 3.125% 16px 3.125%;
+      position: absolute;
+      bottom: 0;
+      h1 {
+        font-size: 4em;
+        margin-bottom: 0;
+      }
+    }
     .panel.auto-width {
+      position: relative;
+      float: left;
       width: 50%;
       .spacer-2-1 {
         display: block;
       };
-      .spacer-1-2 {
+      .spacer-1-1 {
         display: none;
       };
+    }
+    .panel.title .bg {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #000;
+      opacity: 0.2;
+      z-index: -1;
+      margin: 8px 1.5625% 0 1.5625%;
     }
   }
 }
@@ -155,11 +174,23 @@ body {
     }
     .header {
       width: 100%;
+      .copy {
+        overflow: hidden;
+        position: absolute;
+        bottom: 0;
+        margin: 16px 3.125% 16px 3.125%;
+      }
       .panel.landscape {
         width: 66.7%; 
       }
       .panel.auto-width {
         width: 33.4%;
+        .spacer-2-1 {
+          display: none;
+        };
+        .spacer-1-1 {
+          display: block;
+        };
       }
     }
   }
@@ -203,6 +234,12 @@ body {
       }
       .panel.auto-width {
         width: 100%;
+        .spacer-2-1 {
+          display: block;
+        };
+        .spacer-1-1 {
+          display: none;
+        };
       }
     }
   }

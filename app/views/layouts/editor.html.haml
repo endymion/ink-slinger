@@ -16,11 +16,15 @@
     #content
       .rack
         .header
-          .panel.auto-width
-            %img.spacer-1-2{ :src => '/images/spacers/1x2.gif' }
-            %img.spacer-2-1{ :src => '/images/spacers/2x1.gif' }
+          .panel.landscape
+            %img.stretch.has512{ :src => '/images/brands/miami_nightlifeobserver_com/width-256/header.jpg' }
+          .panel.auto-width.title
+            .bg
+              &nbsp;
+            %img.stretch.spacer-1-1{ :src => '/images/spacers/1x1.gif' }
+            %img.stretch.spacer-2-1{ :src => '/images/spacers/2x1.gif' }
             .copy
               = yield :header
-          .panel.landscape
-            %img.has512{ :src => '/images/brands/miami_nightlifeobserver_com/width-256/header.jpg' }
-        = yield
+      .rack
+        .copy
+          = yield
