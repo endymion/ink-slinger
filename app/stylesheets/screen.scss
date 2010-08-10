@@ -14,6 +14,8 @@ body {
   background-image: url('/images/paper-texture.jpg');
 }
 
+img { border: 0; }
+
 #page {
   @include container;
 
@@ -39,7 +41,9 @@ body {
 .rack {
   @include clearfix;
   width: 100%;
-
+  h1, h2, h3 {
+    font-weight: bold;
+  }
   img.stretch {
     width: 100%;
     max-width: 100%;
@@ -65,6 +69,17 @@ body {
           top: 0;
           margin: 16px 6.25% 0 6.25%; // 16px at 1024px total page width. (256 * 0.0625)
         }
+        .panel .bg {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-color: #000;
+          opacity: 0.1;
+          z-index: -1;
+        }
+        
       }
     }
     .mount.square {
@@ -120,14 +135,23 @@ body {
       position: absolute;
       bottom: 0;
       h1 {
-        font-size: 4em;
+        font-size: 3em;
         margin-bottom: 0;
+        text-transform: uppercase;
+      }
+      h2 {
+        font-size: 1.5em;
+        margin-bottom: 0;
+        text-transform: uppercase;
       }
     }
     .panel.auto-width {
       position: relative;
       float: left;
       width: 50%;
+      .spacer-3-1 {
+        display: none;
+      };
       .spacer-2-1 {
         display: block;
       };
@@ -144,7 +168,54 @@ body {
       background-color: #000;
       opacity: 0.2;
       z-index: -1;
-      margin: 8px 1.5625% 0 1.5625%;
+      margin: 8px 1.5625% 8px 1.5625%;
+    }
+  }
+  ul {
+    margin: 0;
+    list-style-type: none;
+  }
+  .row {
+    float: left;
+    .panel {
+      float: left;
+    }
+    .panel.square {
+      float: right;
+    }
+    width: 100%;
+    .panel.landscape {
+      width: 50%; 
+    }
+    .copy {
+      margin: 16px 3.125% 16px 3.125%;
+      position: absolute;
+      bottom: 0;
+      h1 {
+        font-size: 4em;
+        margin-bottom: 0;
+      }
+      h2 {
+        font-size: 3em;
+        margin-bottom: 0;
+      }
+    }
+    .panel.auto-width {
+      position: relative;
+      float: left;
+      width: 75%;
+      .spacer-3-1 {
+        display: block;
+      };
+      .spacer-2-1 {
+        display: none;
+      };
+      .spacer-1-1 {
+        display: none;
+      };
+    }
+    .panel.square {
+      width: 25%;
     }
   }
 }
@@ -185,12 +256,32 @@ body {
       }
       .panel.auto-width {
         width: 33.4%;
+        .spacer-3-1 {
+          display: none;
+        };
         .spacer-2-1 {
           display: none;
         };
         .spacer-1-1 {
           display: block;
         };
+      }
+    }
+    .row {
+      .panel.auto-width {
+        width: 66.7%;
+        .spacer-3-1 {
+          display: none;
+        };
+        .spacer-2-1 {
+          display: block;
+        };
+        .spacer-1-1 {
+          display: none;
+        };
+      }
+      .panel.square {
+        width: 33.4%;
       }
     }
   }
@@ -234,12 +325,32 @@ body {
       }
       .panel.auto-width {
         width: 100%;
+        .spacer-3-1 {
+          display: none;
+        };
         .spacer-2-1 {
           display: block;
         };
         .spacer-1-1 {
           display: none;
         };
+      }
+    }
+    .row {
+      .panel.auto-width {
+        width: 50%;
+        .spacer-3-1 {
+          display: none;
+        };
+        .spacer-2-1 {
+          display: none;
+        };
+        .spacer-1-1 {
+          display: block;
+        };
+      }
+      .panel.square {
+        width: 50%;
       }
     }
   }

@@ -1,7 +1,6 @@
 - content_for :header do
   %h1= t '.title'
+  %h2= link_to t('back'), topics_path
+  %h2= link_to t('show'), @topic
 
-%p
-  = link_to t('back'), topics_path
-  = link_to t('show'), @topic
 = render 'form'

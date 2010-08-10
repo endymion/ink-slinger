@@ -372,6 +372,11 @@ body {
 }
 
 /* line 17, ../../app/stylesheets/screen.scss */
+img {
+  border: 0;
+}
+
+/* line 19, ../../app/stylesheets/screen.scss */
 #page {
   overflow: hidden;
   *zoom: 1;
@@ -384,146 +389,172 @@ body {
   position: relative;
 }
 
-/* line 29, ../../app/stylesheets/screen.scss */
+/* line 31, ../../app/stylesheets/screen.scss */
 .headline {
   font-size: 1.2em;
   font-weight: bold;
 }
 
-/* line 33, ../../app/stylesheets/screen.scss */
+/* line 35, ../../app/stylesheets/screen.scss */
 #footer {
   font-size: 0.8em;
 }
 
 /* Styles --------------------------------------------------------------*/
-/* line 39, ../../app/stylesheets/screen.scss */
+/* line 41, ../../app/stylesheets/screen.scss */
 .rack {
   overflow: hidden;
   *zoom: 1;
   width: 100%;
 }
-/* line 43, ../../app/stylesheets/screen.scss */
+/* line 44, ../../app/stylesheets/screen.scss */
+.rack h1, .rack h2, .rack h3 {
+  font-weight: bold;
+}
+/* line 47, ../../app/stylesheets/screen.scss */
 .rack img.stretch {
   width: 100%;
   max-width: 100%;
 }
-/* line 47, ../../app/stylesheets/screen.scss */
+/* line 51, ../../app/stylesheets/screen.scss */
 .rack .copy {
   clear: left;
   margin: 1em 8px 2em 8px;
 }
-/* line 51, ../../app/stylesheets/screen.scss */
+/* line 55, ../../app/stylesheets/screen.scss */
 .rack .section {
   width: 50%;
   float: left;
   overflow: hidden;
 }
-/* line 55, ../../app/stylesheets/screen.scss */
+/* line 59, ../../app/stylesheets/screen.scss */
 .rack .section .mount {
   float: left;
 }
-/* line 57, ../../app/stylesheets/screen.scss */
+/* line 61, ../../app/stylesheets/screen.scss */
 .rack .section .mount .panel {
   position: relative;
   display: block;
   float: left;
   overflow: hidden;
 }
-/* line 62, ../../app/stylesheets/screen.scss */
+/* line 66, ../../app/stylesheets/screen.scss */
 .rack .section .mount .panel .copy {
   overflow: hidden;
   position: absolute;
   top: 0;
   margin: 16px 6.25% 0 6.25%;
 }
-/* line 70, ../../app/stylesheets/screen.scss */
+/* line 72, ../../app/stylesheets/screen.scss */
+.rack .section .mount .panel .panel .bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  opacity: 0.1;
+  z-index: -1;
+}
+/* line 85, ../../app/stylesheets/screen.scss */
 .rack .section .mount.square {
   width: 100%;
 }
-/* line 72, ../../app/stylesheets/screen.scss */
+/* line 87, ../../app/stylesheets/screen.scss */
 .rack .section .mount.square .panel.square, .rack .section .mount.square .panel.portrait {
   width: 50%;
 }
-/* line 74, ../../app/stylesheets/screen.scss */
+/* line 89, ../../app/stylesheets/screen.scss */
 .rack .section .mount.square .panel.square .spacer-1-1, .rack .section .mount.square .panel.portrait .spacer-1-1 {
   opacity: 0;
   width: 100%;
 }
-/* line 78, ../../app/stylesheets/screen.scss */
+/* line 93, ../../app/stylesheets/screen.scss */
 .rack .section .mount.square .panel.square .spacer-1-2, .rack .section .mount.square .panel.portrait .spacer-1-2 {
   opacity: 0;
   width: 100%;
 }
-/* line 83, ../../app/stylesheets/screen.scss */
+/* line 98, ../../app/stylesheets/screen.scss */
 .rack .section .mount.square .panel.landscape {
   width: 100%;
 }
-/* line 85, ../../app/stylesheets/screen.scss */
+/* line 100, ../../app/stylesheets/screen.scss */
 .rack .section .mount.square .panel.landscape .spacer-1-1 {
   opacity: 0;
   width: 50%;
 }
-/* line 89, ../../app/stylesheets/screen.scss */
+/* line 104, ../../app/stylesheets/screen.scss */
 .rack .section .mount.square .panel.landscape .spacer-1-2 {
   opacity: 0;
   width: 50%;
 }
-/* line 93, ../../app/stylesheets/screen.scss */
+/* line 108, ../../app/stylesheets/screen.scss */
 .rack .section .mount.square .panel.landscape .spacer-2-1 {
   opacity: 0;
   width: 100%;
 }
-/* line 99, ../../app/stylesheets/screen.scss */
+/* line 114, ../../app/stylesheets/screen.scss */
 .rack .section .mount.flexible {
   width: 100%;
 }
-/* line 101, ../../app/stylesheets/screen.scss */
+/* line 116, ../../app/stylesheets/screen.scss */
 .rack .section .mount.flexible .panel.square {
   width: 50%;
 }
-/* line 106, ../../app/stylesheets/screen.scss */
+/* line 121, ../../app/stylesheets/screen.scss */
 .rack .header {
   float: left;
   width: 100%;
 }
-/* line 108, ../../app/stylesheets/screen.scss */
+/* line 123, ../../app/stylesheets/screen.scss */
 .rack .header .panel {
   float: left;
 }
-/* line 111, ../../app/stylesheets/screen.scss */
+/* line 126, ../../app/stylesheets/screen.scss */
 .rack .header .panel.landscape {
   float: right;
 }
-/* line 115, ../../app/stylesheets/screen.scss */
+/* line 130, ../../app/stylesheets/screen.scss */
 .rack .header .panel.landscape {
   width: 50%;
 }
-/* line 118, ../../app/stylesheets/screen.scss */
+/* line 133, ../../app/stylesheets/screen.scss */
 .rack .header .copy {
   margin: 16px 3.125% 16px 3.125%;
   position: absolute;
   bottom: 0;
 }
-/* line 122, ../../app/stylesheets/screen.scss */
+/* line 137, ../../app/stylesheets/screen.scss */
 .rack .header .copy h1 {
-  font-size: 4em;
+  font-size: 3em;
   margin-bottom: 0;
+  text-transform: uppercase;
 }
-/* line 127, ../../app/stylesheets/screen.scss */
+/* line 142, ../../app/stylesheets/screen.scss */
+.rack .header .copy h2 {
+  font-size: 1.5em;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+/* line 148, ../../app/stylesheets/screen.scss */
 .rack .header .panel.auto-width {
   position: relative;
   float: left;
   width: 50%;
 }
-/* line 131, ../../app/stylesheets/screen.scss */
+/* line 152, ../../app/stylesheets/screen.scss */
+.rack .header .panel.auto-width .spacer-3-1 {
+  display: none;
+}
+/* line 155, ../../app/stylesheets/screen.scss */
 .rack .header .panel.auto-width .spacer-2-1 {
   display: block;
 }
-/* line 134, ../../app/stylesheets/screen.scss */
+/* line 158, ../../app/stylesheets/screen.scss */
 .rack .header .panel.auto-width .spacer-1-1 {
   display: none;
 }
-/* line 138, ../../app/stylesheets/screen.scss */
+/* line 162, ../../app/stylesheets/screen.scss */
 .rack .header .panel.title .bg {
   position: absolute;
   top: 0;
@@ -533,122 +564,230 @@ body {
   background-color: #000;
   opacity: 0.2;
   z-index: -1;
-  margin: 8px 1.5625% 0 1.5625%;
+  margin: 8px 1.5625% 8px 1.5625%;
+}
+/* line 174, ../../app/stylesheets/screen.scss */
+.rack ul {
+  margin: 0;
+  list-style-type: none;
+}
+/* line 178, ../../app/stylesheets/screen.scss */
+.rack .row {
+  float: left;
+  width: 100%;
+}
+/* line 180, ../../app/stylesheets/screen.scss */
+.rack .row .panel {
+  float: left;
+}
+/* line 183, ../../app/stylesheets/screen.scss */
+.rack .row .panel.square {
+  float: right;
+}
+/* line 187, ../../app/stylesheets/screen.scss */
+.rack .row .panel.landscape {
+  width: 50%;
+}
+/* line 190, ../../app/stylesheets/screen.scss */
+.rack .row .copy {
+  margin: 16px 3.125% 16px 3.125%;
+  position: absolute;
+  bottom: 0;
+}
+/* line 194, ../../app/stylesheets/screen.scss */
+.rack .row .copy h1 {
+  font-size: 4em;
+  margin-bottom: 0;
+}
+/* line 198, ../../app/stylesheets/screen.scss */
+.rack .row .copy h2 {
+  font-size: 3em;
+  margin-bottom: 0;
+}
+/* line 203, ../../app/stylesheets/screen.scss */
+.rack .row .panel.auto-width {
+  position: relative;
+  float: left;
+  width: 75%;
+}
+/* line 207, ../../app/stylesheets/screen.scss */
+.rack .row .panel.auto-width .spacer-3-1 {
+  display: block;
+}
+/* line 210, ../../app/stylesheets/screen.scss */
+.rack .row .panel.auto-width .spacer-2-1 {
+  display: none;
+}
+/* line 213, ../../app/stylesheets/screen.scss */
+.rack .row .panel.auto-width .spacer-1-1 {
+  display: none;
+}
+/* line 217, ../../app/stylesheets/screen.scss */
+.rack .row .panel.square {
+  width: 25%;
 }
 
 /* Width adaptations --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
-  /* line 157, ../../app/stylesheets/screen.scss */
+  /* line 228, ../../app/stylesheets/screen.scss */
   .rack .section {
     width: 100%;
   }
-  /* line 159, ../../app/stylesheets/screen.scss */
+  /* line 230, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square {
     width: 66.7%;
   }
-  /* line 161, ../../app/stylesheets/screen.scss */
+  /* line 232, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square .panel.square, .rack .section .mount.square .panel.portrait {
     width: 50%;
   }
-  /* line 164, ../../app/stylesheets/screen.scss */
+  /* line 235, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square .panel.landscape {
     width: 100%;
   }
-  /* line 168, ../../app/stylesheets/screen.scss */
+  /* line 239, ../../app/stylesheets/screen.scss */
   .rack .section .mount.flexible {
     width: 33.4%;
   }
-  /* line 170, ../../app/stylesheets/screen.scss */
+  /* line 241, ../../app/stylesheets/screen.scss */
   .rack .section .mount.flexible .panel.square {
     width: 100%;
   }
-  /* line 175, ../../app/stylesheets/screen.scss */
+  /* line 246, ../../app/stylesheets/screen.scss */
   .rack .header {
     width: 100%;
   }
-  /* line 177, ../../app/stylesheets/screen.scss */
+  /* line 248, ../../app/stylesheets/screen.scss */
   .rack .header .copy {
     overflow: hidden;
     position: absolute;
     bottom: 0;
     margin: 16px 3.125% 16px 3.125%;
   }
-  /* line 183, ../../app/stylesheets/screen.scss */
+  /* line 254, ../../app/stylesheets/screen.scss */
   .rack .header .panel.landscape {
     width: 66.7%;
   }
-  /* line 186, ../../app/stylesheets/screen.scss */
+  /* line 257, ../../app/stylesheets/screen.scss */
   .rack .header .panel.auto-width {
     width: 33.4%;
   }
-  /* line 188, ../../app/stylesheets/screen.scss */
+  /* line 259, ../../app/stylesheets/screen.scss */
+  .rack .header .panel.auto-width .spacer-3-1 {
+    display: none;
+  }
+  /* line 262, ../../app/stylesheets/screen.scss */
   .rack .header .panel.auto-width .spacer-2-1 {
     display: none;
   }
-  /* line 191, ../../app/stylesheets/screen.scss */
+  /* line 265, ../../app/stylesheets/screen.scss */
   .rack .header .panel.auto-width .spacer-1-1 {
     display: block;
+  }
+  /* line 271, ../../app/stylesheets/screen.scss */
+  .rack .row .panel.auto-width {
+    width: 66.7%;
+  }
+  /* line 273, ../../app/stylesheets/screen.scss */
+  .rack .row .panel.auto-width .spacer-3-1 {
+    display: none;
+  }
+  /* line 276, ../../app/stylesheets/screen.scss */
+  .rack .row .panel.auto-width .spacer-2-1 {
+    display: block;
+  }
+  /* line 279, ../../app/stylesheets/screen.scss */
+  .rack .row .panel.auto-width .spacer-1-1 {
+    display: none;
+  }
+  /* line 283, ../../app/stylesheets/screen.scss */
+  .rack .row .panel.square {
+    width: 33.4%;
   }
 }
 
 @media screen and (max-width: 512px) {
-  /* line 201, ../../app/stylesheets/screen.scss */
+  /* line 292, ../../app/stylesheets/screen.scss */
   .rack .section {
     width: 100%;
   }
-  /* line 203, ../../app/stylesheets/screen.scss */
+  /* line 294, ../../app/stylesheets/screen.scss */
   .rack .section .mount {
     float: left;
   }
-  /* line 205, ../../app/stylesheets/screen.scss */
+  /* line 296, ../../app/stylesheets/screen.scss */
   .rack .section .mount .panel {
     display: block;
     float: left;
   }
-  /* line 208, ../../app/stylesheets/screen.scss */
+  /* line 299, ../../app/stylesheets/screen.scss */
   .rack .section .mount .panel img {
     width: 100%;
     max-width: 100%;
   }
-  /* line 214, ../../app/stylesheets/screen.scss */
+  /* line 305, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square {
     width: 100%;
   }
-  /* line 216, ../../app/stylesheets/screen.scss */
+  /* line 307, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square .panel.square, .rack .section .mount.square .panel.portrait {
     width: 50%;
   }
-  /* line 219, ../../app/stylesheets/screen.scss */
+  /* line 310, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square .panel.landscape {
     width: 100%;
   }
-  /* line 223, ../../app/stylesheets/screen.scss */
+  /* line 314, ../../app/stylesheets/screen.scss */
   .rack .section .mount.flexible {
     width: 100%;
   }
-  /* line 225, ../../app/stylesheets/screen.scss */
+  /* line 316, ../../app/stylesheets/screen.scss */
   .rack .section .mount.flexible .panel.square {
     width: 50%;
   }
-  /* line 230, ../../app/stylesheets/screen.scss */
+  /* line 321, ../../app/stylesheets/screen.scss */
   .rack .header {
     width: 100%;
   }
-  /* line 232, ../../app/stylesheets/screen.scss */
+  /* line 323, ../../app/stylesheets/screen.scss */
   .rack .header .panel.landscape {
     width: 100%;
   }
-  /* line 235, ../../app/stylesheets/screen.scss */
+  /* line 326, ../../app/stylesheets/screen.scss */
   .rack .header .panel.auto-width {
     width: 100%;
   }
-  /* line 237, ../../app/stylesheets/screen.scss */
+  /* line 328, ../../app/stylesheets/screen.scss */
+  .rack .header .panel.auto-width .spacer-3-1 {
+    display: none;
+  }
+  /* line 331, ../../app/stylesheets/screen.scss */
   .rack .header .panel.auto-width .spacer-2-1 {
     display: block;
   }
-  /* line 240, ../../app/stylesheets/screen.scss */
+  /* line 334, ../../app/stylesheets/screen.scss */
   .rack .header .panel.auto-width .spacer-1-1 {
     display: none;
+  }
+  /* line 340, ../../app/stylesheets/screen.scss */
+  .rack .row .panel.auto-width {
+    width: 50%;
+  }
+  /* line 342, ../../app/stylesheets/screen.scss */
+  .rack .row .panel.auto-width .spacer-3-1 {
+    display: none;
+  }
+  /* line 345, ../../app/stylesheets/screen.scss */
+  .rack .row .panel.auto-width .spacer-2-1 {
+    display: none;
+  }
+  /* line 348, ../../app/stylesheets/screen.scss */
+  .rack .row .panel.auto-width .spacer-1-1 {
+    display: block;
+  }
+  /* line 352, ../../app/stylesheets/screen.scss */
+  .rack .row .panel.square {
+    width: 50%;
   }
 }
 
@@ -1090,7 +1229,7 @@ $current_width: $base_width;
    ----- Not working due to a possible bug in the @media directive. */
 /* Device adaptations --------------------------------------------------------------*/
 @media screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation:portrait) {
-  /* line 286, ../../app/stylesheets/screen.scss */
+  /* line 397, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;
@@ -1099,7 +1238,7 @@ $current_width: $base_width;
 }
 
 @media screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation:landscape) {
-  /* line 294, ../../app/stylesheets/screen.scss */
+  /* line 405, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;
@@ -1108,7 +1247,7 @@ $current_width: $base_width;
 }
 
 @media screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
-  /* line 302, ../../app/stylesheets/screen.scss */
+  /* line 413, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;
@@ -1117,7 +1256,7 @@ $current_width: $base_width;
 }
 
 @media screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
-  /* line 310, ../../app/stylesheets/screen.scss */
+  /* line 421, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;

@@ -14,8 +14,8 @@ en:
       new_topic: new topic
       actions: actions
     edit:
-      title: Edit Topic
+      title: Edit
     show:
-      title: Show Topic
+      title: Topic
     new:
-      title: New Topic
+      title: New
