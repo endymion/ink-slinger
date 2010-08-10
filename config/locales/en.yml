@@ -17,3 +17,5 @@ en:
       title: Edit Topic
     show:
       title: Show Topic
+    new:
+      title: New Topic
