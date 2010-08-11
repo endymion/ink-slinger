@@ -37,6 +37,7 @@ namespace :s3 do
     buckets = AWS::S3::Bucket.objects(@settings['bucket_name'])
     puts "deleting #{buckets.size} buckets"
     buckets.each do |bucket|
+      next if bucket.key.eql? 'system'
       bucket.delete
     end
     
