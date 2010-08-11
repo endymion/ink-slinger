@@ -1,4 +1,4 @@
-= semantic_form_for(@topic) do |f|
+= semantic_form_for setup_topic(@topic) do |form|
   = if @topic.errors.any?
     #errorExplanation
       %h2= "#{pluralize(@topic.errors.count, 'error')} prohibited this user from being saved:"
@@ -6,11 +6,23 @@
       - @topic.errors.full_messages.each do |msg|
         %li= msg
   
-  = f.inputs do
-    = f.input :title, :label => 'Title'
-    = f.input :panel, :label => 'Panel'
-    = f.input :body, :label => 'Body'
-    = f.input :published, :label => 'Published'
+  = form.inputs do
+    = form.input :title, :label => 'Title'
+    = form.input :panel, :label => 'Panel'
+    = form.input :body, :label => 'Body'
+    = form.input :published, :label => 'Published'
+
+  %h3= 'Panels'
+
+  - form.semantic_fields_for :panels do |panel|
+    - panel.inputs do
+      - if panel.object.new_record?
+        = panel.label :new_panel, :label => 'New Panel'
+      - arrangement_label = (panel.object.new_record?) ? '' : 'Arrangement'
+      = panel.input :arrangement, :label => 'Arrangement'
+      - unless panel.object.new_record?
+        = panel.check_box :_destroy
+        = panel.label :_destroy, :label => 'Remove'
 
   .actions
-    = f.submit
+    = form.submit
