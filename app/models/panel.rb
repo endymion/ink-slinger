@@ -2,6 +2,11 @@ class Panel < ActiveRecord::Base
   belongs_to :topic
   attr_accessible :arrangement, :image
 
+  scope :for_topic, lambda {|topic|
+    where("panels.topic_id == #{topic.id}")
+  }
+  scope :square, where("panels.arrangement == 'square'")
+
   has_attached_file :image, 
     :path => "system/panels/:attachment/:id/:style.:extension",
     :storage => :s3,
@@ -25,18 +30,18 @@ class Panel < ActiveRecord::Base
 
   def width_for_tile_512
     case arrangement
-    when /portrait/i
+    when 'portrait'
       512
-    when /landscape/i
+    when 'landscape'
       1024
     else 512
     end
   end
   def height_for_tile_512
     case arrangement
-    when /portrait/i
+    when 'portrait'
       1024
-    when /landscape/i
+    when 'landscape'
       512
     else 512
     end

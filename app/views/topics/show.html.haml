@@ -1,12 +1,16 @@
 - content_for :header do
   %h1= t '.title'
-  %h2= link_to t('back'), topics_path
+  %h2= link_to t('topics.index.title'), topics_path
   %h2= link_to t('edit'), edit_topic_path(@topic)
 
-.copy
-  %h2= @topic.title
-  - for panel in @topic.panels
-    - next if panel.image_file_name.blank?
-    = image_tag panel.image.url
-    = image_tag panel.image.url(:tile_512)
-    = image_tag panel.image.url(:tile_256)
+
+.row
+  .panel.auto-width
+    .body
+      %h2= @topic.title
+      .panel-copy= @topic.panel
+      .body-copy= @topic.body
+  .panel.square
+    - for panel in @topic.panels
+      - next if panel.image_file_name.blank?
+      = image_tag panel.image(:tile_256), :class => 'stretch'

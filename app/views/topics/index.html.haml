@@ -9,9 +9,14 @@
         %img.stretch.spacer-1-1{ :src => '/images/spacers/1x1.gif' }
         %img.stretch.spacer-2-1{ :src => '/images/spacers/2x1.gif' }
         %img.stretch.spacer-3-1{ :src => '/images/spacers/3x1.gif' }
-        .copy
-          %td.action= link_to t('show'), topic
-          %td.action= link_to t('edit'), edit_topic_path(topic)
-          %td.action= link_to t('destroy'), topic, :confirm => t('are_you_sure'), :method => :delete
+        .copy.top
+          %h2= topic.title
+          .panel-copy
+            = topic.panel
+        .copy.bottom.right
+          %h3.action= link_to t('show'), topic
+          %h3.action= link_to t('edit'), edit_topic_path(topic)
+          %h3.action= link_to t('destroy'), topic, :confirm => t('are_you_sure'), :method => :delete
       .panel.square
-        %img.stretch{ :src => '/images/square-test/1x1.jpg' }
+        - if !topic.square_panels.blank?
+          = image_tag topic.square_panels.first.image(:tile_256), :class => 'stretch'
