@@ -6,6 +6,12 @@
 
 @import "defaults";
 
+// Formtastic
+
+// FIXME: How do you include a file in SASS output?
+// @import 'public/stylesheets/formtastic.css';
+// @import 'public/stylesheets/formtastic_changes.css';
+
 /* Layout --------------------------------------------------------------*/
 
 @include susy;
@@ -51,6 +57,9 @@ img { border: 0; }
   .copy {
     clear: left;
     margin: 1em 8px 2em 8px;
+  }
+  .panel {
+    position: relative;
   }
   .section {
     width: 50%;
@@ -201,7 +210,6 @@ img { border: 0; }
       }
     }
     .panel.auto-width {
-      position: relative;
       float: left;
       width: 75%;
       .spacer-3-1 {
@@ -213,6 +221,9 @@ img { border: 0; }
       .spacer-1-1 {
         display: none;
       };
+      .body {
+        margin: 16px 3.125% 16px 3.125%;
+      }
     }
     .panel.square {
       width: 25%;
@@ -356,6 +367,9 @@ img { border: 0; }
   }
 }
 
+form.formtastic fieldset.inputs {
+  margin-bottom: 2em;
+}
 
 @import "font_adjustments";
 

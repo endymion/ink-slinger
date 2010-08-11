@@ -3,3 +3,10 @@
   %h2= link_to t('back'), topics_path
   %h2= link_to t('edit'), edit_topic_path(@topic)
 
+.copy
+  %h2= @topic.title
+  - for panel in @topic.panels
+    - next if panel.image_file_name.blank?
+    = image_tag panel.image.url
+    = image_tag panel.image.url(:tile_512)
+    = image_tag panel.image.url(:tile_256)

@@ -1,28 +1,29 @@
-= semantic_form_for setup_topic(@topic) do |form|
-  = if @topic.errors.any?
-    #errorExplanation
-      %h2= "#{pluralize(@topic.errors.count, 'error')} prohibited this user from being saved:"
-      %ul
-      - @topic.errors.full_messages.each do |msg|
-        %li= msg
-  
-  = form.inputs do
-    = form.input :title, :label => 'Title'
-    = form.input :panel, :label => 'Panel'
-    = form.input :body, :label => 'Body'
-    = form.input :published, :label => 'Published'
-
-  %h3= 'Panels'
-
-  - form.semantic_fields_for :panels do |panel|
-    - panel.inputs do
-      - if panel.object.new_record?
-        = panel.label :new_panel, :label => 'New Panel'
-      - arrangement_label = (panel.object.new_record?) ? '' : 'Arrangement'
-      = panel.input :arrangement, :label => 'Arrangement'
-      - unless panel.object.new_record?
-        = panel.check_box :_destroy
-        = panel.label :_destroy, :label => 'Remove'
-
-  .actions
-    = form.submit
+= semantic_form_for setup_topic(@topic), :html => { :multipart => true } do |form|
+  .row
+    .panel.auto-width
+      .body
+        = if @topic.errors.any?
+          #errorExplanation
+            %h2= "#{pluralize(@topic.errors.count, 'error')} prohibited this user from being saved:"
+            %ul
+            - @topic.errors.full_messages.each do |msg|
+              %li= msg
+        = form.inputs do
+          = form.input :title, :label => 'Title'
+          = form.input :panel, :label => 'Panel'
+          = form.input :body, :label => 'Body'
+          = form.input :published, :label => 'Published'
+        .actions
+          = form.submit
+    .panel.square
+      = form.semantic_fields_for :panels do |panel|
+        = panel.inputs do
+          = image_tag panel.object.image(:tile_256), :class => 'stretch' unless panel.object.new_record?
+          - if panel.object.new_record?
+            = panel.label :new_panel, :label => 'New Panel'
+          - arrangement_label = (panel.object.new_record?) ? '' : 'Arrangement'
+          = panel.file_field :image
+          = panel.select :arrangement, options_for_select(['square', 'landscape', 'portrait'], panel.object.arrangement)
+          - unless panel.object.new_record?
+            = panel.check_box :_destroy
+            = panel.label :_destroy, :label => 'Remove'
