@@ -3,9 +3,9 @@ class Panel < ActiveRecord::Base
   attr_accessible :arrangement, :image
 
   scope :for_topic, lambda {|topic|
-    where("panels.topic_id == #{topic.id}")
+    where("panels.topic_id = #{topic.id}")
   }
-  scope :square, where("panels.arrangement == 'square'")
+  scope :square, where("panels.arrangement = 'square'")
 
   has_attached_file :image, 
     :path => "system/panels/:attachment/:id/:style.:extension",
