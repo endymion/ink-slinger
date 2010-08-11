@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.xml
   def index
-    @topics = Topic.all
+    @topics = Topic.order('topics.updated_at DESC').all
 
     respond_to do |format|
       format.html # index.html.erb
