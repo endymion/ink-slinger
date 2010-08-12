@@ -14,8 +14,11 @@
       = topic.body
 - else
   - if panel[:arrangement].eql? :landscape
-    %img.stretch{ :src => '/images/square-test/2x1.jpg' }
+    %img.stretch.spacer-2-2{ :src => '/images/spacers/2x1.gif' }
+    .copy.coupon
   - elsif panel[:arrangement].eql? :portrait
-    %img.stretch{ :src => '/images/square-test/1x2.jpg' }
+    %img.stretch.spacer-1-2{ :src => '/images/spacers/1x2.gif' }
+    .copy.coupon
   - if panel[:arrangement].eql? :square
-    %img.stretch{ :src => '/images/square-test/1x1.jpg' }
+    %img.stretch.spacer-1-1{ :src => '/images/spacers/1x1.gif' }
+    .copy.coupon
