@@ -5,7 +5,9 @@ class Panel < ActiveRecord::Base
   scope :for_topic, lambda {|topic|
     where("panels.topic_id = #{topic.id}")
   }
-  scope :square, where("panels.arrangement = 'square'")
+  scope :square, where("panels.arrangement = 'square'").order('updated_at DESC')
+  scope :landscape, where("panels.arrangement = 'landscape'").order('updated_at DESC')
+  scope :portrait, where("panels.arrangement = 'portrait'").order('updated_at DESC')
 
   has_attached_file :image, 
     :path => "system/panels/:attachment/:id/:style.:extension",

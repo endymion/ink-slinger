@@ -1,0 +1,21 @@
+- unless panel[:id].blank?
+  - if panel[:type].eql? :panel
+    = image_tag Panel.find(panel[:id]).image(:tile_256), :class => 'stretch'
+  - else
+    - if panel[:arrangement].eql? :landscape
+      %img.stretch.spacer-2-2{ :src => '/images/spacers/2x1.gif' }
+    - elsif panel[:arrangement].eql? :portrait
+      %img.stretch.spacer-1-2{ :src => '/images/spacers/1x2.gif' }
+    - if panel[:arrangement].eql? :square
+      %img.stretch.spacer-1-1{ :src => '/images/spacers/1x1.gif' }
+    - topic = Topic.find(panel[:id])
+    .copy
+      %h2= topic.title
+      = topic.body
+- else
+  - if panel[:arrangement].eql? :landscape
+    %img.stretch{ :src => '/images/square-test/2x1.jpg' }
+  - elsif panel[:arrangement].eql? :portrait
+    %img.stretch{ :src => '/images/square-test/1x2.jpg' }
+  - if panel[:arrangement].eql? :square
+    %img.stretch{ :src => '/images/square-test/1x1.jpg' }

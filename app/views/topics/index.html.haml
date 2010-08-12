@@ -20,3 +20,7 @@
       .panel.square
         - if !topic.square_panels.blank?
           = image_tag topic.square_panels.first.image(:tile_256), :class => 'stretch'
+        - elsif !topic.portrait_panels.blank?
+          = image_tag topic.portrait_panels.first.image(:tile_256), :class => 'stretch', :style => 'width: 50%;'
+        - elsif !topic.landscape_panels.blank?
+          = image_tag topic.landscape_panels.first.image(:tile_256), :class => 'stretch', :style => 'width: 50%;'

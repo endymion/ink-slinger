@@ -1,89 +1,14 @@
-.rack
-  .section
-    #C.mount.flexible
-      .panel.square
-        %img.stretch.has512{ :src => '/images/examples/tiles/5/width-256/5.jpg' }
-      .panel.square
-        %img.stretch.has512{ :src => '/images/examples/tiles/6/width-256/6.jpg' }
-    #D.mount.square
-      .panel.landscape
-        %img.stretch{ :src => '/images/square-test/2x1.jpg' }
-      .panel.landscape
-        %img.stretch.has512{ :src => '/images/brands/miami_nightlifeobserver_com/width-256/header.jpg' }
-  .section
-    #A.mount.square
-      .panel.portrait
-        %img.stretch.has512{ :src => '/images/examples/tiles/8/width-256/8.jpg' }
-      .panel.portrait
-        %img.stretch.has512{ :src => '/images/examples/tiles/3/width-256/3.jpg' }
-    #B.mount.flexible
-      .panel.square
-        %img.stretch.has512{ :src => '/images/examples/tiles/9/width-256/9.jpg' }
-      .panel.square
-        %img.stretch.has512{ :src => '/images/examples/tiles/4/width-256/4.jpg' }
-
-.rack
-  .section
-    #A.mount.square
-      .panel.portrait
-        %img.stretch.has512{ :src => '/images/examples/tiles/2/width-256/2.jpg' }
-      .panel.portrait
-        %img.stretch{ :src => '/images/square-test/1x2.jpg' }
-    #B.mount.flexible
-      .panel.square
-        %img.stretch.has512{ :src => '/images/examples/tiles/7/width-256/7.jpg' }
-      .panel.square
-        %img.stretch.has512{ :src => '/images/examples/tiles/1/width-256/1.jpg' }
-  .section
-    #C.mount.flexible
-      .panel.square
-        %img.stretch{ :src => '/images/square-test/1x1.jpg' }
-      .panel.square
-        %img.stretch{ :src => '/images/square-test/1x1.jpg' }
-    #D.mount.square
-      .panel.landscape
-        %img.stretch{ :src => '/images/square-test/2x1.jpg' }
-      .panel.landscape
-        %img.stretch{ :src => '/images/square-test/2x1.jpg' }
-
-.rack
-  .section
-    #A.mount.square
-      .panel.portrait
-        %img.stretch.spacer-1-2{ :src => '/images/spacers/1x2.gif' }
-        %p.copy
-          <b>A HEADLINE</b>
-          Lorem ipsum dolor sit amet, <b>maintaining a</b> consectetur adipiscing elit. Suspendisse tristique tortor eu lectus posuere sed lobortis lacus dignissim. Ut eu urna lorem, nec lobortis tortor. Aliquam erat volutpat. <b>Nulla suscipit scelerisque felis, vitae pretium nulla semper non.</b> Donec molestie, tortor ut adipiscing venenatis, velit enim imperdiet tellus, vel euismod urna nibh vel urna. Integer viverra pellentesque imperdiet. In imperdiet neque velit.
-      .panel.portrait
-        %img.stretch.spacer-1-2{ :src => '/images/spacers/1x2.gif' }
-        %p.copy
-          <b>STAYS ALIGNED</b>
-          Nunc non est massa, sit amet <b>vertical rhythm</b> vulputate turpis. Donec semper dignissim convallis. Nullam in lectus nec mi accumsan fermentum. Ut suscipit lacus vel nulla pulvinar vitae euismod ante vulputate. Aenean augue sem, pulvinar quis posuere ac, sollicitudin malesuada massa. Suspendisse nec enim dui, eget ullamcorper diam. <b>Mauris rhoncus leo eget nisl adipiscing sed vehicula nulla vulputate.</b> Mauris eu dui at dolor elementum commodo ac eget elit.
-    #B.mount.flexible
-      .panel.square
-        %img.stretch{ :src => '/images/square-test/1x1.jpg' }
-      .panel.square
-        %img.stretch{ :src => '/images/square-test/1x1.jpg' }
-  .section
-    #C.mount.flexible
-      .panel.square
-        %img.stretch{ :src => '/images/square-test/1x1.jpg' }
-      .panel.square
-        %img.stretch{ :src => '/images/square-test/1x1.jpg' }
-    #D.mount.square
-      .panel.portrait
-        %img.stretch.has512{ :src => '/images/examples/tiles/2/width-256/2.jpg' }
-      .panel.portrait
-        %img.stretch.spacer-1-2{ :src => '/images/spacers/1x2.gif' }
-        .copy
-          %p.headline
-            Post your flyer<br/>
-            (It's FREE!)
-          %ul#footer
-            %li
-              A Brave New Media publication
-            %li
-              Built by Endymion
-            %li
-              Copyright &copy; #{ Time.now.year } Brave New Media
-          / Atom logo credit: http://commons.wikimedia.org/wiki/File:Atom_of_Atheism-Zanaq.svg
+- @layout_pattern.each do |rack|
+  .rack
+    - rack.each do |section|
+      .section
+        - section.each do |mount|
+          .mount{:class => mount[:type]}
+            - mount[:panels].each do |panel|
+              .panel{:class => panel[:arrangement]}
+                - if panel[:id].eql? :header
+                  = render :partial => '/layouts/header_panel'
+                - elsif panel[:id].eql? :footer
+                  = render :partial => '/layouts/footer_panel'
+                - else
+                  = render :partial => '/layouts/panel', :locals => { :panel => panel }
