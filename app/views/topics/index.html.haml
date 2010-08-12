@@ -24,3 +24,8 @@
           = image_tag topic.portrait_panels.first.image(:tile_256), :class => 'stretch', :style => 'width: 50%;'
         - elsif !topic.landscape_panels.blank?
           = image_tag topic.landscape_panels.first.image(:tile_256), :class => 'stretch', :style => 'width: 50%;'
+
+- content_for :footer do
+  .copy.top.right
+    %h3
+      = will_paginate @topics

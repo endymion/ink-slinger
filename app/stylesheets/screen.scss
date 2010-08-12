@@ -89,9 +89,18 @@ img { border: 0; }
         overflow: hidden;
         .copy {
           overflow: hidden;
+          margin: 16px 6.25% 0 6.25%; // 16px at 1024px total page width. (256 * 0.0625)
+        }
+        .copy.top {
           position: absolute;
           top: 0;
-          margin: 16px 6.25% 0 6.25%; // 16px at 1024px total page width. (256 * 0.0625)
+        }
+        .copy.bottom {
+          position: absolute;
+          bottom: 0;
+        }
+        .copy.right {
+          right: 0;
         }
         .panel .bg {
           position: absolute;
@@ -142,7 +151,7 @@ img { border: 0; }
       }
     }
   }
-  .header {
+  .header, .footer {
     float: left;
     .panel {
       float: left;

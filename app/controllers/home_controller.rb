@@ -99,21 +99,21 @@ class HomeController < ApplicationController
           ],
           [
             { # Mount
-              :type => :flexible,
-              :panels => [ # Multiple panels per mount
-                  { :arrangement => :square },
-                  { :arrangement => :square }
-                ]
-            },
-            { # Mount
               :type => :square,
               :panels => [
                   { :arrangement => :portrait },
+                  { :arrangement => :portrait }
+                ]
+            },
+            { # Mount
+              :type => :flexible,
+              :panels => [ # Multiple panels per mount
+                  { :arrangement => :square },
                   {
-                    :arrangement => :portrait,
+                    :arrangement => :square,
                     :id => :footer
                   }
-                ]
+              ]
             }
           ]
         ]
