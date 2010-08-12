@@ -18,19 +18,19 @@ class Panel < ActiveRecord::Base
         panel = image.instance
         {
           :original => {
-            :geometry => "#{panel.width_for_tile_512}x",
-            :quality => 30,
-            :format => 'JPG'
+            :geometry => "#{panel.width_for_tile_512}",
+            :quality => 10,
+            :format => 'jpg'
           },
           :tile_512 => {
             :geometry => "#{panel.width_for_tile_512}x#{panel.height_for_tile_512}#",
-            :quality => 30,
-            :format => 'JPG'
+            :quality => 10,
+            :format => 'jpg'
           },
           :tile_256 => {
             :geometry => "#{panel.width_for_tile_256}x#{panel.height_for_tile_256}#",
-            :quality => 30,
-            :format => 'JPG'
+            :quality => 10,
+            :format => 'jpg'
           }
         }
     }
@@ -60,5 +60,5 @@ class Panel < ActiveRecord::Base
   def height_for_tile_256
     height_for_tile_512 / 2
   end
-    
+
 end
