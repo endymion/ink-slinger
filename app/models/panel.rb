@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: panels
+#
+#  id                 :integer         not null, primary key
+#  arrangement        :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  topic_id           :integer
+#  image_file_name    :string(255)
+#  image_content_type :string(255)
+#  image_file_size    :integer
+#  image_updated_at   :datetime
+#
+
 class Panel < ActiveRecord::Base
   belongs_to :topic
   attr_accessible :arrangement, :image
@@ -18,7 +33,7 @@ class Panel < ActiveRecord::Base
         panel = image.instance
         {
           :original => {
-            :geometry => "#{panel.width_for_tile_512}",
+            :geometry => "#{panel.width_for_tile_512}>",
             :quality => 10,
             :format => 'jpg'
           },

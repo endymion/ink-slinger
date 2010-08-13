@@ -29,6 +29,8 @@ gem 'acts-as-taggable-on'
 gem 'formtastic',    :path => File.join(File.dirname(__FILE__), '/vendor/gems/formtastic')
 gem 'will_paginate', :path => File.join(File.dirname(__FILE__), '/vendor/gems/will_paginate')
 gem 'paperclip'
+gem 'factory_girl'
+gem 'annotate'
 
 group :test do
   gem 'nokogiri', '1.4.1'

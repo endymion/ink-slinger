@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: topics
+#
+#  id         :integer         not null, primary key
+#  title      :string(255)
+#  panel      :string(255)
+#  body       :text
+#  published  :boolean
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Topic < ActiveRecord::Base
   has_many :panels, :dependent => :destroy, :order => 'updated_at DESC'
   accepts_nested_attributes_for :panels, :allow_destroy => true,

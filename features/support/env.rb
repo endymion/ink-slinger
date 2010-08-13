@@ -58,3 +58,5 @@ if defined?(ActiveRecord::Base)
 end
 
 Capybara.default_host = "domain.com"
+
+Brand.seed

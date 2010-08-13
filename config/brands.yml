@@ -1,25 +1,25 @@
-brands:
-  - host: brave-new-media.com
-    assets: static.brave-new-media.com
+domain_names:
+  - domain_name: brave-new-media.com
+    asset_server: static.brave-new-media.com
     locations:
       - title: Brave New Media
         subdomain: www
 
-  - host: nightlifechronicle.com
-    assets: performing-arts-events.com
+  - domain_name: nightlifechronicle.com
+    asset_server: performing-arts-events.com
     locations:
       - title: The Miami Nightlife Chronicle
         subdomain: miami
       - title: The Los Angeles Nightlife Chronicle
         subdomain: los-angeles
-  - host: nightlifeherald.com
-    assets: performing-arts-events.com
+  - domain_name: nightlifeherald.com
+    asset_server: performing-arts-events.com
     locations:
       - title: The New York Nightlife Herald
         subdomain: new-york
 
-  - host: nightlifeglobe.com
-    assets: night-club-events.com
+  - domain_name: nightlifeglobe.com
+    asset_server: night-club-events.com
     locations:
       - title: The Los Angeles Nightlife Globe
         subdomain: los-angeles
@@ -27,8 +27,8 @@ brands:
         subdomain: new-york
       - title: The Las Vegas Nightlife Globe
         subdomain: las-vegas
-  - host: nightlifeobserver.com
-    assets: night-club-events.com
+  - domain_name: nightlifeobserver.com
+    asset_server: night-club-events.com
     locations:
       - title: The Boston Nightlife Observer
         subdomain: boston
