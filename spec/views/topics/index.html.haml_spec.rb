@@ -2,11 +2,8 @@ require 'spec_helper'
 
 describe "topics/index.html.haml" do
   before(:each) do
-    assign(:topics, [
-      stub_model(Topic),
-      stub_model(Topic)
-    ])
-    assigns[:topics].stub!(:total_pages).and_return(0)
+    @topics = [stub_model(Topic), stub_model(Topic)].paginate :page => 1, :per_page => 2 
+    assigns[:topics] = @topics
   end
 
   it "renders a list of topics" do
