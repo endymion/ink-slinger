@@ -8,7 +8,7 @@ describe TopicsController do
 
   describe "GET index" do
     it "assigns all topics as @topics" do
-      Topic.stub(:all) { [mock_topic] }
+      Topic.stub(:order) { [mock_topic] }
       get :index
       assigns(:topics).should eq([mock_topic])
     end
