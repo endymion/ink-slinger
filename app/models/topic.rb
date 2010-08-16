@@ -16,6 +16,8 @@ class Topic < ActiveRecord::Base
   accepts_nested_attributes_for :panels, :allow_destroy => true,
     :reject_if => proc { |attrs| attrs['image'].blank? }
 
+  acts_as_taggable_on :tags
+
   scope :image_topics, lambda {
     joins("INNER JOIN panels ON panels.topic_id = topics.id").
     select("topics.*, count(panels.id) panels_count").
