@@ -11,6 +11,8 @@ class NightlifeDomain
 end
 
 Reporter::Application.routes.draw do |map|
+  resources :events
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
