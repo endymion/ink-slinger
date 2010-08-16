@@ -11,6 +11,8 @@ class NightlifeDomain
 end
 
 Reporter::Application.routes.draw do |map|
+  resources :jobs
+
   resources :venues
 
   resources :events

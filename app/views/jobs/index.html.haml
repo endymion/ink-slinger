@@ -1,0 +1,14 @@
+%h1= t('.title')
+%p= link_to t('.new_job'), new_job_path
+
+%table
+  %thead
+    %tr
+      %th{:colspan => 3}= t 'actions'
+  
+  %tbody
+    - for job in @jobs
+      %tr{ :class => cycle(:odd, :even) }
+        %td.action= link_to t('show'), job
+        %td.action= link_to t('edit'), edit_job_path(job)
+        %td.action= link_to t('destroy'), job, :confirm => t('are_you_sure'), :method => :delete
