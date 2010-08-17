@@ -1,6 +1,6 @@
 - unless panel[:id].blank?
   - if panel[:type].eql? :panel
-    = image_tag Panel.find(panel[:id]).image(:tile_256), :class => 'stretch'
+    = image_tag Panel.find(panel[:id]).image(:tile_256), :class => 'stretch has512'
   - else
     - if panel[:arrangement].eql? :landscape
       %img.stretch.spacer-2-2{ :src => '/images/spacers/2x1.gif' }

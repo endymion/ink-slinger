@@ -3,7 +3,7 @@ jQuery.fn.switchTo512 = function() {
     var src= jQuery(this).attr('src'); // Initial src.
     if (src.lastIndexOf('tile_256') == -1) return; // Abort if it's not there.
     var src_without_extension = src.substring(0, src.lastIndexOf('tile_256'));
-    jQuery(this).attr('src', src_without_extension + 'tile_512/' + /[^\/]+$/.exec(src));
+    jQuery(this).attr('src', src_without_extension + 'tile_512.' + /[^\.]+$/.exec(src));
   });
 }
 jQuery.fn.switchTo256 = function() {
@@ -11,7 +11,7 @@ jQuery.fn.switchTo256 = function() {
     var src= jQuery(this).attr('src');
     if (src.lastIndexOf('tile_512') == -1) return; // Abort if it's not there.
     var src_without_extension = src.substring(0, src.lastIndexOf('tile_512'));
-    jQuery(this).attr('src', src_without_extension + 'tile_256/' + /[^\/]+$/.exec(src));
+    jQuery(this).attr('src', src_without_extension + 'tile_256.' + /[^\.]+$/.exec(src));
   });
 }
 
