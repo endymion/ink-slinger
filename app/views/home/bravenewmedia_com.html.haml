@@ -5,7 +5,9 @@
         - section.each do |mount|
           .mount{:class => mount[:type]}
             - mount[:panels].each do |panel|
-              .panel{:class => panel[:arrangement]}
+              - options = { :class => panel[:arrangement] }
+              - options[:id] = panel[:id] unless panel.id.blank?
+              .panel{options}
                 - if panel[:id].eql? :header
                   = render :partial => '/layouts/header_panel'
                 - elsif panel[:id].eql? :footer

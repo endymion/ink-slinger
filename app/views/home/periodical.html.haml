@@ -1,13 +1,16 @@
-%p
-  Hello from the nightlife bot.
-%p
-  Site information:
-  %ul
-    %li
-      Host: #{request.host}
-    %li
-      Domain: #{current_domain}
-    %li
-      Subdomain: #{current_subdomain}
-    %li
-      Brand: #{@current_brand.inspect}
+- @layout_pattern.each do |rack|
+  .rack
+    - rack.each do |section|
+      .section
+        - section.each do |mount|
+          .mount{:class => mount[:type]}
+            - mount[:panels].each do |panel|
+              - options = { :class => panel[:arrangement] }
+              - options[:id] = panel[:id] unless panel.id.blank?
+              .panel{options}
+                - if panel[:id].eql? :header
+                  = render :partial => '/layouts/header_panel'
+                - elsif panel[:id].eql? :footer
+                  = render :partial => '/layouts/footer_panel'
+                - else
+                  = render :partial => '/layouts/panel', :locals => { :panel => panel }

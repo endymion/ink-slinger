@@ -2,7 +2,7 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" /> */
 /* Reset --------------------------------------------------------------*/
-/* line 14, /Users/rap/.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 14, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -22,48 +22,48 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   vertical-align: baseline;
 }
 
-/* line 17, /Users/rap/.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 body {
   line-height: 1;
   color: black;
   background: white;
 }
 
-/* line 19, /Users/rap/.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 19, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 21, /Users/rap/.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 21, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: separate;
   border-spacing: 0;
   vertical-align: middle;
 }
 
-/* line 23, /Users/rap/.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 23, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 25, /Users/rap/.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 25, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: "" "";
 }
-/* line 96, /Users/rap/.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 96, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
 }
 
-/* line 27, /Users/rap/.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 27, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
 /* HTML5 Reset --------------------------------------------------------------*/
-/* line 107, /Users/rap/.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 107, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.3/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 section, article, aside, header, footer, nav, dialog, figure {
   display: block;
 }
@@ -350,18 +350,18 @@ textarea, input:not([type="radio"]) {
 }
 
 /* Layout --------------------------------------------------------------*/
-/* line 29, /Users/rap/.rvm/gems/ree-1.8.7-2010.02/gems/compass-susy-plugin-0.7.0/sass/susy/././_vertical_rhythm.scss */
+/* line 29, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-susy-plugin-0.7.0/sass/susy/_vertical_rhythm.scss */
 body {
   font-size: 100%;
   line-height: 1.5em;
 }
 
-/* line 33, /Users/rap/.rvm/gems/ree-1.8.7-2010.02/gems/compass-susy-plugin-0.7.0/sass/susy/././_vertical_rhythm.scss */
+/* line 33, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-susy-plugin-0.7.0/sass/susy/_vertical_rhythm.scss */
 html > body {
   font-size: 16px;
 }
 
-/* line 18, /Users/rap/.rvm/gems/ree-1.8.7-2010.02/gems/compass-susy-plugin-0.7.0/sass/susy/_susy.scss */
+/* line 18, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-susy-plugin-0.7.0/sass/susy/_susy.scss */
 body {
   text-align: center;
 }
@@ -603,245 +603,251 @@ img {
   z-index: -1;
   margin: 8px 1.5625% 8px 1.5625%;
 }
-/* line 208, ../../app/stylesheets/screen.scss */
+/* line 209, ../../app/stylesheets/screen.scss */
+.rack #header.panel img.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 215, ../../app/stylesheets/screen.scss */
 .rack ul {
   margin: 0;
   list-style-type: none;
 }
-/* line 212, ../../app/stylesheets/screen.scss */
+/* line 219, ../../app/stylesheets/screen.scss */
 .rack .row {
   float: left;
   width: 100%;
 }
-/* line 214, ../../app/stylesheets/screen.scss */
+/* line 221, ../../app/stylesheets/screen.scss */
 .rack .row .panel {
   float: left;
 }
-/* line 217, ../../app/stylesheets/screen.scss */
+/* line 224, ../../app/stylesheets/screen.scss */
 .rack .row .panel.square {
   float: right;
 }
-/* line 221, ../../app/stylesheets/screen.scss */
+/* line 228, ../../app/stylesheets/screen.scss */
 .rack .row .panel.landscape {
   width: 50%;
 }
-/* line 224, ../../app/stylesheets/screen.scss */
+/* line 231, ../../app/stylesheets/screen.scss */
 .rack .row .copy {
   margin: 16px 3.125% 16px 3.125%;
 }
-/* line 226, ../../app/stylesheets/screen.scss */
+/* line 233, ../../app/stylesheets/screen.scss */
 .rack .row .copy h1 {
   margin-bottom: 0;
 }
-/* line 229, ../../app/stylesheets/screen.scss */
+/* line 236, ../../app/stylesheets/screen.scss */
 .rack .row .copy h2 {
   margin-bottom: 0;
 }
-/* line 233, ../../app/stylesheets/screen.scss */
+/* line 240, ../../app/stylesheets/screen.scss */
 .rack .row .copy.top {
   position: absolute;
   top: 0;
 }
-/* line 237, ../../app/stylesheets/screen.scss */
+/* line 244, ../../app/stylesheets/screen.scss */
 .rack .row .copy.bottom {
   position: absolute;
   bottom: 0;
 }
-/* line 241, ../../app/stylesheets/screen.scss */
+/* line 248, ../../app/stylesheets/screen.scss */
 .rack .row .copy.right {
   right: 0;
 }
-/* line 244, ../../app/stylesheets/screen.scss */
+/* line 251, ../../app/stylesheets/screen.scss */
 .rack .row .panel.auto-width {
   float: left;
   width: 75%;
 }
-/* line 247, ../../app/stylesheets/screen.scss */
+/* line 254, ../../app/stylesheets/screen.scss */
 .rack .row .panel.auto-width .spacer-3-1 {
   display: block;
 }
-/* line 250, ../../app/stylesheets/screen.scss */
+/* line 257, ../../app/stylesheets/screen.scss */
 .rack .row .panel.auto-width .spacer-2-1 {
   display: none;
 }
-/* line 253, ../../app/stylesheets/screen.scss */
+/* line 260, ../../app/stylesheets/screen.scss */
 .rack .row .panel.auto-width .spacer-1-1 {
   display: none;
 }
-/* line 256, ../../app/stylesheets/screen.scss */
+/* line 263, ../../app/stylesheets/screen.scss */
 .rack .row .panel.auto-width .body {
   margin: 16px 3.125% 16px 3.125%;
 }
-/* line 260, ../../app/stylesheets/screen.scss */
+/* line 267, ../../app/stylesheets/screen.scss */
 .rack .row .panel.square {
   width: 25%;
 }
 
 /* Width adaptations --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
-  /* line 271, ../../app/stylesheets/screen.scss */
+  /* line 278, ../../app/stylesheets/screen.scss */
   .rack .section {
     width: 100%;
   }
-  /* line 273, ../../app/stylesheets/screen.scss */
+  /* line 280, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square {
     width: 66.7%;
   }
-  /* line 275, ../../app/stylesheets/screen.scss */
+  /* line 282, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square .panel.square, .rack .section .mount.square .panel.portrait {
     width: 50%;
   }
-  /* line 278, ../../app/stylesheets/screen.scss */
+  /* line 285, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square .panel.landscape {
     width: 100%;
   }
-  /* line 282, ../../app/stylesheets/screen.scss */
+  /* line 289, ../../app/stylesheets/screen.scss */
   .rack .section .mount.flexible {
     width: 33.4%;
   }
-  /* line 284, ../../app/stylesheets/screen.scss */
+  /* line 291, ../../app/stylesheets/screen.scss */
   .rack .section .mount.flexible .panel.square {
     width: 100%;
   }
-  /* line 289, ../../app/stylesheets/screen.scss */
+  /* line 296, ../../app/stylesheets/screen.scss */
   .rack .header {
     width: 100%;
   }
-  /* line 291, ../../app/stylesheets/screen.scss */
+  /* line 298, ../../app/stylesheets/screen.scss */
   .rack .header .copy {
     overflow: hidden;
     position: absolute;
     bottom: 0;
     margin: 16px 3.125% 16px 3.125%;
   }
-  /* line 297, ../../app/stylesheets/screen.scss */
+  /* line 304, ../../app/stylesheets/screen.scss */
   .rack .header .panel.landscape {
     width: 66.7%;
   }
-  /* line 300, ../../app/stylesheets/screen.scss */
+  /* line 307, ../../app/stylesheets/screen.scss */
   .rack .header .panel.auto-width {
     width: 33.4%;
   }
-  /* line 302, ../../app/stylesheets/screen.scss */
+  /* line 309, ../../app/stylesheets/screen.scss */
   .rack .header .panel.auto-width .spacer-3-1 {
     display: none;
   }
-  /* line 305, ../../app/stylesheets/screen.scss */
+  /* line 312, ../../app/stylesheets/screen.scss */
   .rack .header .panel.auto-width .spacer-2-1 {
     display: none;
   }
-  /* line 308, ../../app/stylesheets/screen.scss */
+  /* line 315, ../../app/stylesheets/screen.scss */
   .rack .header .panel.auto-width .spacer-1-1 {
     display: block;
   }
-  /* line 314, ../../app/stylesheets/screen.scss */
+  /* line 321, ../../app/stylesheets/screen.scss */
   .rack .row .panel.auto-width {
     width: 66.7%;
   }
-  /* line 316, ../../app/stylesheets/screen.scss */
+  /* line 323, ../../app/stylesheets/screen.scss */
   .rack .row .panel.auto-width .spacer-3-1 {
     display: none;
   }
-  /* line 319, ../../app/stylesheets/screen.scss */
+  /* line 326, ../../app/stylesheets/screen.scss */
   .rack .row .panel.auto-width .spacer-2-1 {
     display: block;
   }
-  /* line 322, ../../app/stylesheets/screen.scss */
+  /* line 329, ../../app/stylesheets/screen.scss */
   .rack .row .panel.auto-width .spacer-1-1 {
     display: none;
   }
-  /* line 326, ../../app/stylesheets/screen.scss */
+  /* line 333, ../../app/stylesheets/screen.scss */
   .rack .row .panel.square {
     width: 33.4%;
   }
 }
 
 @media screen and (max-width: 512px) {
-  /* line 335, ../../app/stylesheets/screen.scss */
+  /* line 342, ../../app/stylesheets/screen.scss */
   .rack .section {
     width: 100%;
   }
-  /* line 337, ../../app/stylesheets/screen.scss */
+  /* line 344, ../../app/stylesheets/screen.scss */
   .rack .section .mount {
     float: left;
   }
-  /* line 339, ../../app/stylesheets/screen.scss */
+  /* line 346, ../../app/stylesheets/screen.scss */
   .rack .section .mount .panel {
     display: block;
     float: left;
   }
-  /* line 342, ../../app/stylesheets/screen.scss */
+  /* line 349, ../../app/stylesheets/screen.scss */
   .rack .section .mount .panel img {
     width: 100%;
     max-width: 100%;
   }
-  /* line 348, ../../app/stylesheets/screen.scss */
+  /* line 355, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square {
     width: 100%;
   }
-  /* line 350, ../../app/stylesheets/screen.scss */
+  /* line 357, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square .panel.square, .rack .section .mount.square .panel.portrait {
     width: 50%;
   }
-  /* line 353, ../../app/stylesheets/screen.scss */
+  /* line 360, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square .panel.landscape {
     width: 100%;
   }
-  /* line 357, ../../app/stylesheets/screen.scss */
+  /* line 364, ../../app/stylesheets/screen.scss */
   .rack .section .mount.flexible {
     width: 100%;
   }
-  /* line 359, ../../app/stylesheets/screen.scss */
+  /* line 366, ../../app/stylesheets/screen.scss */
   .rack .section .mount.flexible .panel.square {
     width: 50%;
   }
-  /* line 364, ../../app/stylesheets/screen.scss */
+  /* line 371, ../../app/stylesheets/screen.scss */
   .rack .header {
     width: 100%;
   }
-  /* line 366, ../../app/stylesheets/screen.scss */
+  /* line 373, ../../app/stylesheets/screen.scss */
   .rack .header .panel.landscape {
     width: 100%;
   }
-  /* line 369, ../../app/stylesheets/screen.scss */
+  /* line 376, ../../app/stylesheets/screen.scss */
   .rack .header .panel.auto-width {
     width: 100%;
   }
-  /* line 371, ../../app/stylesheets/screen.scss */
+  /* line 378, ../../app/stylesheets/screen.scss */
   .rack .header .panel.auto-width .spacer-3-1 {
     display: none;
   }
-  /* line 374, ../../app/stylesheets/screen.scss */
+  /* line 381, ../../app/stylesheets/screen.scss */
   .rack .header .panel.auto-width .spacer-2-1 {
     display: block;
   }
-  /* line 377, ../../app/stylesheets/screen.scss */
+  /* line 384, ../../app/stylesheets/screen.scss */
   .rack .header .panel.auto-width .spacer-1-1 {
     display: none;
   }
-  /* line 383, ../../app/stylesheets/screen.scss */
+  /* line 390, ../../app/stylesheets/screen.scss */
   .rack .row .panel.auto-width {
     width: 50%;
   }
-  /* line 385, ../../app/stylesheets/screen.scss */
+  /* line 392, ../../app/stylesheets/screen.scss */
   .rack .row .panel.auto-width .spacer-3-1 {
     display: none;
   }
-  /* line 388, ../../app/stylesheets/screen.scss */
+  /* line 395, ../../app/stylesheets/screen.scss */
   .rack .row .panel.auto-width .spacer-2-1 {
     display: none;
   }
-  /* line 391, ../../app/stylesheets/screen.scss */
+  /* line 398, ../../app/stylesheets/screen.scss */
   .rack .row .panel.auto-width .spacer-1-1 {
     display: block;
   }
-  /* line 395, ../../app/stylesheets/screen.scss */
+  /* line 402, ../../app/stylesheets/screen.scss */
   .rack .row .panel.square {
     width: 50%;
   }
 }
 
-/* line 402, ../../app/stylesheets/screen.scss */
+/* line 409, ../../app/stylesheets/screen.scss */
 form.formtastic fieldset.inputs {
   margin-bottom: 2em;
 }
@@ -1284,7 +1290,7 @@ $current_width: $base_width;
    ----- Not working due to a possible bug in the @media directive. */
 /* Device adaptations --------------------------------------------------------------*/
 @media screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation:portrait) {
-  /* line 443, ../../app/stylesheets/screen.scss */
+  /* line 450, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;
@@ -1293,7 +1299,7 @@ $current_width: $base_width;
 }
 
 @media screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation:landscape) {
-  /* line 451, ../../app/stylesheets/screen.scss */
+  /* line 458, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;
@@ -1302,7 +1308,7 @@ $current_width: $base_width;
 }
 
 @media screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
-  /* line 459, ../../app/stylesheets/screen.scss */
+  /* line 466, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;
@@ -1311,7 +1317,7 @@ $current_width: $base_width;
 }
 
 @media screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
-  /* line 467, ../../app/stylesheets/screen.scss */
+  /* line 474, ../../app/stylesheets/screen.scss */
   #page {
     /*    font-size: 14px;
         line-height: 22px;
