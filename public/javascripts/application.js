@@ -80,7 +80,7 @@ function layout_respond() {
 
   jQuery('#content').width(page_width);
   jQuery('#content').css('max-width', page_width);
-  jQuery('#content').css('left', left_offset);
+  jQuery('#content').css('margin-left', left_offset);
   
   if ( total_width > 1024 ) {
     jQuery('.panel img.has512').switchTo512();
