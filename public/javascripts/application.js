@@ -1,17 +1,17 @@
 jQuery.fn.switchTo512 = function() {
   return this.each( function() {
     var src= jQuery(this).attr('src'); // Initial src.
-    if (src.lastIndexOf('width-256') == -1) return; // Abort if it's not there.
-    var src_without_extension = src.substring(0, src.lastIndexOf('width-256'));
-    jQuery(this).attr('src', src_without_extension + 'width-512/' + /[^\/]+$/.exec(src));
+    if (src.lastIndexOf('tile_256') == -1) return; // Abort if it's not there.
+    var src_without_extension = src.substring(0, src.lastIndexOf('tile_256'));
+    jQuery(this).attr('src', src_without_extension + 'tile_512/' + /[^\/]+$/.exec(src));
   });
 }
 jQuery.fn.switchTo256 = function() {
   return this.each( function() {
     var src= jQuery(this).attr('src');
-    if (src.lastIndexOf('width-512') == -1) return; // Abort if it's not there.
-    var src_without_extension = src.substring(0, src.lastIndexOf('width-512'));
-    jQuery(this).attr('src', src_without_extension + 'width-256/' + /[^\/]+$/.exec(src));
+    if (src.lastIndexOf('tile_512') == -1) return; // Abort if it's not there.
+    var src_without_extension = src.substring(0, src.lastIndexOf('tile_512'));
+    jQuery(this).attr('src', src_without_extension + 'tile_256/' + /[^\/]+$/.exec(src));
   });
 }
 
@@ -83,9 +83,9 @@ function layout_respond() {
   jQuery('#content').css('left', left_offset);
   
   if ( total_width > 1024 ) {
-    jQuery('.tile img.has512').switchTo512();
+    jQuery('.panel img.has512').switchTo512();
   } else {
-    jQuery('.tile img.has512').switchTo256();
+    jQuery('.panel img.has512').switchTo256();
   }
   
   return true; // Continue periodic responding.
