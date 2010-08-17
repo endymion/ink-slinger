@@ -89,4 +89,9 @@ class Brand < ActiveRecord::Base
     }.flatten
   end
 
+  # Used in path names for header images.
+  def asset_name
+    (subdomain + '.' + domain_name).gsub(/\W/, '_')
+  end
+
 end
