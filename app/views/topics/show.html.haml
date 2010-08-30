@@ -12,5 +12,5 @@
       .body-copy= @topic.body
   .panel.square
     - for panel in @topic.panels
-      - next if panel.image_file_name.blank?
-      = image_tag panel.image(:tile_256), :class => 'stretch'
+      - next if panel.tile_256_file_name.blank?
+      = image_tag panel.tile_256(:panel), :class => 'stretch'

@@ -15,7 +15,7 @@
 
 class Panel < ActiveRecord::Base
   belongs_to :topic
-  attr_accessible :arrangement, :image
+  attr_accessible :arrangement, :tile_256, :tile_512
 
   scope :for_topic, lambda {|topic|
     where("panels.topic_id = #{topic.id}")
@@ -24,30 +24,39 @@ class Panel < ActiveRecord::Base
   scope :landscape, where("panels.arrangement = 'landscape'").order('updated_at DESC')
   scope :portrait, where("panels.arrangement = 'portrait'").order('updated_at DESC')
 
-  has_attached_file :image, 
-    :path => "system/panels/:attachment/:id/:style.:extension",
-    :storage => :s3,
-    :s3_credentials => "#{Rails.root}/config/s3.yml",
-    :bucket => "static.brave-new-media.com",
+  path = "system/panels/:attachment/:id/:style.:extension"
+  storage = :s3
+  s3_credentials = "#{Rails.root}/config/s3.yml"
+  bucket = "static.brave-new-media.com"
+  has_attached_file :tile_256,
+    :path => path,
+    :storage => storage,
+    :s3_credentials => s3_credentials,
+    :bucket => bucket,
     :styles => lambda { |image|
-        panel = image.instance
-        {
-          :original => {
-            :geometry => "#{panel.width_for_tile_512}>",
-            :quality => 10,
-            :format => 'jpg'
-          },
-          :tile_512 => {
-            :geometry => "#{panel.width_for_tile_512}x#{panel.height_for_tile_512}#",
-            :quality => 10,
-            :format => 'jpg'
-          },
-          :tile_256 => {
-            :geometry => "#{panel.width_for_tile_256}x#{panel.height_for_tile_256}#",
-            :quality => 10,
-            :format => 'jpg'
-          }
+      panel = image.instance
+      {
+        :panel => {
+          :geometry => "#{panel.width_for_tile_256}x#{panel.height_for_tile_256}#",
+          :quality => 10,
+          :format => 'jpg'
         }
+      }
+    }
+  has_attached_file :tile_512,
+    :path => path,
+    :storage => storage,
+    :s3_credentials => s3_credentials,
+    :bucket => bucket,
+    :styles => lambda { |image|
+      panel = image.instance
+      {
+        :panel => {
+          :geometry => "#{panel.width_for_tile_512}x#{panel.height_for_tile_512}#",
+          :quality => 10,
+          :format => 'jpg'
+        }
+      }
     }
 
   def width_for_tile_512

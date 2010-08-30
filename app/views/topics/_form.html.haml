@@ -18,11 +18,11 @@
     .panel.square
       = form.semantic_fields_for :panels do |panel|
         = panel.inputs do
-          = image_tag panel.object.image(:tile_256), :class => 'stretch' unless panel.object.new_record?
+          = image_tag panel.object.tile_256(:panel), :class => 'stretch' unless panel.object.new_record?
           - if panel.object.new_record?
             = panel.label :new_panel, :label => 'New Panel'
           - arrangement_label = (panel.object.new_record?) ? '' : 'Arrangement'
-          = panel.file_field :image
+          = panel.file_field :tile_512
           = panel.select :arrangement, options_for_select(['square', 'landscape', 'portrait'], panel.object.arrangement)
           - unless panel.object.new_record?
             = panel.check_box :_destroy
