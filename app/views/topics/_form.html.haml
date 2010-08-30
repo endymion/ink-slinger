@@ -16,14 +16,13 @@
         .actions
           = form.submit
     .panel.square
-      = form.semantic_fields_for :panels do |panel|
-        = panel.inputs do
-          = image_tag panel.object.tile_256(:panel), :class => 'stretch' unless panel.object.new_record?
-          - if panel.object.new_record?
-            = panel.label :new_panel, :label => 'New Panel'
-          - arrangement_label = (panel.object.new_record?) ? '' : 'Arrangement'
-          = panel.file_field :tile_512
-          = panel.select :arrangement, options_for_select(['square', 'landscape', 'portrait'], panel.object.arrangement)
-          - unless panel.object.new_record?
-            = panel.check_box :_destroy
-            = panel.label :_destroy, :label => 'Remove'
+      = form.semantic_fields_for :images do |image|
+        = image.inputs do
+          = image_tag image.object.tile_512(:original), :class => 'stretch' unless image.object.new_record?
+          - if image.object.new_record?
+            = image.label :new_image, :label => 'New Image'
+          - arrangement_label = (image.object.new_record?) ? '' : 'Arrangement'
+          = image.file_field :tile_512
+          - unless image.object.new_record?
+            = image.check_box :_destroy
+            = image.label :_destroy, :label => 'Remove'

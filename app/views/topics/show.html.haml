@@ -13,4 +13,4 @@
   .panel.square
     - for panel in @topic.panels
       - next if panel.tile_256_file_name.blank?
-      = image_tag panel.tile_256(:panel), :class => 'stretch'
+      = image_tag panel.tile_256(:original), :class => 'stretch'

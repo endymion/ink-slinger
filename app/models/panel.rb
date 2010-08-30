@@ -36,7 +36,7 @@ class Panel < ActiveRecord::Base
     :styles => lambda { |image|
       panel = image.instance
       {
-        :panel => {
+        :original => {
           :geometry => "#{panel.width_for_tile_256}x#{panel.height_for_tile_256}#",
           :quality => 10,
           :format => 'jpg'
@@ -51,7 +51,7 @@ class Panel < ActiveRecord::Base
     :styles => lambda { |image|
       panel = image.instance
       {
-        :panel => {
+        :original => {
           :geometry => "#{panel.width_for_tile_512}x#{panel.height_for_tile_512}#",
           :quality => 10,
           :format => 'jpg'

@@ -2,7 +2,7 @@ module TopicsHelper
 
   def setup_topic(topic)
     returning(topic) do |p|
-      p.panels.build
+      p.images.build
     end
   end
 
