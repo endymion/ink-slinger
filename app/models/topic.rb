@@ -9,6 +9,8 @@
 #  published  :boolean
 #  created_at :datetime
 #  updated_at :datetime
+#  type       :string(255)
+#  venue_id   :integer
 #
 
 class Topic < ActiveRecord::Base

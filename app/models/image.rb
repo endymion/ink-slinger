@@ -1,9 +1,30 @@
+# == Schema Information
+#
+# Table name: images
+#
+#  id                    :integer         not null, primary key
+#  topic_id              :integer
+#  created_at            :datetime
+#  updated_at            :datetime
+#  tile_512_file_name    :string(255)
+#  tile_512_content_type :string(255)
+#  tile_512_file_size    :integer
+#  tile_512_updated_at   :datetime
+#  tile_256_file_name    :string(255)
+#  tile_256_content_type :string(255)
+#  tile_256_file_size    :integer
+#  tile_256_updated_at   :datetime
+#
+
 class Image < ActiveRecord::Base
   belongs_to :topic
 
   scope :for_topic, lambda {|topic|
     where("images.topic_id = #{topic.id}")
   }
+
+  validates_attachment_size :topic_256, :less_than => 1.megabyte
+  validates_attachment_size :topic_512, :less_than => 1.megabyte
 
   path = "system/images/:attachment/:id/:style.:extension"
   storage = :s3
