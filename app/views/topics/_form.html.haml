@@ -18,7 +18,7 @@
     .panel.square
       = form.semantic_fields_for :images do |image|
         = image.inputs do
-          = image_tag image.object.tile_512(:original), :class => 'stretch' unless image.object.new_record?
+          = image_tag image.object.tile_256(:original), :class => 'stretch' unless image.object.new_record?
           - if image.object.new_record?
             = image.label :new_image, :label => 'New Image'
           - arrangement_label = (image.object.new_record?) ? '' : 'Arrangement'
