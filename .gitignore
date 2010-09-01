@@ -2,7 +2,6 @@ design
 doc/private
 .bundle
 db/*.sqlite3
-db/schema.rb
 log/*.log
 tmp/**/*
 system
