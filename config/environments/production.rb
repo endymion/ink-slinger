@@ -50,3 +50,10 @@ Reporter::Application.configure do
 end
 
 Sass::Plugin.options[:never_update] = true
+
+# This is used by app/models/image.rb to keep S3 out of play except in production.
+PAPERCLIP_CONFIG = {
+  :storage => :s3,
+  :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+  :bucket => "static.brave-new-media.com"
+}

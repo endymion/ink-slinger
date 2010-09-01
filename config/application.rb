@@ -61,3 +61,7 @@ module Reporter
     
   end
 end
+
+# This keeps S3 out of the picture except in production.  (See the setting in
+# config/environments/production.rb)
+PAPERCLIP_CONFIG = {}

@@ -27,14 +27,8 @@ class Image < ActiveRecord::Base
   # validates_attachment_size :tile_512, :less_than => 1.megabyte
 
   path = "system/images/:attachment/:id/:style.:extension"
-  storage = :s3
-  s3_credentials = "#{Rails.root}/config/s3.yml"
-  bucket = "static.brave-new-media.com"
   has_attached_file :tile_256,
     :path => path,
-    :storage => storage,
-    :s3_credentials => s3_credentials,
-    :bucket => bucket,
     :processors => [:original], # Don't touch the file unless it's too large.
     :styles => lambda { |image|
       panel = image.instance
@@ -50,9 +44,6 @@ class Image < ActiveRecord::Base
     
   has_attached_file :tile_512,
     :path => path,
-    :storage => storage,
-    :s3_credentials => s3_credentials,
-    :bucket => bucket,
     :processors => [:original], # Don't touch the file unless it's too large.
     :styles => lambda { |image|
       panel = image.instance
