@@ -23,8 +23,8 @@ class Image < ActiveRecord::Base
     where("images.topic_id = #{topic.id}")
   }
 
-  validates_attachment_size :topic_256, :less_than => 1.megabyte
-  validates_attachment_size :topic_512, :less_than => 1.megabyte
+  # validates_attachment_size :tile_256, :less_than => 1.megabyte
+  # validates_attachment_size :tile_512, :less_than => 1.megabyte
 
   path = "system/images/:attachment/:id/:style.:extension"
   storage = :s3
@@ -65,5 +65,21 @@ class Image < ActiveRecord::Base
       }
     }  ,
     :convert_options => { :original => '-strip -quality 90' }
+
+  alias :paperclip_tile_512= :tile_512=
+  def tile_512=(attachment)
+    self.paperclip_tile_512 = attachment
+    self.tile_256 = attachment
+  end
+
+  after_save :prune_duplicates
+  def prune_duplicates
+    return if tile_512_file_name.nil?
+    # Discard the tile_512 image if it's not any larger than the tile_256 image.
+    if Paperclip::Geometry.from_file(tile_512.to_file(:original)).width <= 512
+      self.paperclip_tile_512 = nil
+      self.save
+    end
+  end
 
 end

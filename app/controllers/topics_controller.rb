@@ -38,23 +38,7 @@ class TopicsController < ApplicationController
   def edit
     @topic = Topic.find(params[:id])
   end
-
-  before_filter :clone_image_attachment, :only => [:create, :update]
-  def clone_image_attachment
-    params['topic']['images_attributes']['1'] = params['topic']['images_attributes']['0'].clone
-    params['topic']['images_attributes']['1']['tile_256'] = params['topic']['images_attributes']['1']['tile_512']
-    params['topic']['images_attributes']['1'].delete 'tile_512'
-  end
-  after_filter :prune_duplicate_image, :only => [:create, :update]
-  def prune_duplicate_image
-    # Discard the tile_512 image if it's not any larger than the tile_256 image.
-    for image in @topic.images
-      if Paperclip::Geometry.from_file(image.tile_512.to_file(:original)).width <= 512
-        image.tile_512 = nil
-        image.save
-      end
-    end
-  end
+  alias crop edit
 
   # POST /topics
   # POST /topics.xml
@@ -63,7 +47,13 @@ class TopicsController < ApplicationController
 
     respond_to do |format|
       if @topic.save
-        format.html { redirect_to(@topic, :notice => 'Topic was successfully created.') }
+        format.html {
+          if params[:topic][:images_attributes].blank?
+            redirect_to(@topic, :notice => 'Topic was successfully created.')
+          else
+            render :action => 'crop'
+          end
+        }
         format.xml  { render :xml => @topic, :status => :created, :location => @topic }
       else
         format.html { render :action => "new" }
@@ -79,7 +69,13 @@ class TopicsController < ApplicationController
 
     respond_to do |format|
       if @topic.update_attributes(params[:topic])
-        format.html { redirect_to(@topic, :notice => 'Topic was successfully updated.') }
+        format.html {
+          if params[:topic][:images_attributes].blank?
+            redirect_to(@topic, :notice => 'Topic was successfully updated.')
+          else
+            render :action => 'crop'
+          end
+        }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
