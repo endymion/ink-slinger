@@ -38,6 +38,7 @@ group :test do
   gem 'cucumber-rails'
   gem 'culerity'
   gem 'celerity', :require => nil # JRuby only. Make it available but don't require it in any environment.
+  gem 'webrat'
   gem "capybara"
   gem "launchy"
 
