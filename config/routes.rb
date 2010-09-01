@@ -11,12 +11,6 @@ class NightlifeDomain
 end
 
 Reporter::Application.routes.draw do |map|
-  resources :jobs
-
-  resources :venues
-
-  resources :events
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -30,7 +24,17 @@ Reporter::Application.routes.draw do |map|
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :topics
+  resources :topics do
+    member do
+      get :crop
+    end
+  end
+
+  resources :jobs
+
+  resources :venues
+
+  resources :events
 
   # Sample resource route with options:
   #   resources :products do

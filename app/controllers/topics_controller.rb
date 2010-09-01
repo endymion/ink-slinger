@@ -48,10 +48,10 @@ class TopicsController < ApplicationController
     respond_to do |format|
       if @topic.save
         format.html {
-          if params[:topic][:images_attributes].blank?
+          if params[:topic].blank? || params[:topic][:images_attributes].blank?
             redirect_to(@topic, :notice => 'Topic was successfully created.')
           else
-            render :action => 'crop'
+            render :action => "crop"
           end
         }
         format.xml  { render :xml => @topic, :status => :created, :location => @topic }
@@ -70,7 +70,7 @@ class TopicsController < ApplicationController
     respond_to do |format|
       if @topic.update_attributes(params[:topic])
         format.html {
-          if params[:topic][:images_attributes].blank?
+          if params[:topic].blank? || params[:topic][:images_attributes].blank?
             redirect_to(@topic, :notice => 'Topic was successfully updated.')
           else
             render :action => 'crop'

@@ -76,7 +76,7 @@ class Image < ActiveRecord::Base
   def prune_duplicates
     return if tile_512_file_name.nil?
     # Discard the tile_512 image if it's not any larger than the tile_256 image.
-    if Paperclip::Geometry.from_file(tile_512.to_file(:original)).width <= 512
+    if Paperclip::Geometry.from_file(tile_512.to_file(:original)).width.to_i <= 512
       self.paperclip_tile_512 = nil
       self.save
     end

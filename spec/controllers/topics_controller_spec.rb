@@ -68,6 +68,25 @@ describe TopicsController do
       end
     end
 
+    describe "with an image attachment" do
+      it "renders the cropping page" do
+        Topic.stub(:new) { mock_topic(:save => true) }
+        post :create, :topic => {
+          'images_attributes' =>
+            {
+              "0"=> {
+                "id"=>"1",
+                "_destroy"=>"0",
+                "tile_512"=>
+                  File.join(Rails.root, 'spec', 'fixtures', 'images', 'test_512.jpg')
+              }
+            }
+        }
+        assigns(:topic).should be(mock_topic)
+        response.should render_template("crop")
+      end
+    end
+
   end
 
   describe "PUT update" do

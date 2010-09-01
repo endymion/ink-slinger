@@ -1,0 +1,17 @@
+- content_for :title, I18n.translate('topics.crop.title')
+- content_for :header do
+  %h1= t '.title'
+  %h2= link_to t('topics.index.title'), topics_path
+  %h2= link_to t('edit'), edit_topic_path(@topic)
+
+
+.row
+  .panel.auto-width
+    .body
+      %h2= @topic.title
+      .panel-copy= @topic.panel
+      .body-copy= @topic.body
+  .panel.square
+    - for panel in @topic.panels
+      - next if panel.tile_256_file_name.blank?
+      = image_tag panel.tile_256(:original), :class => 'stretch'

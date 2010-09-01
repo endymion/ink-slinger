@@ -1,6 +1,6 @@
 !!! 
 %head
-  %title= @current_brand.title
+  %title= (title = yield(:title)).blank? ? @current_brand.title : title
   = stylesheet_link_tag 'screen', :media => 'screen, projection'
   = stylesheet_link_tag 'formtastic', :media => 'screen, projection'
   = stylesheet_link_tag 'formtastic_changes', :media => 'screen, projection'
@@ -9,6 +9,7 @@
   = javascript_include_tag 'jquery', 'rails', 'application'
   = csrf_meta_tag
   %meta{ :name => "viewport", :content => "width: device-width, initial-scale = 1, maximum-scale = 1" }
+  = yield :head
 %body
   #page
     #header
