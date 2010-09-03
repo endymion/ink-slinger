@@ -15,7 +15,8 @@ module Paperclip
   
     def crop_command  
       target = @attachment.instance  
-      if target.cropping?  
+      if target.cropping? &&
+        !options[:original_width].blank? && !options[:original_height].blank?
         [
           '-crop',
           ["#{target.crop_w.to_f * options[:original_width]}x",

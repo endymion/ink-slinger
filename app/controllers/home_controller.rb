@@ -151,6 +151,7 @@ class HomeController < ApplicationController
     layout_slots.each do |layout_slot|
       panels.each do |panel|
         next if @placed_topics[panel.topic.id] # Don't use the same topic twice.
+        next unless layout_slot[:id].blank?
         layout_slot[:id] = panel.id
         layout_slot[:type] = :panel
         @placed_topics[panel.topic.id] = true

@@ -43,16 +43,22 @@ class Panel < ActiveRecord::Base
     :processors => [:cropper],
     :styles => lambda { |image|
       panel = image.instance
-      {
-        :original => {
-          :geometry => "#{panel.width_for_tile_256}x#{panel.height_for_tile_256}#",
-          :quality => 10,
-          :format => 'jpg',
+      original = {
+        :geometry => "#{panel.width_for_tile_256}x#{panel.height_for_tile_256}#",
+        :quality => 10,
+        :format => 'jpg'
+      }
+      if panel.panel_source_image.nil?
+      else
+        original = {
           :original_width => 
-            Paperclip::Geometry.from_file(panel.topic.images.first.tile_512.to_file(:original)).width,
+            Paperclip::Geometry.from_file(panel.panel_source_image.to_file(:original)).width,
           :original_height =>
-            Paperclip::Geometry.from_file(panel.topic.images.first.tile_512.to_file(:original)).height
-        }
+            Paperclip::Geometry.from_file(panel.panel_source_image.to_file(:original)).height
+        }.merge original
+      end
+      {
+        :original => original
       }
     }
   }.merge(PAPERCLIP_CONFIG_PANELS)
@@ -61,16 +67,22 @@ class Panel < ActiveRecord::Base
     :processors => [:cropper],
     :styles => lambda { |image|
       panel = image.instance
-      {
-        :original => {
-          :geometry => "#{panel.width_for_tile_512}x#{panel.height_for_tile_512}#",
-          :quality => 10,
-          :format => 'jpg',
+      original = {
+        :geometry => "#{panel.width_for_tile_512}x#{panel.height_for_tile_512}#",
+        :quality => 10,
+        :format => 'jpg'
+      }
+      if panel.panel_source_image.nil?
+      else
+        original = {
           :original_width => 
-            Paperclip::Geometry.from_file(panel.topic.images.first.tile_512.to_file(:original)).width,
+            Paperclip::Geometry.from_file(panel.panel_source_image.to_file(:original)).width,
           :original_height =>
-            Paperclip::Geometry.from_file(panel.topic.images.first.tile_512.to_file(:original)).height
-        }
+            Paperclip::Geometry.from_file(panel.panel_source_image.to_file(:original)).height
+        }.merge original
+      end
+      {
+        :original => original
       }
     }
   }.merge(PAPERCLIP_CONFIG_PANELS)
@@ -99,6 +111,12 @@ class Panel < ActiveRecord::Base
   end
   def height_for_tile_256
     height_for_tile_512 / 2
+  end
+  
+  def panel_source_image
+    return image.tile_512 if !image.nil? and !image.tile_512_file_name.nil?
+    return image.tile_256 if !image.nil?
+    nil
   end
   
   private

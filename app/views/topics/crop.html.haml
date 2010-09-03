@@ -22,8 +22,8 @@
   = form.semantic_fields_for :panels do |panel|
     - panel_id = 'panel' + id_or_new_count(panel.object)
     - panel_javascript = panel_id.gsub(/\W/,'')
-    - width = Paperclip::Geometry.from_file(panel.object.image.tile_512.to_file(:original)).width.to_i
-    - height = Paperclip::Geometry.from_file(panel.object.image.tile_512.to_file(:original)).height.to_i
+    - width = Paperclip::Geometry.from_file(panel.object.panel_source_image.to_file(:original)).width.to_i
+    - height = Paperclip::Geometry.from_file(panel.object.panel_source_image.to_file(:original)).height.to_i
     = panel.inputs do
       .row
         .panel.auto-width
