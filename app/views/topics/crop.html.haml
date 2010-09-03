@@ -27,7 +27,7 @@
     = panel.inputs do
       .row
         .panel.auto-width
-          = image_tag panel.object.image.tile_512.url(:original), :id => panel_id, :class => 'stretch'
+          = image_tag panel.object.panel_source_image.url(:original), :id => panel_id, :class => 'stretch'
         .panel.square
           %div{:id => "#{panel_id}-preview", :class => 'preview-image'}
             - url = panel.object.tile_256.url(:original)

@@ -56,19 +56,20 @@ class Image < ActiveRecord::Base
     :convert_options => { :original => '-strip -quality 90' }
   }.merge(PAPERCLIP_CONFIG_IMAGES)
 
-  alias :paperclip_tile_512= :tile_512=
-  def tile_512=(attachment)
-    self.paperclip_tile_512 = attachment
-    self.tile_256 = attachment
-  end
+  # alias :paperclip_tile_256= :tile_256=
+  # def tile_256=(attachment)
+  #   require 'ruby-debug'; debugger
+  #   if Paperclip::Geometry.from_file(attachment).width.to_i > 512
+  #     self.tile_512 = attachment
+  #   end
+  #   self.paperclip_tile_256 = attachment
+  # end
 
-  after_save :prune_duplicates
-  def prune_duplicates
-    return if tile_512_file_name.nil?
-    # Discard the tile_512 image if it's not any larger than the tile_256 image.
-    if Paperclip::Geometry.from_file(tile_512.to_file(:original)).width.to_i <= 512
-      self.paperclip_tile_512 = nil
-      self.save
+  alias :paperclip_tile_256= :tile_256=
+  def tile_256=(attachment)
+    self.paperclip_tile_256 = attachment
+    if Paperclip::Geometry.from_file(attachment).width.to_i > 512
+      self.tile_512 = attachment
     end
   end
 

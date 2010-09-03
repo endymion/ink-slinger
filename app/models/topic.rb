@@ -16,7 +16,7 @@
 class Topic < ActiveRecord::Base
   has_many :images, :dependent => :destroy, :order => 'updated_at DESC'
   accepts_nested_attributes_for :images, :allow_destroy => true,
-    :reject_if => proc { |attrs| attrs['tile_512'].blank? }
+    :reject_if => proc { |attrs| attrs['tile_256'].blank? }
 
   has_many :panels, :dependent => :destroy, :order => 'updated_at DESC'
   accepts_nested_attributes_for :panels, :allow_destroy => true
