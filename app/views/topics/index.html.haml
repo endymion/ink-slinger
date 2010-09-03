@@ -16,6 +16,7 @@
         .copy.bottom.right
           %h3.action= link_to t('show'), topic
           %h3.action= link_to t('edit'), edit_topic_path(topic)
+          %h3.action= link_to t('crop'), crop_topic_path(topic)
           %h3.action= link_to t('destroy'), topic, :confirm => t('are_you_sure'), :method => :delete
       .panel.square
         - if !topic.square_panels.blank?

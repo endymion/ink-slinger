@@ -15,18 +15,19 @@
 - content_for :header do
   %h1= t '.title'
   %h2= link_to t('topics.index.title'), topics_path
+  %h2= link_to t('show'), @topic
   %h2= link_to t('edit'), edit_topic_path(@topic)
 
 = semantic_form_for new_panel(@topic), :html => { :multipart => true } do |form|
   = form.semantic_fields_for :panels do |panel|
     - panel_id = 'panel' + id_or_new_count(panel.object)
     - panel_javascript = panel_id.gsub(/\W/,'')
-    - width = Paperclip::Geometry.from_file(@topic.images.first.tile_256.to_file(:original)).width.to_i
-    - height = Paperclip::Geometry.from_file(@topic.images.first.tile_256.to_file(:original)).height.to_i
+    - width = Paperclip::Geometry.from_file(@topic.images.first.tile_512.to_file(:original)).width.to_i
+    - height = Paperclip::Geometry.from_file(@topic.images.first.tile_512.to_file(:original)).height.to_i
     = panel.inputs do
       .row
         .panel.auto-width
-          = image_tag @topic.images.first.tile_256.url(:original), :id => panel_id, :class => 'stretch'
+          = image_tag @topic.images.first.tile_512.url(:original), :id => panel_id, :class => 'stretch'
           :javascript
             var #{"showPreview_#{panel_javascript}"} = function(coords)
             {
@@ -45,32 +46,31 @@
 
               console.log('normalized: ' + normalized_x + ', ' + normalized_y + ', ' + normalized_w + ', ' + normalized_h);
 
-              if ( ( coords.w < $('##{panel_id}-preview').width() ) ||
-                    ( coords.h < $('##{panel_id}-preview').width() * 0.9 * #{height.to_f/width} ) )
+              if ( ( coords.w > $('##{panel_id}-preview').width() ) &&
+                    ( coords.h > $('##{panel_id}-preview').width() * #{height.to_f/width} ) )
               {
-                normalized_x = normalized_y = 0;
-                normalized_w = normalized_h = 1;
-              }
-
-            	$('##{panel_id}-preview-image').css({
-                width: Math.round(1 / normalized_w * preview_width) + 'px',
-                height: Math.round(1 / normalized_h * preview_height) + 'px',
-                marginLeft: '-' + Math.round(normalized_x / normalized_w * preview_width) + 'px',  
-                marginTop: '-' + Math.round(normalized_y / normalized_h * preview_height) + 'px',
-                maxWidth: 'none'
-            	});
-            	$('##{panel_id}-preview-image').attr('src', '#{ @topic.images.first.tile_256.url(:original) }');
-            	$('##{panel_id}-preview').css({
-            	  height: preview_height
-            	});
+              	$('##{panel_id}-preview-image').css({
+                  width: Math.round(1 / normalized_w * preview_width) + 'px',
+                  height: Math.round(1 / normalized_h * preview_height) + 'px',
+                  marginLeft: '-' + Math.round(normalized_x / normalized_w * preview_width) + 'px',  
+                  marginTop: '-' + Math.round(normalized_y / normalized_h * preview_height) + 'px',
+                  maxWidth: 'none'
+              	});
+              	$('##{panel_id}-preview-image').attr('src', '#{ @topic.images.first.tile_256.url(:original) }');
+              	$('##{panel_id}-preview').css({
+              	  height: preview_height
+              	});
             	
-            	update_crop('#{panel_id}', normalized_x, normalized_y, normalized_w, normalized_h);
+              	update_crop('#{panel_id}',
+              	  normalized_x, normalized_y, normalized_w, normalized_h);
+              }
             };
             jQuery(window).bind('load', function() {
               $('##{panel_id}').Jcrop({
                 onChange: #{"showPreview_#{panel_javascript}"},  
                 onSelect: #{"showPreview_#{panel_javascript}"},
-                aspectRatio: 1
+                aspectRatio: 1,
+                #{ "setSelect: [#{select_x = (width * panel.object.crop_x)}, #{select_y = (height * panel.object.crop_y)}, #{select_x + (width * panel.object.crop_w)}, #{select_y + (height * panel.object.crop_h)}]" if panel.object.cropping? }
               });
             });
         .panel.square

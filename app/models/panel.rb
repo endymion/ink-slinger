@@ -20,14 +20,15 @@
 class Panel < ActiveRecord::Base
   belongs_to :topic
   belongs_to :image
-  attr_accessible :arrangement, :tile_256, :tile_512
+  attr_accessible :tile_256, :tile_512
+  attr_accessible :arrangement, :crop_x, :crop_y, :crop_w, :crop_h
 
-  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
-  attr_accessible :crop_x, :crop_y, :crop_w, :crop_h
-  after_create :reprocess_tiles, :if => :cropping?
-  after_update :reprocess_tiles, :if => :cropping?
+  after_save :reprocess_tiles, :if => :cropping?
   def cropping?
-    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?  
+    # If any are blank then not cropping.
+    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank? &&
+    # Or if all are zero then not cropping.
+    !(crop_x.zero? && crop_y.zero? && crop_w.zero? && crop_h.zero?)
   end  
   
   scope :for_topic, lambda {|topic|

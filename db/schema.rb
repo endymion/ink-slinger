@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100902221052) do
+ActiveRecord::Schema.define(:version => 20100903160151) do
 
   create_table "brands", :force => true do |t|
     t.string   "domain_name"
@@ -49,6 +49,10 @@ ActiveRecord::Schema.define(:version => 20100902221052) do
     t.integer  "tile_512_file_size"
     t.datetime "tile_512_updated_at"
     t.integer  "image_id"
+    t.float    "crop_x"
+    t.float    "crop_y"
+    t.float    "crop_w"
+    t.float    "crop_h"
   end
 
   create_table "taggings", :force => true do |t|
