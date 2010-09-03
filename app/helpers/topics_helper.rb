@@ -8,7 +8,7 @@ module TopicsHelper
 
   def new_panel(topic)
     returning(topic) do |p|
-      p.panels.build
+      p.panels.build unless topic.panels.size > 0
     end
   end
   

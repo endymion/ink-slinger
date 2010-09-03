@@ -85,4 +85,13 @@
             = panel.label :_destroy, :label => 'Remove'
           - for attribute in [:crop_x, :crop_y, :crop_w, :crop_h]
             = panel.hidden_field attribute, :id => "#{panel_id}-#{attribute}"
-  = form.submit
+
+  .row.footer
+    .panel.auto-width.title
+      %img.stretch.spacer-1-1{ :src => '/images/spacers/1x1.gif' }
+      %img.stretch.spacer-2-1{ :src => '/images/spacers/2x1.gif' }
+      %img.stretch.spacer-3-1{ :src => '/images/spacers/3x1.gif' }
+      .copy.top
+        = form.submit
+    .panel.square
+      = render :partial => '/layouts/footer_panel'
