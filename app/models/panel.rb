@@ -20,6 +20,7 @@
 class Panel < ActiveRecord::Base
   belongs_to :topic
   belongs_to :image
+  attr_accessible :topic, :image
   attr_accessible :tile_256, :tile_512
   attr_accessible :arrangement, :crop_x, :crop_y, :crop_w, :crop_h
 

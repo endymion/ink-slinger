@@ -8,7 +8,9 @@ module TopicsHelper
 
   def new_panel(topic)
     returning(topic) do |p|
-      p.panels.build unless topic.panels.size > 0
+      unless topic.panels.size > 0
+        p.panels << Panel.new(:topic => topic, :image => topic.images.first)
+      end
     end
   end
   

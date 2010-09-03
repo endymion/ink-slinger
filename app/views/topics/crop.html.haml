@@ -22,69 +22,101 @@
   = form.semantic_fields_for :panels do |panel|
     - panel_id = 'panel' + id_or_new_count(panel.object)
     - panel_javascript = panel_id.gsub(/\W/,'')
-    - width = Paperclip::Geometry.from_file(@topic.images.first.tile_512.to_file(:original)).width.to_i
-    - height = Paperclip::Geometry.from_file(@topic.images.first.tile_512.to_file(:original)).height.to_i
+    - width = Paperclip::Geometry.from_file(panel.object.image.tile_512.to_file(:original)).width.to_i
+    - height = Paperclip::Geometry.from_file(panel.object.image.tile_512.to_file(:original)).height.to_i
     = panel.inputs do
       .row
         .panel.auto-width
-          = image_tag @topic.images.first.tile_512.url(:original), :id => panel_id, :class => 'stretch'
-          :javascript
-            var #{"showPreview_#{panel_javascript}"} = function(coords)
-            {
-              var panel_width = $('##{panel_id}').width();
-              var panel_height = $('##{panel_id}').height();
-              var preview_width = $('##{panel_id}-preview').width();
-              var preview_height = preview_width; // TODO: portrait, landscape
-
-              console.log('panel: ' + panel_width + ', ' + panel_height);
-              console.log('coords: ' + coords.x + ', ' + coords.y + ', ' + coords.w + ', ' + coords.h);
-
-            	var normalized_x = coords.x / panel_width;
-            	var normalized_y = coords.y / panel_height;
-            	var normalized_w = coords.w / panel_width;
-            	var normalized_h = coords.h / panel_height;
-
-              console.log('normalized: ' + normalized_x + ', ' + normalized_y + ', ' + normalized_w + ', ' + normalized_h);
-
-              if ( ( coords.w > $('##{panel_id}-preview').width() ) &&
-                    ( coords.h > $('##{panel_id}-preview').width() * #{height.to_f/width} ) )
-              {
-              	$('##{panel_id}-preview-image').css({
-                  width: Math.round(1 / normalized_w * preview_width) + 'px',
-                  height: Math.round(1 / normalized_h * preview_height) + 'px',
-                  marginLeft: '-' + Math.round(normalized_x / normalized_w * preview_width) + 'px',  
-                  marginTop: '-' + Math.round(normalized_y / normalized_h * preview_height) + 'px',
-                  maxWidth: 'none'
-              	});
-              	$('##{panel_id}-preview-image').attr('src', '#{ @topic.images.first.tile_256.url(:original) }');
-              	$('##{panel_id}-preview').css({
-              	  height: preview_height
-              	});
-            	
-              	update_crop('#{panel_id}',
-              	  normalized_x, normalized_y, normalized_w, normalized_h);
-              }
-            };
-            jQuery(window).bind('load', function() {
-              $('##{panel_id}').Jcrop({
-                onChange: #{"showPreview_#{panel_javascript}"},  
-                onSelect: #{"showPreview_#{panel_javascript}"},
-                aspectRatio: 1,
-                #{ "setSelect: [#{select_x = (width * panel.object.crop_x)}, #{select_y = (height * panel.object.crop_y)}, #{select_x + (width * panel.object.crop_w)}, #{select_y + (height * panel.object.crop_h)}]" if panel.object.cropping? }
-              });
-            });
+          = image_tag panel.object.image.tile_512.url(:original), :id => panel_id, :class => 'stretch'
         .panel.square
           %div{:id => "#{panel_id}-preview", :class => 'preview-image'}
             - url = panel.object.tile_256.url(:original)
-            - url = @topic.images.first.tile_256.url(:original) if panel.object.tile_256_file_name.nil?
+            - url = panel.object.image.tile_256.url(:original) if panel.object.tile_256_file_name.nil?
             = image_tag url, :id => panel_id + '-preview-image', :class => 'stretch'
           - arrangement_label = (panel.object.new_record?) ? '' : 'Arrangement'
-          = panel.select :arrangement, options_for_select(['square', 'landscape', 'portrait'], panel.object.arrangement)
+          = panel.select :arrangement, options_for_select(['square', 'landscape', 'portrait'], panel.object.arrangement), {}, {:id => "#{panel_id}-arrangement"}
           - unless panel.object.new_record?
             = panel.check_box :_destroy
             = panel.label :_destroy, :label => 'Remove'
           - for attribute in [:crop_x, :crop_y, :crop_w, :crop_h]
             = panel.hidden_field attribute, :id => "#{panel_id}-#{attribute}"
+      :javascript
+        var #{"jcrop_api_#{panel_javascript}"};
+        var panel_aspect = 1;
+        function #{"resizePreview_#{panel_javascript}"}() {
+          var preview_width = $('##{panel_id}-preview').width();
+          switch($("##{panel_id}-arrangement").val())
+          {
+            case 'portrait':
+              panel_aspect = 0.5;
+              break;
+            case 'landscape':
+              panel_aspect = 2;
+              break;
+            default:
+              panel_aspect = 1;
+              break;
+          }
+          var preview_height = preview_width / panel_aspect;
+          $('##{panel_id}-preview').css({
+        	  height: preview_height
+        	});
+          return preview_height;         
+        }
+        var #{"showPreview_#{panel_javascript}"} = function(coords)
+        {
+          var panel_width = $('##{panel_id}').width();
+          var panel_height = $('##{panel_id}').height();
+          var preview_width = $('##{panel_id}-preview').width();
+          var preview_height = #{"resizePreview_#{panel_javascript}"}();
+
+          console.log('panel: ' + panel_width + ', ' + panel_height);
+          console.log('coords: ' + coords.x + ', ' + coords.y + ', ' + coords.w + ', ' + coords.h);
+
+        	var normalized_x = coords.x / panel_width;
+        	var normalized_y = coords.y / panel_height;
+        	var normalized_w = coords.w / panel_width;
+        	var normalized_h = coords.h / panel_height;
+
+          console.log('normalized: ' + normalized_x + ', ' + normalized_y + ', ' + normalized_w + ', ' + normalized_h);
+
+          if ( ( coords.w > $('##{panel_id}-preview').width() ) &&
+                ( coords.h > $('##{panel_id}-preview').width() * #{height.to_f/width} ) )
+          {
+          	$('##{panel_id}-preview-image').css({
+              width: Math.round(1 / normalized_w * preview_width) + 'px',
+              height: Math.round(1 / normalized_h * preview_height) + 'px',
+              marginLeft: '-' + Math.round(normalized_x / normalized_w * preview_width) + 'px',  
+              marginTop: '-' + Math.round(normalized_y / normalized_h * preview_height) + 'px',
+              maxWidth: 'none'
+          	});
+          	$('##{panel_id}-preview-image').attr('src', '#{ panel.object.image.tile_256.url(:original) }');
+
+          	update_crop('#{panel_id}',
+          	  normalized_x, normalized_y, normalized_w, normalized_h);
+          }
+        };
+
+        var panel_width = $('##{panel_id}').width();
+        var panel_height = $('##{panel_id}').height();            
+        var select_x = #{panel.object.cropping? ? panel.object.crop_x : 0} * panel_width;
+        var select_y = #{panel.object.cropping? ? panel.object.crop_y : 0} * panel_height;
+        var select_x2 = select_x + #{panel.object.cropping? ? panel.object.crop_w : 0} * panel_width;
+        var select_y2 = select_y + #{panel.object.cropping? ? panel.object.crop_h : 0} * panel_height;
+        console.log('select: ' + select_x + ', ' + select_y + ', ' + select_x2 + ', ' + select_y2);
+        jQuery(window).bind('load', function() {
+          #{"jcrop_api_#{panel_javascript}"} = $.Jcrop('##{panel_id}', {
+            onChange: #{"showPreview_#{panel_javascript}"},  
+            onSelect: #{"showPreview_#{panel_javascript}"},
+            aspectRatio: panel_aspect,
+            #{ "setSelect: [select_x, select_y, select_x2, select_y2]" if panel.object.cropping? }
+          });
+        });
+        
+        $("##{panel_id}-arrangement").change(function(){
+          #{"resizePreview_#{panel_javascript}"}();
+          #{"jcrop_api_#{panel_javascript}"}.setOptions({ aspectRatio: panel_aspect });
+        });
 
   .row.footer
     .panel.auto-width.title
