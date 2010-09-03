@@ -2,5 +2,6 @@
   %h1= t '.title'
   %h2= link_to t('topics.index.title'), topics_path
   %h2= link_to t('show'), @topic
+  %h2= link_to t('crop'), crop_topic_path(@topic)
 
 = render 'form'    

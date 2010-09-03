@@ -55,5 +55,13 @@ Sass::Plugin.options[:never_update] = true
 PAPERCLIP_CONFIG = {
   :storage => :s3,
   :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-  :bucket => "static.brave-new-media.com"
+  :bucket => "static.brave-new-media.com"  
 }
+PAPERCLIP_CONFIG_IMAGES = {
+  :path => "system/images/:attachment/:id/:style.:extension",
+  :url => "/system/panels/:attachment/:id/:style.:extension"
+}.merge(PAPERCLIP_CONFIG)
+PAPERCLIP_CONFIG_PANELS = {
+  :path => "system/panels/:attachment/:id/:style.:extension",
+  :url => "/system/panels/:attachment/:id/:style.:extension"
+}.merge(PAPERCLIP_CONFIG)

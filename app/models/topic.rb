@@ -19,6 +19,7 @@ class Topic < ActiveRecord::Base
     :reject_if => proc { |attrs| attrs['tile_512'].blank? }
 
   has_many :panels, :dependent => :destroy, :order => 'updated_at DESC'
+  accepts_nested_attributes_for :panels, :allow_destroy => true
 
   acts_as_taggable_on :tags
 

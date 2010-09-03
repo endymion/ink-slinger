@@ -1,4 +1,4 @@
-= semantic_form_for setup_topic(@topic), :html => { :multipart => true } do |form|
+= semantic_form_for new_image(@topic), :html => { :multipart => true } do |form|
   .row
     .panel.auto-width
       .body
@@ -21,7 +21,6 @@
           = image_tag image.object.tile_256(:original), :class => 'stretch' unless image.object.new_record?
           - if image.object.new_record?
             = image.label :new_image, :label => 'New Image'
-          - arrangement_label = (image.object.new_record?) ? '' : 'Arrangement'
           = image.file_field :tile_512
           - unless image.object.new_record?
             = image.check_box :_destroy

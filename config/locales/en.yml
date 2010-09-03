@@ -6,6 +6,7 @@ en:
   back: back
   show: show
   edit: edit
+  crop: crop
   are_you_sure: are you sure?
   destroy: destroy
   topics:

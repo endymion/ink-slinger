@@ -1,17 +1,88 @@
 - content_for :title, I18n.translate('topics.crop.title')
+
+- content_for :head do
+  = stylesheet_link_tag "jquery.Jcrop"
+  = javascript_include_tag "jquery.Jcrop.min"
+  :javascript
+    function update_crop(panel_id,x,y,w,h) {
+      console.log("XYWH: " + x + ', ' + y + ', ' + w + ', ' + h);
+      $('#' + panel_id + '-crop_x').val(x.toString());
+      $('#' + panel_id + '-crop_y').val(y.toString());
+      $('#' + panel_id + '-crop_w').val(w.toString());
+      $('#' + panel_id + '-crop_h').val(h.toString());
+    }
+
 - content_for :header do
   %h1= t '.title'
   %h2= link_to t('topics.index.title'), topics_path
   %h2= link_to t('edit'), edit_topic_path(@topic)
 
+= semantic_form_for new_panel(@topic), :html => { :multipart => true } do |form|
+  = form.semantic_fields_for :panels do |panel|
+    - panel_id = 'panel' + id_or_new_count(panel.object)
+    - panel_javascript = panel_id.gsub(/\W/,'')
+    - width = Paperclip::Geometry.from_file(@topic.images.first.tile_256.to_file(:original)).width.to_i
+    - height = Paperclip::Geometry.from_file(@topic.images.first.tile_256.to_file(:original)).height.to_i
+    = panel.inputs do
+      .row
+        .panel.auto-width
+          = image_tag @topic.images.first.tile_256.url(:original), :id => panel_id, :class => 'stretch'
+          :javascript
+            var #{"showPreview_#{panel_javascript}"} = function(coords)
+            {
+              var panel_width = $('##{panel_id}').width();
+              var panel_height = $('##{panel_id}').height();
+              var preview_width = $('##{panel_id}-preview').width();
+              var preview_height = preview_width; // TODO: portrait, landscape
 
-.row
-  .panel.auto-width
-    .body
-      %h2= @topic.title
-      .panel-copy= @topic.panel
-      .body-copy= @topic.body
-  .panel.square
-    - for panel in @topic.panels
-      - next if panel.tile_256_file_name.blank?
-      = image_tag panel.tile_256(:original), :class => 'stretch'
+              console.log('panel: ' + panel_width + ', ' + panel_height);
+              console.log('coords: ' + coords.x + ', ' + coords.y + ', ' + coords.w + ', ' + coords.h);
+
+            	var normalized_x = coords.x / panel_width;
+            	var normalized_y = coords.y / panel_height;
+            	var normalized_w = coords.w / panel_width;
+            	var normalized_h = coords.h / panel_height;
+
+              console.log('normalized: ' + normalized_x + ', ' + normalized_y + ', ' + normalized_w + ', ' + normalized_h);
+
+              if ( ( coords.w < $('##{panel_id}-preview').width() ) ||
+                    ( coords.h < $('##{panel_id}-preview').width() * 0.9 * #{height.to_f/width} ) )
+              {
+                normalized_x = normalized_y = 0;
+                normalized_w = normalized_h = 1;
+              }
+
+            	$('##{panel_id}-preview-image').css({
+                width: Math.round(1 / normalized_w * preview_width) + 'px',
+                height: Math.round(1 / normalized_h * preview_height) + 'px',
+                marginLeft: '-' + Math.round(normalized_x / normalized_w * preview_width) + 'px',  
+                marginTop: '-' + Math.round(normalized_y / normalized_h * preview_height) + 'px',
+                maxWidth: 'none'
+            	});
+            	$('##{panel_id}-preview-image').attr('src', '#{ @topic.images.first.tile_256.url(:original) }');
+            	$('##{panel_id}-preview').css({
+            	  height: preview_height
+            	});
+            	
+            	update_crop('#{panel_id}', normalized_x, normalized_y, normalized_w, normalized_h);
+            };
+            jQuery(window).bind('load', function() {
+              $('##{panel_id}').Jcrop({
+                onChange: #{"showPreview_#{panel_javascript}"},  
+                onSelect: #{"showPreview_#{panel_javascript}"},
+                aspectRatio: 1
+              });
+            });
+        .panel.square
+          %div{:id => "#{panel_id}-preview", :class => 'preview-image'}
+            - url = panel.object.tile_256.url(:original)
+            - url = @topic.images.first.tile_256.url(:original) if panel.object.tile_256_file_name.nil?
+            = image_tag url, :id => panel_id + '-preview-image', :class => 'stretch'
+          - arrangement_label = (panel.object.new_record?) ? '' : 'Arrangement'
+          = panel.select :arrangement, options_for_select(['square', 'landscape', 'portrait'], panel.object.arrangement)
+          - unless panel.object.new_record?
+            = panel.check_box :_destroy
+            = panel.label :_destroy, :label => 'Remove'
+          - for attribute in [:crop_x, :crop_y, :crop_w, :crop_h]
+            = panel.hidden_field attribute, :id => "#{panel_id}-#{attribute}"
+  = form.submit

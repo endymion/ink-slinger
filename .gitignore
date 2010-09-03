@@ -4,4 +4,4 @@ doc/private
 db/*.sqlite3
 log/*.log
 tmp/**/*
-system
+public/system

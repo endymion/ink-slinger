@@ -26,9 +26,7 @@ class Image < ActiveRecord::Base
   # validates_attachment_size :tile_256, :less_than => 1.megabyte
   # validates_attachment_size :tile_512, :less_than => 1.megabyte
 
-  path = "system/images/:attachment/:id/:style.:extension"
-  has_attached_file :tile_256,
-    :path => path,
+  has_attached_file :tile_256, {
     :processors => [:original], # Don't touch the file unless it's too large.
     :styles => lambda { |image|
       panel = image.instance
@@ -41,9 +39,9 @@ class Image < ActiveRecord::Base
       }
     },
     :convert_options => { :original => '-strip -quality 90' }
-    
-  has_attached_file :tile_512,
-    :path => path,
+  }.merge(PAPERCLIP_CONFIG_IMAGES)
+  
+  has_attached_file :tile_512, {
     :processors => [:original], # Don't touch the file unless it's too large.
     :styles => lambda { |image|
       panel = image.instance
@@ -54,8 +52,9 @@ class Image < ActiveRecord::Base
           :format => 'jpg'
         }
       }
-    }  ,
+    },
     :convert_options => { :original => '-strip -quality 90' }
+  }.merge(PAPERCLIP_CONFIG_IMAGES)
 
   alias :paperclip_tile_512= :tile_512=
   def tile_512=(attachment)

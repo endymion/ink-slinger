@@ -19,8 +19,17 @@
 
 class Panel < ActiveRecord::Base
   belongs_to :topic
+  belongs_to :image
   attr_accessible :arrangement, :tile_256, :tile_512
 
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  attr_accessible :crop_x, :crop_y, :crop_w, :crop_h
+  after_create :reprocess_tiles, :if => :cropping?
+  after_update :reprocess_tiles, :if => :cropping?
+  def cropping?
+    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?  
+  end  
+  
   scope :for_topic, lambda {|topic|
     where("panels.topic_id = #{topic.id}")
   }
@@ -28,40 +37,41 @@ class Panel < ActiveRecord::Base
   scope :landscape, where("panels.arrangement = 'landscape'").order('updated_at DESC')
   scope :portrait, where("panels.arrangement = 'portrait'").order('updated_at DESC')
 
-  path = "system/panels/:attachment/:id/:style.:extension"
-  storage = :s3
-  s3_credentials = "#{Rails.root}/config/s3.yml"
-  bucket = "static.brave-new-media.com"
-  has_attached_file :tile_256,
-    :path => path,
-    :storage => storage,
-    :s3_credentials => s3_credentials,
-    :bucket => bucket,
+  has_attached_file :tile_256, {
+    :processors => [:cropper],
     :styles => lambda { |image|
       panel = image.instance
       {
         :original => {
           :geometry => "#{panel.width_for_tile_256}x#{panel.height_for_tile_256}#",
           :quality => 10,
-          :format => 'jpg'
+          :format => 'jpg',
+          :original_width => 
+            Paperclip::Geometry.from_file(panel.topic.images.first.tile_512.to_file(:original)).width,
+          :original_height =>
+            Paperclip::Geometry.from_file(panel.topic.images.first.tile_512.to_file(:original)).height
         }
       }
     }
-  has_attached_file :tile_512,
-    :path => path,
-    :storage => storage,
-    :s3_credentials => s3_credentials,
-    :bucket => bucket,
+  }.merge(PAPERCLIP_CONFIG_PANELS)
+
+  has_attached_file :tile_512, {
+    :processors => [:cropper],
     :styles => lambda { |image|
       panel = image.instance
       {
         :original => {
           :geometry => "#{panel.width_for_tile_512}x#{panel.height_for_tile_512}#",
           :quality => 10,
-          :format => 'jpg'
+          :format => 'jpg',
+          :original_width => 
+            Paperclip::Geometry.from_file(panel.topic.images.first.tile_512.to_file(:original)).width,
+          :original_height =>
+            Paperclip::Geometry.from_file(panel.topic.images.first.tile_512.to_file(:original)).height
         }
       }
     }
+  }.merge(PAPERCLIP_CONFIG_PANELS)
 
   def width_for_tile_512
     case arrangement
@@ -88,5 +98,15 @@ class Panel < ActiveRecord::Base
   def height_for_tile_256
     height_for_tile_512 / 2
   end
+  
+  private
 
+  def reprocess_tiles
+    return if @reprocessed
+    @reprocessed = true
+    self.tile_512 = self.topic.images.first.tile_512.to_file(:original)
+    self.tile_256 = self.topic.images.first.tile_512.to_file(:original)
+    self.save
+  end
+  
 end

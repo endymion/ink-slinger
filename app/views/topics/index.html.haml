@@ -19,11 +19,11 @@
           %h3.action= link_to t('destroy'), topic, :confirm => t('are_you_sure'), :method => :delete
       .panel.square
         - if !topic.square_panels.blank?
-          = image_tag topic.square_panels.first.tile_256(:original), :class => 'stretch'
+          = image_tag topic.square_panels.first.tile_256.url(:original), :class => 'stretch'
         - elsif !topic.portrait_panels.blank?
-          = image_tag topic.portrait_panels.first.tile_256(:original), :class => 'stretch', :style => 'width: 50%;'
+          = image_tag topic.portrait_panels.first.tile_256.url(:original), :class => 'stretch', :style => 'width: 50%;'
         - elsif !topic.landscape_panels.blank?
-          = image_tag topic.landscape_panels.first.tile_256(:original), :class => 'stretch', :style => 'width: 50%;'
+          = image_tag topic.landscape_panels.first.tile_256.url(:original), :class => 'stretch', :style => 'width: 50%;'
 
 - content_for :footer do
   .copy.top.right

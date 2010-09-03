@@ -27,7 +27,9 @@ img { border: 0; }
 
   // Always go to the full width of the available page.
   width: 100%;
-  
+
+  overflow-x:hidden;
+
   // The above will always introduce rounding errors unless the total page
   // width is divisible by four.  Some jQuery code will fix that when
   // necessary by setting an exact pixel width and an offset.
@@ -68,6 +70,11 @@ img { border: 0; }
   img.stretch {
     width: 100%;
     max-width: 100%;
+  }
+  .preview-image {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
   .copy {
     clear: left;
@@ -269,7 +276,6 @@ img { border: 0; }
     }
   }
 }
-
 
 /* Width adaptations --------------------------------------------------------------*/
 
