@@ -20,7 +20,7 @@ require 'spec_helper'
 
 describe Image do
 
-  describe "file uploads" do
+  describe "image file uploads" do
     
     it "should accept an image attachment" do
       image = Image.create :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_256.jpg')

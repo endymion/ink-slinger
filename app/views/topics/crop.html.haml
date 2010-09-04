@@ -5,7 +5,6 @@
   = javascript_include_tag "jquery.Jcrop.min"
   :javascript
     function update_crop(panel_id,x,y,w,h) {
-      console.log("XYWH: " + x + ', ' + y + ', ' + w + ', ' + h);
       $('#' + panel_id + '-crop_x').val(x.toString());
       $('#' + panel_id + '-crop_y').val(y.toString());
       $('#' + panel_id + '-crop_w').val(w.toString());
@@ -70,15 +69,10 @@
           var preview_width = $('##{panel_id}-preview').width();
           var preview_height = #{"resizePreview_#{panel_javascript}"}();
 
-          console.log('panel: ' + panel_width + ', ' + panel_height);
-          console.log('coords: ' + coords.x + ', ' + coords.y + ', ' + coords.w + ', ' + coords.h);
-
         	var normalized_x = coords.x / panel_width;
         	var normalized_y = coords.y / panel_height;
         	var normalized_w = coords.w / panel_width;
         	var normalized_h = coords.h / panel_height;
-
-          console.log('normalized: ' + normalized_x + ', ' + normalized_y + ', ' + normalized_w + ', ' + normalized_h);
 
           if ( ( coords.w > $('##{panel_id}-preview').width() ) &&
                 ( coords.h > $('##{panel_id}-preview').width() * #{height.to_f/width} ) )
@@ -103,7 +97,7 @@
         var select_y = #{panel.object.cropping? ? panel.object.crop_y : 0} * panel_height;
         var select_x2 = select_x + #{panel.object.cropping? ? panel.object.crop_w : 0} * panel_width;
         var select_y2 = select_y + #{panel.object.cropping? ? panel.object.crop_h : 0} * panel_height;
-        console.log('select: ' + select_x + ', ' + select_y + ', ' + select_x2 + ', ' + select_y2);
+
         jQuery(window).bind('load', function() {
           #{"jcrop_api_#{panel_javascript}"} = $.Jcrop('##{panel_id}', {
             onChange: #{"showPreview_#{panel_javascript}"},  

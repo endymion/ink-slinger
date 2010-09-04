@@ -24,6 +24,38 @@ class Panel < ActiveRecord::Base
   attr_accessible :tile_256, :tile_512
   attr_accessible :arrangement, :crop_x, :crop_y, :crop_w, :crop_h
 
+  before_save :default_crop, :unless => :cropping?
+  def default_crop
+    file = panel_source_image.to_file(:original)
+    source_width = Paperclip::Geometry.from_file(file).width
+    source_height = Paperclip::Geometry.from_file(file).height
+    source_aspect = source_width / source_height
+    
+    self.arrangement ||= 'square'
+    
+    aspect = case arrangement
+    when 'landscape': 2
+    when 'portrait': 0.5
+    else
+      1
+    end
+    
+    if aspect < source_aspect
+      self.crop_y = 0
+      self.crop_h = 1
+      crop_width = source_height * aspect
+      self.crop_w = crop_width / source_width
+      self.crop_x = (source_width/2 - crop_width/2) / source_width
+    else
+      self.crop_x = 0
+      self.crop_w = 1
+      crop_height = source_width / aspect
+      self.crop_h = crop_height / source_height
+      self.crop_y = (source_height/2 - crop_height/2) / source_height
+    end
+    
+  end
+
   after_save :reprocess_tiles, :if => :cropping?
   def cropping?
     # If any are blank then not cropping.

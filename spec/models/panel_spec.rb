@@ -20,5 +20,116 @@
 require 'spec_helper'
 
 describe Panel do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe "panel default cropping" do
+  
+    it "calculates a default crop on saving a new panel" do
+      image = Image.create :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_100x100.jpg')
+      panel = Panel.new :image => image
+      panel.should_receive(:default_crop)
+      panel.save
+    end
+  
+    it "does not calculate a default crop on saving an existing panel" do
+      image = Image.create :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_100x100.jpg')
+      panel = Panel.new :image => image, :crop_x => 0, :crop_y => 0, :crop_w => 1, :crop_h => 1
+      panel.should_not_receive(:default_crop)
+      panel.save
+    end
+    
+  end
+  
+  describe "with square source image" do
+  
+    it "should crop a square from a square" do
+      image = Image.create :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_100x100.jpg')
+      panel = Panel.create :image => image
+      panel.crop_x.should == 0
+      panel.crop_y.should == 0
+      panel.crop_w.should == 1
+      panel.crop_h.should == 1
+    end
+    
+    it "should crop a landscape from a square" do
+      image = Image.create :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_100x100.jpg')
+      panel = Panel.create :image => image, :arrangement => 'landscape'
+      panel.crop_x.should == 0
+      panel.crop_y.should == 0.25
+      panel.crop_w.should == 1
+      panel.crop_h.should == 0.5
+    end
+  
+    it "should crop a portrait from a square" do
+      image = Image.create :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_100x100.jpg')
+      panel = Panel.create :image => image, :arrangement => 'portrait'
+      panel.crop_x.should == 0.25
+      panel.crop_y.should == 0
+      panel.crop_w.should == 0.5
+      panel.crop_h.should == 1
+    end
+        
+  end
+
+  describe "with a landscape source image" do
+
+    it "should crop a square from a landscape" do
+      image = Image.create :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_100x50.jpg')
+      panel = Panel.create :image => image
+      panel.crop_x.should == 0.25
+      panel.crop_y.should == 0
+      panel.crop_w.should == 0.5
+      panel.crop_h.should == 1
+    end
+    
+    it "should crop a landscape from a landscape" do
+      image = Image.create :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_100x50.jpg')
+      panel = Panel.create :image => image, :arrangement => 'landscape'
+      panel.crop_x.should == 0
+      panel.crop_y.should == 0
+      panel.crop_w.should == 1
+      panel.crop_h.should == 1
+    end
+
+    it "should crop a portrait from a landscape" do
+      image = Image.create :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_100x50.jpg')
+      panel = Panel.create :image => image, :arrangement => 'portrait'
+      panel.crop_x.should == 0.375
+      panel.crop_y.should == 0
+      panel.crop_w.should == 0.25
+      panel.crop_h.should == 1
+    end
+
+  end
+
+  describe "with a portrait source image" do
+
+    it "should crop a square from a portrait" do
+      image = Image.create :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_100x200.jpg')
+      panel = Panel.create :image => image
+      panel.crop_x.should == 0
+      panel.crop_y.should == 0.25
+      panel.crop_w.should == 1
+      panel.crop_h.should == 0.5
+    end
+
+    it "should crop a landscape from a portrait" do
+      image = Image.create :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_100x200.jpg')
+      panel = Panel.create :image => image, :arrangement => 'landscape'
+      panel.crop_x.should == 0
+      panel.crop_y.should == 0.375
+      panel.crop_w.should == 1
+      panel.crop_h.should == 0.25
+    end
+
+    it "should crop a portrait from a portrait" do
+      image = Image.create :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_100x200.jpg')
+      panel = Panel.create :image => image, :arrangement => 'portrait'
+      panel.crop_x.should == 0
+      panel.crop_y.should == 0
+      panel.crop_w.should == 1
+      panel.crop_h.should == 1
+    end
+    
+  end
+
 end

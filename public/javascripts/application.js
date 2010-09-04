@@ -57,8 +57,6 @@ function layout_respond() {
   var page_width = total_width;
   var left_offset = 0;
   
-  console.log('responding.');
-  
   var columns = 4; // Default is four columns.
   if (total_width <= 768) { columns = 12; }
   if (total_width <= 512) { columns = 2; }
