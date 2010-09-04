@@ -220,3 +220,13 @@ end
 Then /^what$/ do
   save_and_open_page
 end
+
+Then /^(?:|I )should find "([^"]*)"(?: within "([^"]*)")?$/ do |css, selector|
+  with_scope(selector) do
+    if page.respond_to? :should
+      page.should have_css(css)
+    else
+      assert page.has_css?(css)
+    end
+  end
+end

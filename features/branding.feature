@@ -16,4 +16,4 @@ Scenario: Nightlife Site Title
   When my request is from the host nightlifeobserver.com
   And I am on the home page
   Then the page is valid XHTML
-  And I should see "nightlife"
+  And I should find "#header"

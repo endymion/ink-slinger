@@ -6,7 +6,7 @@
           .mount{:class => mount[:type]}
             - mount[:panels].each do |panel|
               - options = { :class => panel[:arrangement] }
-              - options[:id] = panel[:id] unless panel.id.blank?
+              - options[:id] = panel[:id] unless panel.object_id.blank?
               .panel{options}
                 - if panel[:id].eql? :header
                   = render :partial => '/layouts/header_panel'
