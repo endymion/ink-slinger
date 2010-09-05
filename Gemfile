@@ -43,6 +43,7 @@ group :test do
   gem "launchy"
 
   gem "rspec-rails", ">= 2.0.0.beta.17"
+  gem "rcov"
   gem "ZenTest"
 
   # gem "rspec-rails",        "2.0.0.beta.10", :git => "git://github.com/rspec/rspec-rails.git"
