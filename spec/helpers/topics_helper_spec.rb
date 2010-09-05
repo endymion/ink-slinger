@@ -36,19 +36,19 @@ describe TopicsHelper do
 
   it "id_or_new_count should return '-[id]' when given an object" do
     topic = double('Topic')
-    topic.stub(:id).and_return(37)
+    topic.stub(:object_id).and_return(37)
     helper.id_or_new_count(topic).should == '-37'
   end
 
   it "id_or_new_count should return '-new-1' when given a new object" do
     topic = double('Topic')
-    topic.stub(:id).and_return(nil)
+    topic.stub(:object_id).and_return(nil)
     helper.id_or_new_count(topic).should == '-new-1'
   end
 
   it "id_or_new_count should increment the '-new-?' count when given another new object" do
     topic = double('Topic')
-    topic.stub(:id).and_return(nil)
+    topic.stub(:object_id).and_return(nil)
     helper.id_or_new_count(topic).should == '-new-1'
     helper.id_or_new_count(topic).should == '-new-2'
   end

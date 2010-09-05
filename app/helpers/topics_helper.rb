@@ -15,12 +15,12 @@ module TopicsHelper
   end
   
   def id_or_new_count(object)
-    if object.id.blank?
+    if object.object_id.blank?
       @new_count = 0 if @new_count.nil?
       @new_count += 1
       '-new-' + @new_count.to_s
     else
-      '-' + object.id.to_s
+      '-' + object.object_id.to_s
     end
   end
 
