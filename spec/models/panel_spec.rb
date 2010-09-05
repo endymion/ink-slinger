@@ -228,6 +228,27 @@ describe Panel do
       end
     end
 
+    describe 'for invalid tile sizes' do
+      before do
+        image = Image.create :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_100x100.jpg')
+        @panel = Panel.create :image => image, :arrangement => 'portrait'
+      end
+      it 'height should raise an exception' do
+        expect {
+          puts @panel.height(257)
+        }.to raise_error(
+          "Invalid tile height for Panel: 257"
+        )
+      end
+      it 'width should raise an exception' do
+        expect {
+          puts @panel.width(257)
+        }.to raise_error(
+          "Invalid tile width for Panel: 257"
+        )
+      end
+    end
+
   end
 
 end

@@ -147,7 +147,7 @@ class Panel < ActiveRecord::Base
     elsif tile_width.eql? 256
       height(512) / 2
     else
-      raise "Invalid tile width for Panel: #{tile_width}"
+      raise "Invalid tile height for Panel: #{tile_width}"
     end
   end
   
