@@ -67,4 +67,21 @@ describe Image do
     
   end
 
+  describe 'panel source image' do
+    
+    it 'should be the image for 512px-wide tiles if one exists' do
+      image = Image.create :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_1024.jpg')
+      Paperclip::Geometry.from_file(image.panel_source_image.to_file(:original)).width.to_i.should eql(1024)
+    end
+
+    it 'should be the image for 256px-wide tiles if no image exists for 512px-wide tiles' do
+      image = Image.create :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_512.jpg')
+      Paperclip::Geometry.from_file(image.panel_source_image.to_file(:original)).width.to_i.should eql(512)
+    end
+
+    it 'should be nil if there are no images attached' do
+    end
+    
+  end
+
 end

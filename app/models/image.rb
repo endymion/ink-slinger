@@ -64,4 +64,10 @@ class Image < ActiveRecord::Base
     end
   end
 
+  def panel_source_image
+    return tile_512 if !tile_512_file_name.nil?
+    return tile_256 if !tile_256_file_name.nil?
+    nil
+  end
+
 end

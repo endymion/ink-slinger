@@ -26,7 +26,7 @@ class Panel < ActiveRecord::Base
 
   before_save :default_crop, :unless => :cropping?
   def default_crop
-    file = panel_source_image.to_file(:original)
+    file = image.panel_source_image.to_file(:original)
     source_width = Paperclip::Geometry.from_file(file).width
     source_height = Paperclip::Geometry.from_file(file).height
     source_aspect = source_width / source_height
@@ -80,13 +80,13 @@ class Panel < ActiveRecord::Base
         :quality => 10,
         :format => 'jpg'
       }
-      if panel.panel_source_image.nil?
+      if panel.image.panel_source_image.nil?
       else
         original = {
           :original_width => 
-            Paperclip::Geometry.from_file(panel.panel_source_image.to_file(:original)).width,
+            Paperclip::Geometry.from_file(panel.image.panel_source_image.to_file(:original)).width,
           :original_height =>
-            Paperclip::Geometry.from_file(panel.panel_source_image.to_file(:original)).height
+            Paperclip::Geometry.from_file(panel.image.panel_source_image.to_file(:original)).height
         }.merge original
       end
       {
@@ -104,13 +104,13 @@ class Panel < ActiveRecord::Base
         :quality => 10,
         :format => 'jpg'
       }
-      if panel.panel_source_image.nil?
+      if panel.image.panel_source_image.nil?
       else
         original = {
           :original_width => 
-            Paperclip::Geometry.from_file(panel.panel_source_image.to_file(:original)).width,
+            Paperclip::Geometry.from_file(panel.image.panel_source_image.to_file(:original)).width,
           :original_height =>
-            Paperclip::Geometry.from_file(panel.panel_source_image.to_file(:original)).height
+            Paperclip::Geometry.from_file(panel.image.panel_source_image.to_file(:original)).height
         }.merge original
       end
       {
@@ -151,19 +151,13 @@ class Panel < ActiveRecord::Base
     end
   end
   
-  def panel_source_image
-    return image.tile_512 if !image.nil? and !image.tile_512_file_name.nil?
-    return image.tile_256 if !image.nil?
-    nil
-  end
-  
   private
 
   def reprocess_tiles
     return if @reprocessed
     @reprocessed = true
-    self.tile_512 = self.panel_source_image.to_file(:original)
-    self.tile_256 = self.panel_source_image.to_file(:original)
+    self.tile_512 = image.panel_source_image.to_file(:original)
+    self.tile_256 = image.panel_source_image.to_file(:original)
     self.save
   end
   

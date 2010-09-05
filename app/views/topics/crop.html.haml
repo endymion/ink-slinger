@@ -21,12 +21,12 @@
   = form.semantic_fields_for :panels do |panel|
     - panel_id = 'panel' + id_or_new_count(panel.object)
     - panel_javascript = panel_id.gsub(/\W/,'')
-    - width = Paperclip::Geometry.from_file(panel.object.panel_source_image.to_file(:original)).width.to_i
-    - height = Paperclip::Geometry.from_file(panel.object.panel_source_image.to_file(:original)).height.to_i
+    - width = Paperclip::Geometry.from_file(panel.object.image.panel_source_image.to_file(:original)).width.to_i
+    - height = Paperclip::Geometry.from_file(panel.object.image.panel_source_image.to_file(:original)).height.to_i
     = panel.inputs do
       .row
         .panel.auto-width
-          = image_tag panel.object.panel_source_image.url(:original), :id => panel_id, :class => 'stretch'
+          = image_tag panel.object.image.panel_source_image.url(:original), :id => panel_id, :class => 'stretch'
         .panel.square
           %div{:id => "#{panel_id}-preview", :class => 'preview-image'}
             - url = panel.object.tile_256.url(:original)
