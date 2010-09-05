@@ -24,9 +24,9 @@ class Topic < ActiveRecord::Base
   acts_as_taggable_on :tags
 
   scope :image_topics, lambda {
-    joins("INNER JOIN panels ON panels.topic_id = topics.id").
-    select("topics.*, count(panels.id) panels_count").
-    group("panels.topic_id HAVING panels_count > 0")
+    where('topics.id IN ' +
+    '(SELECT topics.id FROM topics LEFT JOIN panels ON panels.topic_id = topics.id ' +
+    'WHERE panels.topic_id IS NOT NULL)')
   }
   scope :text_topics, lambda {
     where('topics.id IN ' +
