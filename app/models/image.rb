@@ -56,15 +56,6 @@ class Image < ActiveRecord::Base
     :convert_options => { :original => '-strip -quality 90' }
   }.merge(PAPERCLIP_CONFIG_IMAGES)
 
-  # alias :paperclip_tile_256= :tile_256=
-  # def tile_256=(attachment)
-  #   require 'ruby-debug'; debugger
-  #   if Paperclip::Geometry.from_file(attachment).width.to_i > 512
-  #     self.tile_512 = attachment
-  #   end
-  #   self.paperclip_tile_256 = attachment
-  # end
-
   alias :paperclip_tile_256= :tile_256=
   def tile_256=(attachment)
     self.paperclip_tile_256 = attachment
