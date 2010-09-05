@@ -76,7 +76,7 @@ class Panel < ActiveRecord::Base
     :styles => lambda { |image|
       panel = image.instance
       original = {
-        :geometry => "#{panel.width_for_tile_256}x#{panel.height_for_tile_256}!",
+        :geometry => "#{panel.width(256)}x#{panel.height(256)}!",
         :quality => 10,
         :format => 'jpg'
       }
@@ -100,7 +100,7 @@ class Panel < ActiveRecord::Base
     :styles => lambda { |image|
       panel = image.instance
       original = {
-        :geometry => "#{panel.width_for_tile_512}x#{panel.height_for_tile_512}!",
+        :geometry => "#{panel.width(512)}x#{panel.height(512)}!",
         :quality => 10,
         :format => 'jpg'
       }
@@ -119,30 +119,36 @@ class Panel < ActiveRecord::Base
     }
   }.merge(PAPERCLIP_CONFIG_PANELS)
 
-  def width_for_tile_512
-    case arrangement
-    when 'portrait'
-      512
-    when 'landscape'
-      1024
-    else 512
-    end
-  end
-  def height_for_tile_512
-    case arrangement
-    when 'portrait'
-      1024
-    when 'landscape'
-      512
-    else 512
+  def width(tile_width)
+    if tile_width.eql? 512
+      case arrangement
+      when 'portrait'
+        512
+      when 'landscape'
+        1024
+      else 512
+      end
+    elsif tile_width.eql? 256
+      width(512) / 2
+    else
+      raise "Invalid tile width for Panel: #{tile_width}"
     end
   end
   
-  def width_for_tile_256
-    width_for_tile_512 / 2
-  end
-  def height_for_tile_256
-    height_for_tile_512 / 2
+  def height(tile_width)
+    if tile_width.eql? 512
+      case arrangement
+      when 'portrait'
+        1024
+      when 'landscape'
+        512
+      else 512
+      end
+    elsif tile_width.eql? 256
+      height(512) / 2
+    else
+      raise "Invalid tile width for Panel: #{tile_width}"
+    end
   end
   
   def panel_source_image
