@@ -80,6 +80,8 @@ describe Image do
     end
 
     it 'should be nil if there are no images attached' do
+      image = Image.create
+      image.panel_source_image.should eql(nil)
     end
     
   end
