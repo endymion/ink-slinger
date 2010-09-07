@@ -29,7 +29,6 @@ gem 'acts-as-taggable-on'
 gem 'formtastic',    :path => File.join(File.dirname(__FILE__), '/vendor/gems/formtastic')
 gem 'will_paginate', :path => File.join(File.dirname(__FILE__), '/vendor/gems/will_paginate')
 gem 'paperclip'
-gem 'factory_girl'
 gem 'annotate'
 
 group :test do
@@ -45,6 +44,7 @@ group :test do
   gem "rspec-rails", ">= 2.0.0.beta.17"
   gem "rcov"
   gem "ZenTest"
+  gem 'factory_girl_rails'
 
   # gem "rspec-rails",        "2.0.0.beta.10", :git => "git://github.com/rspec/rspec-rails.git"
   # gem "rspec",              "2.0.0.beta.10", :git => "git://github.com/rspec/rspec.git"

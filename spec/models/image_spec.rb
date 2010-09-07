@@ -85,5 +85,12 @@ describe Image do
     end
     
   end
-
+  
+  it 'should find images for a given topic' do
+    image1 = Factory.create(:image)
+    image2 = Factory.create(:image)
+    topic = Factory.create(:topic, :images => [image1, image2])
+    Image.for_topic(topic).size.should == 2
+  end
+  
 end

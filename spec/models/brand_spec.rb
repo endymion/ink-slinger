@@ -21,6 +21,24 @@ describe Brand do
       Brand.configuration['domain_names'].count.should > 1
     end
 
+    it "should return a list of configuration domains" do
+      Brand.configuration_domains.count.should > 1
+    end
+
+    it "should return a list of asset hosts" do
+      (hosts = Brand.asset_hosts).count.should > 1
+      for host in hosts do
+        host.should match /\.\w+$/ # Feeble URL validation!
+      end
+    end
+
+    it "should return a list of application hosts" do
+      (hosts = Brand.application_hosts).count.should > 1
+      for host in hosts do
+        host.should match /\.\w+$/
+      end      
+    end
+
     it "should return a host and asset server for each brand" do
       Brand.configuration['domain_names'].each { |brand| brand['domain_name'].should_not == nil }
       Brand.configuration['domain_names'].each { |brand| brand['asset_server'].should_not == nil }
@@ -71,6 +89,10 @@ describe Brand do
 
     it "should return its asset host" do
       @brand.asset_server.should == 'static.brave-new-media.com'
+    end
+    
+    it "should return an asset name" do
+      @brand.asset_name.should == 'www_brave_new_media_com'
     end
     
     it "should return a title" do
