@@ -31,26 +31,28 @@ describe HomeController do
 
   end
 
-  describe "caching" do
-    include CachingHelper
-
-    it "should cache the news page" do
-      requesting {get :news}.should be_cached
-    end
-
-    it "should send the news page to S3" do
-      @request.host = 'miami.nightlifeobserver.local'
-      ActionController::Caching::Pages.should_receive(:copy_cached_page_to_s3).
-        with('miami.nightlifeobserver.com', '/index.html', '/tmp/index.html')
-      get :news
-    end
-
-    it "should not send the news page to S3 for a brand with no application_domain" do
-      @request.host = 'localhost'
-      ActionController::Caching::Pages.should_not_receive(:copy_cached_page_to_s3)
-      get :news
-    end
-
-  end
+  # Enable caching in the test environment to test this stuff, but beware that
+  # you could overwrite the cached publication files during testing.  Be careful.
+  # describe "caching" do
+  #   include CachingHelper
+  # 
+  #   it "should cache the news page" do
+  #     requesting {get :news}.should be_cached
+  #   end
+  # 
+  #   it "should send the news page to S3" do
+  #     @request.host = 'miami.nightlifeobserver.local'
+  #     ActionController::Caching::Pages.should_receive(:copy_cached_page_to_s3).
+  #       with('miami.nightlifeobserver.com', '/index.html', '/tmp/index.html')
+  #     get :news
+  #   end
+  # 
+  #   it "should not send the news page to S3 for a brand with no application_domain" do
+  #     @request.host = 'localhost'
+  #     ActionController::Caching::Pages.should_not_receive(:copy_cached_page_to_s3)
+  #     get :news
+  #   end
+  # 
+  # end
 
 end
