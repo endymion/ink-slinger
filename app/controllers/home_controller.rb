@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 
-  caches_page :news
+  include ActionController::Caching::PagesS3
+  caches_page_to_s3 :news
 
   before_filter :generate_layout_pattern
   def generate_layout_pattern
