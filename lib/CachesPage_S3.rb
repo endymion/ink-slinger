@@ -29,7 +29,7 @@ module ActionController #:nodoc:
       end
       
       def self.copy_cached_page_to_s3(bucket, name, path)
-        Rails.logger.warn "Copying cached page to S3, to: #{File.join(bucket, name)}"
+        Rails.logger.info "Copying cached page to S3, to: #{File.join(bucket, name)}"
 
         @settings = YAML.load(ERB.new(File.new(
           File.join(Rails.root, 'config', 's3.yml')).read).result)
