@@ -20,7 +20,6 @@ end
 
 Then /^I should be able to reach the index page on each host$/ do
   Capybara.current_driver = :selenium
-  puts "URLS: #{@urls}"
   @urls.each do |url|
     puts "Testing: #{url}"
     Capybara.app_host = url

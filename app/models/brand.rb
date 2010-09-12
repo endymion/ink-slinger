@@ -26,6 +26,14 @@ class Brand < ActiveRecord::Base
     domain.gsub! /\.local/, '.com'
     # Trim the port off of any request.  It seems like subdomain_fu should do this?
     domain.gsub! /\:.+$/, ''
+    # Trim off the subdomain if it ends up in the domain because of too many
+    # domains in the full URL.  "the.miami.nightlifeobserver.com" becomes
+    # "miami.nightlifeobserver.com".
+    domain.gsub! /\A[^\.]+\./, '' if domain.match /.*\..*\..*/
+    # Trim down to the right-most part of the subdomain.
+    unless subdomain.nil?
+      subdomain.gsub! /\A.+\./, '' if subdomain.match /.*\..*/
+    end
 
     brand = Brand.where(:domain_name => domain, :subdomain => subdomain).first
     return brand unless brand.blank?

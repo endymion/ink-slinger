@@ -109,7 +109,7 @@ describe Brand do
     end
 
     it "should return an application name" do
-      @brand.application_domain.should == 'www'
+      @brand.application_domain.should == 'the'
     end
 
   end

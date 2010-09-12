@@ -10,6 +10,7 @@ describe HomeController do
   end
 
   describe "branding" do
+
     it 'should find the right brand from miami.nightlifeobserver.com' do
       @request.host = 'miami.nightlifeobserver.com'
       get :news
@@ -18,6 +19,16 @@ describe HomeController do
           :domain_name => 'nightlifeobserver.com'
         })
     end
+
+    it 'should find the right brand from the.miami.nightlifeobserver.com' do
+      @request.host = 'the.miami.nightlifeobserver.com'
+      get :news
+      assigns[:current_brand].should == Brand.find(:first, :conditions => {
+          :subdomain => 'miami',
+          :domain_name => 'nightlifeobserver.com'
+        })
+    end
+
   end
 
   describe "caching" do

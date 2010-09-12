@@ -10,38 +10,38 @@ domain_names:
     locations:
       - title: The Miami Nightlife Chronicle
         subdomain: miami
-        application_domain: www
+        application_domain: the
       - title: The Los Angeles Nightlife Chronicle
         subdomain: los-angeles
-        application_domain: www
+        application_domain: the
   - domain_name: nightlifeherald.com
     asset_server: performing-arts-events.com
     locations:
       - title: The New York Nightlife Herald
         subdomain: new-york
-        application_domain: www
+        application_domain: the
 
   - domain_name: nightlifeglobe.com
     asset_server: night-club-events.com
     locations:
       - title: The Los Angeles Nightlife Globe
         subdomain: los-angeles
-        application_domain: www
+        application_domain: the
       - title: The New York Nightlife Globe
         subdomain: new-york
-        application_domain: www
+        application_domain: the
       - title: The Las Vegas Nightlife Globe
         subdomain: las-vegas
-        application_domain: www
+        application_domain: the
   - domain_name: nightlifeobserver.com
     asset_server: night-club-events.com
     locations:
       - title: The Boston Nightlife Observer
         subdomain: boston
-        application_domain: www
+        application_domain: the
       - title: The Orange County Nightlife Observer
         subdomain: orange-county
-        application_domain: www
+        application_domain: the
       - title: The Miami Nightlife Observer
         subdomain: miami
-        application_domain: www
+        application_domain: the
