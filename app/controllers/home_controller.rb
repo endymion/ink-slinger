@@ -147,12 +147,6 @@ class HomeController < ApplicationController
     assign_topics_to_slots empty_slots, @text_topics
   end
   
-  def periodical
-    puts "HELO"
-    require 'ruby-debug'; debugger
-    logger.warn "HELO"
-  end
-
   private
 
   def assign_panels_to_slots(layout_slots, panels)
