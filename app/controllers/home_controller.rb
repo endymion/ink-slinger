@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
 
+  caches_page :news
+
   before_filter :generate_layout_pattern
   def generate_layout_pattern
     @layout_pattern = # A series of .racks
@@ -143,6 +145,12 @@ class HomeController < ApplicationController
     
     # Assign text items after images have been placed.
     assign_topics_to_slots empty_slots, @text_topics
+  end
+  
+  def periodical
+    puts "HELO"
+    require 'ruby-debug'; debugger
+    logger.warn "HELO"
   end
 
   private

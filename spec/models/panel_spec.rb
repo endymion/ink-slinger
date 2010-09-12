@@ -15,6 +15,11 @@
 #  tile_512_content_type :string(255)
 #  tile_512_file_size    :integer
 #  tile_512_updated_at   :datetime
+#  image_id              :integer
+#  crop_x                :float
+#  crop_y                :float
+#  crop_w                :float
+#  crop_h                :float
 #
 
 require 'spec_helper'

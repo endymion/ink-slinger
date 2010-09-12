@@ -2,13 +2,14 @@
 #
 # Table name: brands
 #
-#  id           :integer         not null, primary key
-#  domain_name  :string(255)
-#  asset_server :string(255)
-#  title        :string(255)
-#  subdomain    :string(255)
-#  created_at   :datetime
-#  updated_at   :datetime
+#  id                 :integer         not null, primary key
+#  domain_name        :string(255)
+#  asset_server       :string(255)
+#  title              :string(255)
+#  subdomain          :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  application_domain :string(255)
 #
 
 require 'yaml'
@@ -37,18 +38,19 @@ class Brand < ActiveRecord::Base
       if brand.subdomain.eql? 'www'
         brand.asset_server
       else
+        # Strip the "www." from the subdomain if it exists, because 'www.' has a
+        # special meaning: it's the subdomain of the web application.
+        subdomain = brand.subdomain.gsub /^www\./, ''
+
         # Rails asset servers are auto-numbered from 0 to 3.
-        (0..3).to_a.map {|index| brand.subdomain + "-#{index}." + brand.asset_server }.flatten
+        (0..3).to_a.map {|index| subdomain + "-#{index}." + brand.asset_server }.flatten
       end
     }.flatten
   end
 
   def self.application_hosts
-    # The base brand domain name.
-    hosts = all.map {|brand| brand.domain_name}
-
-    # Add all brand subdomains.
-    hosts += all.map { |brand|
+    all.map { |brand|
+      ((app = brand.application_domain).blank? ? '' : (app + '.')) +
       brand.subdomain + '.' + brand.domain_name
     }.flatten
   end
@@ -71,6 +73,7 @@ class Brand < ActiveRecord::Base
     self.asset_server = brand['asset_server']
     self.title = brand['title']
     self.subdomain = brand['subdomain']
+    self.application_domain = brand['application_domain']
   end
 
   def self.configuration_domains
@@ -82,6 +85,7 @@ class Brand < ActiveRecord::Base
       domain_yml['locations'].map { |location_yml|
         domain_yml['title'] = location_yml['title']
         domain_yml['subdomain'] = location_yml['subdomain']
+        domain_yml['application_domain'] = location_yml['application_domain']
         record = Brand.new
         record.brand = domain_yml
         record

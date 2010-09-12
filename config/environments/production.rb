@@ -33,7 +33,7 @@ Reporter::Application.configure do
 
   # Use multiple S3 buckets as asset hosts to eliminate a page fetch bottleneck on the
   # browser side.
-  # config.action_controller.asset_host = "http://miami-%d.night-club-events.com"
+  config.action_controller.asset_host = "http://miami-%d.night-club-events.com"
   
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
@@ -54,7 +54,7 @@ Sass::Plugin.options[:never_update] = true
 # This is used by app/models/image.rb to keep S3 out of play except in production.
 PAPERCLIP_CONFIG = {
   :storage => :s3,
-  :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+  :s3_credentials => "#{Rails.root}/config/s3.yml",
   :bucket => "static.brave-new-media.com"  
 }
 PAPERCLIP_CONFIG_IMAGES = {

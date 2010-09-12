@@ -1,11 +1,45 @@
 require 'spec_helper'
+require 'caching_helper'
 
 describe HomeController do
   
-  describe "GET index" do
+  describe "GET periodical" do
     it "produces a front news page" do
-      get :periodical
+      get :news
     end
   end
-  
+
+  describe "branding" do
+    it 'should find the right brand from miami.nightlifeobserver.com' do
+      @request.host = 'miami.nightlifeobserver.com'
+      get :news
+      assigns[:current_brand].should == Brand.find(:first, :conditions => {
+          :subdomain => 'miami',
+          :domain_name => 'nightlifeobserver.com'
+        })
+    end
+  end
+
+  describe "caching" do
+    include CachingHelper
+
+    it "should cache the news page" do
+      requesting {get :news}.should be_cached
+    end
+
+    it "should send the news page to S3" do
+      @request.host = 'miami.nightlifeobserver.local'
+      ActionController::Caching::Pages.should_receive(:copy_cached_page_to_s3).
+        with('miami.nightlifeobserver.com', '/index.html', '/tmp/index.html')
+      get :news
+    end
+
+    it "should not send the news page to S3 for a brand with no application_domain" do
+      @request.host = 'localhost'
+      ActionController::Caching::Pages.should_not_receive(:copy_cached_page_to_s3)
+      get :news
+    end
+
+  end
+
 end

@@ -72,3 +72,7 @@ PAPERCLIP_CONFIG_PANELS = {
   :path => ":rails_root/public/system/panels/:attachment/:id/:style.:extension",
   :url => "/system/panels/:attachment/:id/:style.:extension"
 }
+
+# Hook into the Rails page caching mechanism, writing cached pages in /tmp and
+# copying them to S3.
+require 'CachesPage_S3'

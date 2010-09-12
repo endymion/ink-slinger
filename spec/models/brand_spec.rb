@@ -2,13 +2,14 @@
 #
 # Table name: brands
 #
-#  id           :integer         not null, primary key
-#  domain_name  :string(255)
-#  asset_server :string(255)
-#  title        :string(255)
-#  subdomain    :string(255)
-#  created_at   :datetime
-#  updated_at   :datetime
+#  id                 :integer         not null, primary key
+#  domain_name        :string(255)
+#  asset_server       :string(255)
+#  title              :string(255)
+#  subdomain          :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  application_domain :string(255)
 #
 
 require 'spec_helper'
@@ -29,6 +30,7 @@ describe Brand do
       (hosts = Brand.asset_hosts).count.should > 1
       for host in hosts do
         host.should match /\.\w+$/ # Feeble URL validation!
+        host.should_not match '^www\.'
       end
     end
 
@@ -80,27 +82,34 @@ describe Brand do
       Brand.all.each { |brand| brand.destroy }
       Brand.configuration = YAML::load_file('spec/models/brands_test.yml')
       Brand.seed
-      @brand = Brand.first
+      @brand = Brand.find(:first, :conditions => {
+        :subdomain => 'miami',
+        :domain_name => 'nightlifeobserver.com'
+      })
     end
     
     it "should return its host" do
-      @brand.domain_name.should == 'brave-new-media.com'
+      @brand.domain_name.should == 'nightlifeobserver.com'
     end
 
     it "should return its asset host" do
-      @brand.asset_server.should == 'static.brave-new-media.com'
+      @brand.asset_server.should == 'night-club-events.com'
     end
-    
+
     it "should return an asset name" do
-      @brand.asset_name.should == 'www_brave_new_media_com'
+      @brand.asset_name.should == 'miami_nightlifeobserver_com'
     end
     
     it "should return a title" do
-      @brand.title.should == 'Brave New Media'
+      @brand.title.should == 'The Miami Nightlife Observer'
     end
     
     it "should return a subdomain" do
-      @brand.subdomain.should == 'www'
+      @brand.subdomain.should == 'miami'
+    end
+
+    it "should return an application name" do
+      @brand.application_domain.should == 'www'
     end
 
   end

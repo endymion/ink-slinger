@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100903160151) do
+ActiveRecord::Schema.define(:version => 20100912002544) do
 
   create_table "brands", :force => true do |t|
     t.string   "domain_name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20100903160151) do
     t.string   "subdomain"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "application_domain"
   end
 
   create_table "images", :force => true do |t|

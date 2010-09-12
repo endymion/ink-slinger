@@ -1,15 +1,3 @@
-class BraveNewMediaDomain
-  def self.matches?(request)
-    request.host == /brave-new-media/
-  end
-end
-
-class NightlifeDomain
-  def self.matches?(request)
-    request.host =~ /nightlife/
-  end
-end
-
 Reporter::Application.routes.draw do |map|
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -69,17 +57,7 @@ Reporter::Application.routes.draw do |map|
   #     resources :products
   #   end
 
-  # Brave New Media
-  constraints(BraveNewMediaDomain) do
-    match '/', :to => 'home#bravenewmedia_com'
-  end
-
-  # Nightlife periodicals
-  constraints(NightlifeDomain) do
-    match '/', :to => 'home#periodical'
-  end
-
-  root :to => "home#bravenewmedia_com"
+  root :to => "home#news"
 
   # See how all your routes lay out with "rake routes"
 
