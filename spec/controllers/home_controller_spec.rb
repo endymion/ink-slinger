@@ -43,7 +43,7 @@ describe HomeController do
     it "should send the news page to S3" do
       @request.host = 'miami.nightlifeobserver.local'
       ActionController::Caching::PagesS3.should_receive(:copy_cached_page_to_s3).
-        with('miami.nightlifeobserver.com', '/index.html', '/tmp/index.html')
+        with('miami.nightlifeobserver.com', '/index.html', './tmp/index.html')
       get :news
     end
   

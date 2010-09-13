@@ -3,6 +3,7 @@ doc/private
 .bundle
 db/*.sqlite3
 log/*.log
+tmp
 tmp/**/*
 public/system
 coverage

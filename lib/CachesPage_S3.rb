@@ -146,7 +146,7 @@ module ActionController #:nodoc:
             request.path
         end
 
-        self.class.cache_page(content || response.body, path)
+        self.class.cache_page_s3(content || response.body, path)
 
         bucket = @current_brand.subdomain + '.' + @current_brand.domain_name
         name = page_cache_file(path)
