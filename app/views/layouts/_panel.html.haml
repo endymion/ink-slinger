@@ -3,22 +3,22 @@
     = image_tag Panel.find(panel[:id]).tile_256(:original), :class => 'stretch has512'
   - else
     - if panel[:arrangement].eql? :landscape
-      %img.stretch.spacer-2-2{ :src => '/images/spacers/2x1.gif' }
+      = image_tag '/images/spacers/2x1.gif', :class => 'stretch spacer-2-1'
     - elsif panel[:arrangement].eql? :portrait
-      %img.stretch.spacer-1-2{ :src => '/images/spacers/1x2.gif' }
+      = image_tag '/images/spacers/1x2.gif', :class => 'stretch spacer-1-2'
     - if panel[:arrangement].eql? :square
-      %img.stretch.spacer-1-1{ :src => '/images/spacers/1x1.gif' }
+      = image_tag '/images/spacers/1x1.gif', :class => 'stretch spacer-1-1'
     - topic = Topic.find(panel[:id])
     .copy.top
       %h2= topic.title
       = topic.body
 - else
   - if panel[:arrangement].eql? :landscape
-    %img.stretch.spacer-2-2{ :src => '/images/spacers/2x1.gif' }
+    = image_tag '/images/spacers/2x1.gif', :class => 'stretch spacer-2-1'
     .copy.coupon
   - elsif panel[:arrangement].eql? :portrait
-    %img.stretch.spacer-1-2{ :src => '/images/spacers/1x2.gif' }
+    = image_tag '/images/spacers/1x2.gif', :class => 'stretch spacer-1-2'
     .copy.coupon
   - if panel[:arrangement].eql? :square
-    %img.stretch.spacer-1-1{ :src => '/images/spacers/1x1.gif' }
+    = image_tag '/images/spacers/1x1.gif', :class => 'stretch spacer-1-1'
     .copy.coupon
