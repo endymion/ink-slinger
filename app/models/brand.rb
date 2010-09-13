@@ -67,7 +67,7 @@ class Brand < ActiveRecord::Base
     @@configuration
   end
   def self.configuration=(new_configuration)
-    @@configuration
+    @@configuration = new_configuration
   end
   
   def self.seed

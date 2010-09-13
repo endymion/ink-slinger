@@ -1,47 +1,16 @@
-brands:
-  - host: brave-new-media.com
-    assets: static.brave-new-media.com
+domain_names:
+  - domain_name: the-master-brand.com
+    asset_server: static.the-master-brand.com
     locations:
-      - title: Brave New Media
+      - title: The Master Brand
         subdomain: www
 
-  - host: nightlifechronicle.com
-    assets: performing-arts-events.com
+  - domain_name: something-chronicle.com
+    asset_server: some-keyword-events.com
     locations:
-      - title: The Miami Nightlife Chronicle
+      - title: The Miami Something Chronicle
         subdomain: miami
         application_domain: the
-      - title: The Los Angeles Nightlife Chronicle
+      - title: The Los Angeles Something Chronicle
         subdomain: los-angeles
-        application_domain: the
-  - host: nightlifeherald.com
-    assets: performing-arts-events.com
-    locations:
-      - title: The New York Nightlife Herald
-        subdomain: new-york
-        application_domain: the
-
-  - host: nightlifeglobe.com
-    assets: night-club-events.com
-    locations:
-      - title: The Los Angeles Nightlife Globe
-        subdomain: los-angeles
-        application_domain: the
-      - title: The New York Nightlife Globe
-        subdomain: new-york
-        application_domain: the
-      - title: The Las Vegas Nightlife Globe
-        subdomain: las-vegas
-        application_domain: the
-  - host: nightlifeobserver.com
-    assets: night-club-events.com
-    locations:
-      - title: The Boston Nightlife Observer
-        subdomain: boston
-        application_domain: the
-      - title: The Orange County Nightlife Observer
-        subdomain: oc
-        application_domain: the
-      - title: The Miami Nightlife Observer
-        subdomain: miami
         application_domain: the

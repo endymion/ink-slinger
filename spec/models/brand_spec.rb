@@ -70,8 +70,8 @@ describe Brand do
     end
 
     it "should return a brand when given a host and a subdomain" do
-      (brand = Brand.match('brave-new-media.com', 'www')).domain_name.should == 'brave-new-media.com'
-      brand.title.should == 'Brave New Media'
+      (brand = Brand.match('anything.com', 'www')).domain_name.should == 'the-master-brand.com'
+      brand.title.should == 'The Master Brand'
     end
 
   end
@@ -82,26 +82,24 @@ describe Brand do
       Brand.all.each { |brand| brand.destroy }
       Brand.configuration = YAML::load_file('spec/models/brands_test.yml')
       Brand.seed
-      @brand = Brand.find(:first, :conditions => {
-        :subdomain => 'miami',
-        :domain_name => 'nightlifeobserver.com'
-      })
+      @brand = Brand.where(
+        :subdomain => 'miami', :domain_name => 'something-chronicle.com').first
     end
     
     it "should return its host" do
-      @brand.domain_name.should == 'nightlifeobserver.com'
+      @brand.domain_name.should == 'something-chronicle.com'
     end
 
     it "should return its asset host" do
-      @brand.asset_server.should == 'night-club-events.com'
+      @brand.asset_server.should == 'some-keyword-events.com'
     end
 
     it "should return an asset name" do
-      @brand.asset_name.should == 'miami_nightlifeobserver_com'
+      @brand.asset_name.should == 'miami_something_chronicle_com'
     end
     
     it "should return a title" do
-      @brand.title.should == 'The Miami Nightlife Observer'
+      @brand.title.should == 'The Miami Something Chronicle'
     end
     
     it "should return a subdomain" do
