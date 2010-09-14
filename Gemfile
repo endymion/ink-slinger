@@ -24,10 +24,8 @@ gem "compass"
 gem "compass-susy-plugin"
 gem "rmagick"
 gem 'acts-as-taggable-on'
-#gem 'formtastic', :git => "http://github.com/justinfrench/formtastic.git", :branch => "rails3"
-#gem 'will_paginate', :git => 'http://github.com/mislav/will_paginate.git',   :branch => 'rails3'
-gem 'formtastic',    :path => File.join(File.dirname(__FILE__), '/vendor/gems/formtastic')
-gem 'will_paginate', :path => File.join(File.dirname(__FILE__), '/vendor/gems/will_paginate')
+gem 'formtastic', :git => "http://github.com/justinfrench/formtastic.git", :branch => "rails3"
+gem 'will_paginate', :git => 'http://github.com/mislav/will_paginate.git',   :branch => 'rails3'
 gem 'paperclip'
 gem 'annotate'
 

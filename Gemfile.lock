@@ -1,20 +1,24 @@
-PATH
-  remote: vendor/gems/formtastic
+GIT
+  remote: http://github.com/justinfrench/formtastic.git
+  revision: 48f6ee8
+  branch: rails3
   specs:
-    formtastic (1.0.0.rc)
+    formtastic (1.1.0)
       actionpack (>= 2.3.0)
       activesupport (>= 2.3.0)
       i18n (>= 0.4.0)
+
+GIT
+  remote: http://github.com/mislav/will_paginate.git
+  revision: 3615938
+  branch: rails3
+  specs:
+    will_paginate (3.0.pre2)
 
 PATH
   remote: vendor/gems/subdomain-fu
   specs:
     subdomain-fu (1.0.0.beta2)
-
-PATH
-  remote: vendor/gems/will_paginate
-  specs:
-    will_paginate (3.0.pre2)
 
 GEM
   remote: http://rubygems.org/
