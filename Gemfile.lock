@@ -1,7 +1,13 @@
 GIT
+  remote: http://github.com/cavalle/steak.git
+  revision: 4956708
+  specs:
+    steak (1.0.0.beta.1)
+      rspec
+
+GIT
   remote: http://github.com/justinfrench/formtastic.git
-  revision: 48f6ee8
-  branch: rails3
+  revision: 54df9be
   specs:
     formtastic (1.1.0)
       actionpack (>= 2.3.0)
@@ -192,7 +198,7 @@ DEPENDENCIES
   cucumber-rails
   culerity
   factory_girl_rails
-  formtastic!
+  formtastic (>= 1.1.0)!
   haml
   launchy
   nokogiri (= 1.4.1)
@@ -203,6 +209,7 @@ DEPENDENCIES
   rspec-rails (>= 2.0.0.beta.17)
   ruby-debug (= 0.10.0)
   sqlite3-ruby
+  steak!
   subdomain-fu!
   webrat
   will_paginate!

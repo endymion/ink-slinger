@@ -24,7 +24,7 @@ gem "compass"
 gem "compass-susy-plugin"
 gem "rmagick"
 gem 'acts-as-taggable-on'
-gem 'formtastic', :git => "http://github.com/justinfrench/formtastic.git", :branch => "rails3"
+gem 'formtastic', '>= 1.1.0', :git => "http://github.com/justinfrench/formtastic.git"
 gem 'will_paginate', :git => 'http://github.com/mislav/will_paginate.git',   :branch => 'rails3'
 gem 'paperclip'
 gem 'annotate'
@@ -38,6 +38,7 @@ group :test do
   gem 'webrat'
   gem "capybara"
   gem "launchy"
+  gem 'steak', :git => 'http://github.com/cavalle/steak.git'
 
   gem "rspec-rails", ">= 2.0.0.beta.17"
   gem "rcov"
