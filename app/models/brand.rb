@@ -75,6 +75,18 @@ class Brand < ActiveRecord::Base
   end
 
   # Instance methods.
+  
+  # If an application_domain is set then that means that caching is enabled.
+  def application_host
+    return [subdomain, domain_name].join('.') if application_domain.blank?
+    [application_domain, subdomain, domain_name].join('.')
+  end
+
+  # If an application_domain is not set then that means that caching is disabled.
+  def application_cache_host
+    return nil if application_domain.blank?
+    [subdomain, domain_name].join('.')
+  end
 
   def brand=(brand)
     self.domain_name = brand['domain_name']

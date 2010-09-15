@@ -70,7 +70,7 @@ describe Brand do
 
   end
 
-  describe "instance" do
+  describe "brand instance" do
 
     before do
       @brand = Brand.where(
@@ -101,6 +101,54 @@ describe Brand do
       @brand.application_domain.should == 'the'
     end
 
+    it "should return an application host" do
+      @brand.application_host.should == 'the.miami.something-chronicle.com'
+    end
+
+    it "should return an application cache host" do
+      @brand.application_cache_host.should == 'miami.something-chronicle.com'
+    end
+    
+  end
+
+  describe "master brand instance" do
+
+    before do
+      @brand = Brand.first
+    end
+    
+    it "should return its host" do
+      @brand.domain_name.should == 'the-master-brand.com'
+    end
+    
+    it "should return its asset host" do
+      @brand.asset_server.should == 'static.the-master-brand.com'
+    end
+    
+    it "should return an asset name" do
+      @brand.asset_name.should == 'www_the_master_brand_com'
+    end
+    
+    it "should return a title" do
+      @brand.title.should == 'The Master Brand'
+    end
+    
+    it "should return a subdomain" do
+      @brand.subdomain.should == 'www'
+    end
+    
+    it "should return an application name" do
+      @brand.application_domain.should be_nil
+    end
+
+    it "should return an application host" do
+      @brand.application_host.should == 'www.the-master-brand.com'
+    end
+
+    it "should return an application cache host" do
+      @brand.application_cache_host.should be_nil
+    end
+    
   end
   
 end
