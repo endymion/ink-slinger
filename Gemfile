@@ -31,8 +31,6 @@ gem 'annotate'
 
 group :test do
   gem 'nokogiri', '1.4.1'
-  gem 'cucumber'
-  gem 'cucumber-rails'
   gem 'culerity'
   gem 'celerity', :require => nil # JRuby only. Make it available but don't require it in any environment.
   gem 'webrat'
