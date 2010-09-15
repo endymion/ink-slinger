@@ -1,4 +1,10 @@
 GIT
+  remote: http://github.com/bmabey/database_cleaner.git
+  revision: 04ba63b
+  specs:
+    database_cleaner (0.6.0.rc.2)
+
+GIT
   remote: http://github.com/cavalle/steak.git
   revision: 4956708
   specs:
@@ -197,6 +203,7 @@ DEPENDENCIES
   cucumber
   cucumber-rails
   culerity
+  database_cleaner!
   factory_girl_rails
   formtastic (>= 1.1.0)!
   haml

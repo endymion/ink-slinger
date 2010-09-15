@@ -9,4 +9,3 @@ Scenario: Check asset hosts
 Scenario: Check application hosts
   When I go through the application hosts
   Then I should be able to reach the index page on each host
-  

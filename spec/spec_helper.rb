@@ -8,7 +8,28 @@ require 'rspec/rails'
 # in ./support/ and its subdirectories.
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
-system "rake db:seed"
+# figure out where we are being loaded from
+if $LOADED_FEATURES.grep(/spec\/spec_helper\.rb/).any?
+  begin
+    raise "foo"
+  rescue => e
+    puts <<-MSG
+  ===================================================
+  It looks like spec_helper.rb has been loaded
+  multiple times. Normalize the require to:
+
+    require "spec/spec_helper"
+
+  Things like File.join and File.expand_path will
+  cause it to be loaded multiple times.
+
+  Loaded this time from:
+
+    #{e.backtrace.join("\n    ")}
+  ===================================================
+    MSG
+  end
+end
 
 RSpec.configure do |config|
   # == Mock Framework
@@ -25,15 +46,5 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, comment the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
-end
-
-# Helper Method for setting the requesting host in a Rails functional test
-# Mocks the proper response for the domain() method, as well as the
-# @request.host value.
-# (Doesn't work, though.)
-def set_test_host(host)
-  # @request.host = host
-  # domain = host.split('.').last(2).join('.')
-  # ActionController::TestRequest.any_instance.stubs(:domain).returns(domain)
+  config.use_transactional_fixtures = false
 end

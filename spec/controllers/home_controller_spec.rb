@@ -12,20 +12,20 @@ describe HomeController do
   describe "branding" do
 
     it 'should find the right brand from miami.nightlifeobserver.com' do
-      @request.host = 'miami.nightlifeobserver.com'
+      @request.host = 'miami.something-chronicle.com'
       get :news
       assigns[:current_brand].should == Brand.find(:first, :conditions => {
           :subdomain => 'miami',
-          :domain_name => 'nightlifeobserver.com'
+          :domain_name => 'something-chronicle.com'
         })
     end
 
     it 'should find the right brand from the.miami.nightlifeobserver.com' do
-      @request.host = 'the.miami.nightlifeobserver.com'
+      @request.host = 'the.miami.something-chronicle.com'
       get :news
       assigns[:current_brand].should == Brand.find(:first, :conditions => {
           :subdomain => 'miami',
-          :domain_name => 'nightlifeobserver.com'
+          :domain_name => 'something-chronicle.com'
         })
     end
 
@@ -41,9 +41,9 @@ describe HomeController do
     end
   
     it "should send the news page to S3" do
-      @request.host = 'miami.nightlifeobserver.local'
+      @request.host = 'miami.something-chronicle.com'
       ActionController::Caching::PagesS3.should_receive(:copy_cached_page_to_s3).
-        with('miami.nightlifeobserver.com', '/index.html', './tmp/index.html')
+        with('miami.something-chronicle.com', '/index.html', './tmp/index.html')
       get :news
     end
   

@@ -50,12 +50,6 @@ describe Brand do
 
   describe "class" do
 
-    before do
-      Brand.all.each { |brand| brand.destroy }
-      Brand.configuration = YAML::load_file('spec/models/brands_test.yml')
-      Brand.seed
-    end
-
     it "should return a list of brands" do
       (brands = Brand.all).count.should > 1
       brands.each do |brand|
@@ -63,12 +57,12 @@ describe Brand do
         brand.asset_server.should_not == nil
       end
     end
-
+    
     it "should return a list of brands" do
       (brands = Brand.all).count.should > 1
       brands.each { |brand| brand.domain_name.should_not == nil }
     end
-
+    
     it "should return a brand when given a host and a subdomain" do
       (brand = Brand.match('anything.com', 'www')).domain_name.should == 'the-master-brand.com'
       brand.title.should == 'The Master Brand'
@@ -79,9 +73,6 @@ describe Brand do
   describe "instance" do
 
     before do
-      Brand.all.each { |brand| brand.destroy }
-      Brand.configuration = YAML::load_file('spec/models/brands_test.yml')
-      Brand.seed
       @brand = Brand.where(
         :subdomain => 'miami', :domain_name => 'something-chronicle.com').first
     end
@@ -89,11 +80,11 @@ describe Brand do
     it "should return its host" do
       @brand.domain_name.should == 'something-chronicle.com'
     end
-
+    
     it "should return its asset host" do
       @brand.asset_server.should == 'some-keyword-events.com'
     end
-
+    
     it "should return an asset name" do
       @brand.asset_name.should == 'miami_something_chronicle_com'
     end
@@ -105,7 +96,7 @@ describe Brand do
     it "should return a subdomain" do
       @brand.subdomain.should == 'miami'
     end
-
+    
     it "should return an application name" do
       @brand.application_domain.should == 'the'
     end

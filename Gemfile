@@ -44,6 +44,7 @@ group :test do
   gem "rcov"
   gem "ZenTest"
   gem 'factory_girl_rails'
+  gem 'database_cleaner', :git => 'http://github.com/bmabey/database_cleaner.git'
 
   # gem "rspec-rails",        "2.0.0.beta.10", :git => "git://github.com/rspec/rspec-rails.git"
   # gem "rspec",              "2.0.0.beta.10", :git => "git://github.com/rspec/rspec.git"
