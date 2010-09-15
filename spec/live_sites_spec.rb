@@ -8,14 +8,23 @@ RSpec.configure do |config|
   config.include Capybara
 end
 
-# Use Selenium, to test real live sites with a real web browser.
-Capybara.current_driver = :selenium
-
-# Use the real config/brands.yml, not the testing configuration from spec_helper.
-DatabaseCleaner.clean_with :truncation
-Brand.seed
-
 describe "Live" do
+
+  before(:all) do
+    # Use Selenium, to test real live sites with a real web browser.
+    Capybara.current_driver = :selenium
+
+    # Use the real config/brands.yml, not the testing configuration from spec/support/javascript.rb.
+    Brand.configuration = YAML::load_file('config/brands.yml')
+    DatabaseCleaner.clean_with :truncation
+    Brand.seed
+  end
+  after(:all) do
+    # Put it back.
+    Brand.configuration = YAML::load_file('spec/models/brands_test.yml')
+    DatabaseCleaner.clean_with :truncation
+    Brand.seed
+  end
 
   describe "asset hosts" do
     urls = Brand.asset_hosts.map { |host| 'http://' + host }
