@@ -10,7 +10,7 @@ end
 
 describe "Live" do
 
-  before(:all) do
+  before(:each) do
     # Use Selenium, to test real live sites with a real web browser.
     Capybara.current_driver = :selenium
 
@@ -19,7 +19,7 @@ describe "Live" do
     DatabaseCleaner.clean_with :truncation
     Brand.seed
   end
-  after(:all) do
+  after(:each) do
     # Put it back.
     Brand.configuration = YAML::load_file('spec/models/brands_test.yml')
     DatabaseCleaner.clean_with :truncation
