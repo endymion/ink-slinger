@@ -85,7 +85,7 @@ class Panel < ActiveRecord::Base
         :quality => 10,
         :format => 'jpg'
       }
-      if panel.image.panel_source_image.nil?
+      if panel.image.nil? || panel.image.panel_source_image.nil?
       else
         original = {
           :original_width => 
@@ -109,7 +109,7 @@ class Panel < ActiveRecord::Base
         :quality => 10,
         :format => 'jpg'
       }
-      if panel.image.panel_source_image.nil?
+      if panel.image.nil? || panel.image.panel_source_image.nil?
       else
         original = {
           :original_width => 
