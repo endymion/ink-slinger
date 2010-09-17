@@ -125,10 +125,10 @@ class HomeController < ApplicationController
 
   before_filter :get_content
   def get_content
-    @square_panels = Panel.square.all.sort &:updated_at
-    @landscape_panels = Panel.landscape.all.sort &:updated_at
-    @portrait_panels = Panel.portrait.all.sort &:updated_at
-    @text_topics = Topic.text_topics.sort &:updated_at
+    @square_panels = Panel.square.all
+    @landscape_panels = Panel.landscape.all
+    @portrait_panels = Panel.portrait.all
+    @text_topics = Topic.text_topics
 
     # Used for keeping track of which Topics have already been placed in the layout.
     @placed_topics = {}
