@@ -12,7 +12,7 @@ RSpec.configure do |config|
   @@after_already = {}
   
   config.before(:each) do
-    unless @@before_already[example.description]
+    unless @@before_already[example.description] || example.metadata[:noclean]
       @@before_already[example.description] = true
       
       if example.metadata[:js]
@@ -26,7 +26,7 @@ RSpec.configure do |config|
   end
 
   config.after(:each) do
-    unless @@after_already[example.description]
+    unless @@after_already[example.description] || example.metadata[:noclean]
       @@after_already[example.description] = true
 
       Capybara.use_default_driver if example.metadata[:js]
