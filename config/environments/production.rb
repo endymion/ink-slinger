@@ -33,7 +33,9 @@ Reporter::Application.configure do
 
   # Use multiple S3 buckets as asset hosts to eliminate a page fetch bottleneck on the
   # browser side.
-  config.action_controller.asset_host = "http://miami-%d.night-club-events.com"
+  ActionController::Base.asset_host = Proc.new { |source|
+      "http://#{Thread.current[:brand].asset_host}".gsub /\%d/, rand(4).to_s
+    }
   
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"

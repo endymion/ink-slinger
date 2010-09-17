@@ -80,9 +80,13 @@ describe Brand do
     it "should return its host" do
       @brand.domain_name.should == 'something-chronicle.com'
     end
+
+    it "should return its asset server" do
+      @brand.asset_server.should == 'some-keyword-events.com'
+    end
     
     it "should return its asset host" do
-      @brand.asset_server.should == 'some-keyword-events.com'
+      @brand.asset_host.should == 'miami-%d.some-keyword-events.com'
     end
     
     it "should return an asset name" do
@@ -121,8 +125,12 @@ describe Brand do
       @brand.domain_name.should == 'the-master-brand.com'
     end
     
-    it "should return its asset host" do
+    it "should return its asset server" do
       @brand.asset_server.should == 'static.the-master-brand.com'
+    end
+
+    it "should return its asset host" do
+      @brand.asset_host.should == 'static.the-master-brand.com'
     end
     
     it "should return an asset name" do

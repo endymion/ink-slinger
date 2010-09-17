@@ -88,6 +88,14 @@ class Brand < ActiveRecord::Base
     [subdomain, domain_name].join('.')
   end
 
+  def asset_host
+    if asset_server.match /\.[^\.]+\./ # Includes a subdomain.
+      asset_server
+    else
+      "#{subdomain}-%d.#{asset_server}"
+    end
+  end
+
   def brand=(brand)
     self.domain_name = brand['domain_name']
     self.asset_server = brand['asset_server']
