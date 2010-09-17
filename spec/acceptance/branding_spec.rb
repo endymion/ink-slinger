@@ -3,7 +3,6 @@ require File.dirname(__FILE__) + '/acceptance_helper'
 feature "Branding" do
 
   before :all do
-    # Use Selenium, to test real live sites with a real web browser.
     Capybara.use_default_driver
     Capybara.run_server = true
   end
