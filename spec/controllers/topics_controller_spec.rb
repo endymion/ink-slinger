@@ -2,6 +2,18 @@ require 'spec_helper'
 
 describe TopicsController do
 
+  include Devise::TestHelpers # to give your spec access to helpers
+
+  def mock_user(stubs={})
+      @mock_user ||= mock_model(User, stubs).as_null_object
+  end
+
+  before(:each) do
+      # mock up an authentication in the underlying warden library
+      request.env['warden'] = mock(Warden, :authenticate => mock_user,
+                                           :authenticate! => mock_user)
+  end
+
   def mock_topic(stubs={})
     @mock_topic ||= mock_model(Topic, stubs).as_null_object
   end
