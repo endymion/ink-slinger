@@ -57,7 +57,7 @@ Sass::Plugin.options[:never_update] = true
 PAPERCLIP_CONFIG = {
   :storage => :s3,
   :s3_credentials => "#{Rails.root}/config/s3.yml",
-  :bucket => "static.brave-new-media.com"  
+  :bucket => "static.brave-new-media.com",
   :s3_headers => {'Cache-Control' => 'max-age=31557600'}
 }
 PAPERCLIP_CONFIG_IMAGES = {
