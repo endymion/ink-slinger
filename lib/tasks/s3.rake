@@ -55,7 +55,15 @@ namespace :s3 do
         AWS::S3::S3Object.store(
           asset,
           open(File.join(Rails.root, 'public', asset)),
-          @settings['bucket_name'])
+          @settings['bucket_name'],
+          {
+            :cache_control => 'max-age=86400',
+            :access => :public_read
+          })
+          
+        # s3_object = AWS::S3::S3Object.find(asset, @settings['bucket_name'])
+        # s3_object.cache_control = 'max-age=86400' # TODO: 1.day, should be longer after 1.0
+        # s3_object.save({:access => :public_read})
       end
     end
 
@@ -73,14 +81,10 @@ namespace :s3 do
     objects = AWS::S3::Bucket.objects(@settings['bucket_name'])
     puts "found #{objects.size} objects"    
     
-    public_grant = AWS::S3::ACL::Grant.grant :public_read
-  
     objects.each do |object|
-      if not object.acl.grants.include? public_grant
-        puts "\"#{object.key}\" does not include public_read"
-        object.acl.grants << public_grant
-        object.acl(object.acl)
-      end
+      puts "Setting meta data on #{object.key}"
+      object.cache_control = 'max-age=86400'
+      object.save({:access => :public_read})
     end
   end
 end
