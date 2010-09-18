@@ -58,6 +58,7 @@ PAPERCLIP_CONFIG = {
   :storage => :s3,
   :s3_credentials => "#{Rails.root}/config/s3.yml",
   :bucket => "static.brave-new-media.com"  
+  :s3_headers => {'Cache-Control' => 'max-age=31557600'}
 }
 PAPERCLIP_CONFIG_IMAGES = {
   :path => "system/images/:attachment/:id/:style.:extension",
