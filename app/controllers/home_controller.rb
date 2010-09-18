@@ -3,6 +3,11 @@ class HomeController < ApplicationController
   include ActionController::Caching::PagesS3
   caches_page_to_s3 :news
 
+  def news
+    # Cache the page in Varnish at Heroku.
+    response.headers['Cache-Control'] = 'public, max-age=3600' # 1.hour = 3600 seconds
+  end
+
   before_filter :generate_layout_pattern
   def generate_layout_pattern
     @layout_pattern = # A series of .racks

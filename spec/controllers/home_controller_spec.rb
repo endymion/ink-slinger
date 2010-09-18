@@ -52,7 +52,20 @@ describe HomeController do
       ActionController::Caching::PagesS3.should_not_receive(:copy_cached_page_to_s3)
       get :news
     end
-  
+
+    it "should include a cache-control on the news page" do
+      get :news
+      response.should be_success
+      response.headers["Cache-Control"].should_not be_nil
+    end
+
+    it "should include a cache-control on the news page" do
+      get :news
+      response.should be_success
+      response.headers["Cache-Control"].should_not be_nil
+      response.headers["Cache-Control"].should match /max\-age\=3600/ # 1.hour
+    end
+
   end
 
 end
