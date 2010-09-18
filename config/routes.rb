@@ -1,4 +1,5 @@
 Reporter::Application.routes.draw do |map|
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -58,6 +59,8 @@ Reporter::Application.routes.draw do |map|
   #   end
 
   root :to => "home#news"
+  
+  devise_for :users
 
   # See how all your routes lay out with "rake routes"
 

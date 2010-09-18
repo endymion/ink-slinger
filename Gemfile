@@ -27,6 +27,8 @@ gem 'formtastic', '>= 1.1.0', :git => "http://github.com/justinfrench/formtastic
 gem 'will_paginate', :git => 'http://github.com/mislav/will_paginate.git',   :branch => 'rails3'
 gem 'paperclip'
 gem 'annotate'
+gem 'devise', :git => "http://github.com/plataformatec/devise.git"
+gem 'oauth2'
 
 group :test do
   gem 'nokogiri', '1.4.1'

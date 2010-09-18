@@ -1,6 +1,8 @@
 class TopicsController < ApplicationController
   layout 'editor'
 
+  before_filter :authenticate_user!
+
   # GET /topics
   # GET /topics.xml
   def index
