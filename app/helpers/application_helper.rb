@@ -9,5 +9,10 @@ module ApplicationHelper
     url.gsub /\Ahttp\:\/\/[^\/]+\//,
       (brand_asset_host + '/')
   end
+
+  def brand_application_host
+    return '' unless Rails.env.eql? 'production'
+    "http://#{@current_brand.application_host}"
+  end
   
 end

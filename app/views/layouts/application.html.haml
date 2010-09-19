@@ -15,3 +15,10 @@
           %p{ :class => "flash flash_#{key}" }= flash[key]
     #content
       = yield
+  :javascript
+    $(document).ready(function() {
+      $.ajax({
+        type: 'GET',
+        url: "#{brand_application_host}/home/news/news.js"
+      });
+    });
