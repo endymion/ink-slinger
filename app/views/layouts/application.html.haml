@@ -7,6 +7,8 @@
   = javascript_include_tag 'jquery', 'rails', 'application'
   = csrf_meta_tag
   %meta{ :name => "viewport", :content => "width: device-width, initial-scale = 1, maximum-scale = 1" }
+  %script{:type => "text/javascript",
+    :src  => "#{brand_application_host}/home/authentication_box/authentication_box.js"}
 %body
   #page
     #header
@@ -15,10 +17,3 @@
           %p{ :class => "flash flash_#{key}" }= flash[key]
     #content
       = yield
-  :javascript
-    $(document).ready(function() {
-      $.ajax({
-        type: 'GET',
-        url: "#{brand_application_host}/home/authentication_box/authentication_box.js"
-      });
-    });
