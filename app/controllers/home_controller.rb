@@ -153,6 +153,14 @@ class HomeController < ApplicationController
     assign_topics_to_slots empty_slots, @text_topics
   end
   
+  def authentication_box
+    if user_signed_in?
+      render :action => :sign_out_box
+    else
+      render :action => :sign_in_box
+    end
+  end
+  
   private
 
   def assign_panels_to_slots(layout_slots, panels)

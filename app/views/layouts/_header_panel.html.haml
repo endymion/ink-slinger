@@ -2,11 +2,12 @@
 = image_tag '/images/spacers/2x1.gif', :class => 'stretch spacer-2-1'
 = image_tag "/images/brands/#{@current_brand.asset_name}/header/tile_256.gif", :class => 'header stretch has512'
 .copy.bottom
-  #xhr-test
-    XHR test:
-    #result
-      = link_to 'run test', '/home/news/news.js', :remote => true
-  #xhr-test
-    XHR test:
-    #result
-      = link_to 'run test', 'http://the.miami.nightlifeobserver.com/home/news/news.js', :remote => true
+  #authentication-box
+  #section_navigation
+    %ul
+      %li
+        = link_to 'News', root_path
+      %li
+        Calendar
+      %li
+        Forums

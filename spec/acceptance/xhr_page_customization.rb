@@ -9,7 +9,7 @@ feature "Flyers" do
 
   scenario "" do
     visit '/'
-    page.should have_content 'XHR test'
+    page.should have_content 'It worked!'
   end
 
 

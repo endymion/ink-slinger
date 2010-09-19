@@ -36,6 +36,31 @@ img { border: 0; }
   position: relative;
 }
 
+#header .copy {
+  margin: 0;
+}
+#authentication-box {
+  width: 40%;
+  font-size: 0.8em;
+  margin-left: 6.25%;
+}
+#section_navigation {
+  width: 100%;
+  text-align: center;
+  font-size: 2.4em;
+  line-height: 2em;
+  ul {
+    margin: 0px;
+    padding: 0px;
+    white-space: nowrap;
+    li {
+      list-style-type: none;
+      display: inline;
+      padding-left: 0.5ex;
+      padding-right: 0.5ex;
+    }
+  }
+}
 .headline {
   font-size: 1.2em;
   font-weight: bold;
@@ -77,6 +102,7 @@ img { border: 0; }
     overflow: hidden;
   }
   .copy {
+    width: 100%;
     clear: left;
     margin: 1em 8px 2em 8px;
   }
