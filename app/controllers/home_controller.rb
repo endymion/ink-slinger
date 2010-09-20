@@ -153,12 +153,15 @@ class HomeController < ApplicationController
     assign_topics_to_slots empty_slots, @text_topics
   end
   
-  def authentication_box
-    if user_signed_in?
-      render :action => :sign_out_box
+  # Add any dynamic user-specific or session-specific data to the static page that was
+  # served from CloudFront.
+  def personalize_page
+    partial = if user_signed_in?
+      'sign_out_box'
     else
-      render :action => :sign_in_box
+      'sign_in_box'
     end
+    render :action => :authentication_box, :locals => { :partial => partial }
   end
   
   private

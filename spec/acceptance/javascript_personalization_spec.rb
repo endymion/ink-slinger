@@ -9,7 +9,7 @@ feature "Flyers" do
 
   scenario "" do
     visit '/'
-    page.should have_content 'It worked!'
+    page.should have_css '#authentication-box input'
   end
 
 
