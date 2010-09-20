@@ -736,7 +736,7 @@ img {
   }
   /* line 314, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square {
-    width: 66.6%;
+    width: 66.6666666666%;
   }
   /* line 316, ../../app/stylesheets/screen.scss */
   .rack .section .mount.square .panel.square, .rack .section .mount.square .panel.portrait {
@@ -748,7 +748,7 @@ img {
   }
   /* line 323, ../../app/stylesheets/screen.scss */
   .rack .section .mount.flexible {
-    width: 33.3%;
+    width: 33.3333333333%;
   }
   /* line 325, ../../app/stylesheets/screen.scss */
   .rack .section .mount.flexible .panel.square {
@@ -767,11 +767,11 @@ img {
   }
   /* line 338, ../../app/stylesheets/screen.scss */
   .rack .header .panel.landscape {
-    width: 66.7%;
+    width: 66.6666666666%;
   }
   /* line 341, ../../app/stylesheets/screen.scss */
   .rack .header .panel.auto-width {
-    width: 33.4%;
+    width: 33.333333333%;
   }
   /* line 343, ../../app/stylesheets/screen.scss */
   .rack .header .panel.auto-width .spacer-3-1 {
@@ -787,7 +787,7 @@ img {
   }
   /* line 355, ../../app/stylesheets/screen.scss */
   .rack .row .panel.auto-width {
-    width: 66.7%;
+    width: 66.6666666666%;
   }
   /* line 357, ../../app/stylesheets/screen.scss */
   .rack .row .panel.auto-width .spacer-3-1 {
@@ -803,7 +803,7 @@ img {
   }
   /* line 367, ../../app/stylesheets/screen.scss */
   .rack .row .panel.square {
-    width: 33.4%;
+    width: 33.3333333333%;
   }
 }
 
