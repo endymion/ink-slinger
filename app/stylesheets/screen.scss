@@ -47,7 +47,6 @@ img { border: 0; }
 }
 
 #header .copy.top {
-  margin-top: 15%;
   #username {
     width: 50%;
     margin-right: 5%;
@@ -59,6 +58,7 @@ img { border: 0; }
 #header .copy {
   margin: 0;
   #post-your-event {
+    margin-top: 0.7em;
     width: 45%;
     float: left;
     text-align: center;
@@ -69,6 +69,7 @@ img { border: 0; }
     }
   }
   #authentication-box {
+    margin-top: 0.7em;
     width: 50%;
     float: right;
     font-size: 0.8em;

@@ -1,7 +1,7 @@
 !!! 
 %head
   %title= (title = yield(:title)).blank? ? @current_brand.title : title
-  - if STYLES_CHANGED_RECENTLY
+  - if (STYLES_CHANGED_RECENTLY and Rails.env.eql? 'production')
     %link{:href=>"http://static.brave-new-media.com/stylesheets/screen.css", :media=>"screen, projection", :rel=>"stylesheet", :type=>"text/css"}
     %link{:href=>"http://static.brave-new-media.com/stylesheets/print.css", :media=>"print", :rel=>"stylesheet", :type=>"text/css"}
     %link{:href=>"http://static.brave-new-media.com/stylesheets/ie.css", :media=>"screen, projection", :rel=>"stylesheet", :type=>"text/css"}
