@@ -189,6 +189,7 @@ GEM
     treetop (1.4.8)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
+    w3c_validators (1.0.2)
     warden (0.10.7)
       rack (>= 1.0.0)
     webrat (0.7.1)
@@ -228,5 +229,6 @@ DEPENDENCIES
   sqlite3-ruby
   steak!
   subdomain-fu!
+  w3c_validators
   webrat
   will_paginate!

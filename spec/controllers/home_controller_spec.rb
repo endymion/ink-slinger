@@ -6,6 +6,7 @@ describe HomeController do
   describe "GET periodical" do
     it "produces a front news page" do
       get :news
+      response.should be_success
     end
   end
 
@@ -31,8 +32,6 @@ describe HomeController do
 
   end
 
-  # Enable caching in the test environment to test this stuff, but beware that
-  # you could overwrite the cached publication files during testing.  Be careful.
   describe "caching" do
     include CachingHelper
   

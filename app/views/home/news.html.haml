@@ -8,9 +8,9 @@
               - options = { :class => panel[:arrangement] }
               - options[:id] = panel[:id] unless panel.object_id.blank?
               .panel{options}
-                - if panel[:id].eql? :header
+                - if panel[:id].eql? :header_panel
                   = render :partial => '/layouts/header_panel'
-                - elsif panel[:id].eql? :footer
+                - elsif panel[:id].eql? :footer_panel
                   = render :partial => '/layouts/footer_panel'
                 - else
                   = render :partial => '/layouts/panel', :locals => { :panel => panel }

@@ -28,7 +28,7 @@ class HomeController < ApplicationController
                   { :arrangement => :landscape },
                   {
                     :arrangement => :landscape,
-                    :id => :header
+                    :id => :header_panel
                   }
                 ]
             }
@@ -119,7 +119,7 @@ class HomeController < ApplicationController
                   { :arrangement => :square },
                   {
                     :arrangement => :square,
-                    :id => :footer
+                    :id => :footer_panel
                   }
               ]
             }

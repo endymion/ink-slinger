@@ -29,6 +29,7 @@ gem 'paperclip'
 gem 'annotate'
 gem 'devise', :git => "http://github.com/plataformatec/devise.git"
 gem 'oauth2'
+gem 'w3c_validators'
 
 group :test do
   gem 'nokogiri', '1.4.1'
