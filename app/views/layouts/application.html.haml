@@ -1,9 +1,14 @@
 !!! 
 %head
   %title= (title = yield(:title)).blank? ? @current_brand.title : title
-  = stylesheet_link_tag 'screen', :media => 'screen, projection'
-  = stylesheet_link_tag 'print', :media => 'print'
-  = stylesheet_link_tag 'ie', :media => 'screen, projection'
+  - if STYLES_CHANGED_RECENTLY
+    %link{:href=>"http://static.brave-new-media.com/stylesheets/screen.css", :media=>"screen, projection", :rel=>"stylesheet", :type=>"text/css"}
+    %link{:href=>"http://static.brave-new-media.com/stylesheets/print.css", :media=>"print", :rel=>"stylesheet", :type=>"text/css"}
+    %link{:href=>"http://static.brave-new-media.com/stylesheets/ie.css", :media=>"screen, projection", :rel=>"stylesheet", :type=>"text/css"}
+  - else  
+    = stylesheet_link_tag 'screen', :media => 'screen, projection'
+    = stylesheet_link_tag 'print', :media => 'print'
+    = stylesheet_link_tag 'ie', :media => 'screen, projection'
   = javascript_include_tag 'jquery', 'rails', 'application'
   = csrf_meta_tag
   %meta{ :name => "viewport", :content => "width: device-width, initial-scale = 1, maximum-scale = 1" }

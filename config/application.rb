@@ -77,3 +77,7 @@ PAPERCLIP_CONFIG_PANELS = {
 # Hook into the Rails page caching mechanism, writing cached pages in /tmp and
 # copying them to S3.
 require 'CachesPage_S3'
+
+# Set this if the styles has changed recently and the CSS needs to be loaded
+# from S3 instead of CloudFront.
+STYLES_CHANGED_RECENTLY = true
