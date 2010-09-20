@@ -1,4 +1,22 @@
 = form_tag new_user_session_path do
-  = text_field_tag 'user[email]'
-  = password_field_tag 'user[password]'
-  %button Login
+  #username.left
+    = text_field_tag 'user[email]', 'email', { :onfocus => "this.value='';"}
+  #password.left
+    = text_field_tag 'user[password]', 'password', { :onfocus => "this.type='password';this.value='';"}
+  #buttons
+    .left
+      remember?
+    .left
+      = check_box 'user[remember_me]', false
+    .right
+      %button Login
+  #links.clear
+    .left
+      = link_to 'sign up', '/users/sign_up'
+    .right
+      = link_to 'forgot password?', '/users/password/new'
+  #oauth-links.clear
+    sign in with:
+    = link_to image_tag '/images/facebook_16.png'
+    = link_to image_tag '/images/twitter_16.png'
+    = link_to image_tag '/images/openid_16.png'
