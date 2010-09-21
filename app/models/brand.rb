@@ -38,7 +38,10 @@ class Brand < ActiveRecord::Base
     brand = Brand.where(:domain_name => domain, :subdomain => subdomain).first
     return brand unless brand.blank?
     
-    Brand.first # The first brand is the default for when there is no exact match.
+    # Use the default brand when there is no exact match.
+    brand = Brand.where(:default => true).first
+    raise "No default brand is set.  Please add default: true to one brand." if brand.nil?
+    brand
   end
 
   def self.asset_hosts
@@ -103,6 +106,7 @@ class Brand < ActiveRecord::Base
     self.subdomain = brand['subdomain']
     self.application_domain = brand['application_domain']
     self.google_analytics_code = brand['google_analytics_code']
+    self.default = brand['default']
   end
 
   def self.configuration_domains

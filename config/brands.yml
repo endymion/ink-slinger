@@ -1,6 +1,7 @@
 domain_names:
   - domain_name: brave-new-media.com
     asset_server: static.brave-new-media.com
+    default: true
     locations:
       - title: Brave New Media
         subdomain: www
