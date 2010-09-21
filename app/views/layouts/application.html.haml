@@ -22,7 +22,6 @@
       = yield
   %script{:type => "text/javascript",
     :src  => "#{brand_application_host}/home/personalize_page/personalize_page.js"}
-  current brand: #{ debug @current_brand }
   - unless @current_brand.google_analytics_code.blank?
     :javascript
       var _gaq = _gaq || [];
