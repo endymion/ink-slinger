@@ -56,7 +56,7 @@ function layout_respond() {
   var total_width = jQuery(window).width();
   var page_width = total_width;
   var left_offset = 0;
-  
+
   var columns = 4; // Default is four columns.
   if (total_width <= 768) { columns = 12; }
   if (total_width <= 512) { columns = 2; }
@@ -67,17 +67,17 @@ function layout_respond() {
   {
       page_width = total_width + (columns - width_mod);
       left_offset = -((page_width - total_width)/2);
-      
-      if (total_width > 512 && total_width <= 768)
-      {
-        left_offset -= 1;
-        page_width += 2;
-      }
   }
   else
   {
       page_width = total_width;
       left_offset = 0;
+  }
+  
+  if (total_width > 512 && total_width <= 768)
+  {
+    left_offset -= 1;
+    page_width += 2;
   }
 
   jQuery('#content').width(page_width);
