@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100918203737) do
+ActiveRecord::Schema.define(:version => 20100921172355) do
 
   create_table "brands", :force => true do |t|
     t.string   "domain_name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20100918203737) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "application_domain"
+    t.string   "google_analytics_code"
   end
 
   create_table "images", :force => true do |t|

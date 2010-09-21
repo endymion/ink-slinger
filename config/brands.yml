@@ -4,6 +4,7 @@ domain_names:
     locations:
       - title: Brave New Media
         subdomain: www
+        google_analytics_code: 'UA-18662300-1'
 
   - domain_name: nightlifechronicle.com
     asset_server: performing-arts-events.com

@@ -102,6 +102,7 @@ class Brand < ActiveRecord::Base
     self.title = brand['title']
     self.subdomain = brand['subdomain']
     self.application_domain = brand['application_domain']
+    self.google_analytics_code = brand['google_analytics_code']
   end
 
   def self.configuration_domains
@@ -114,6 +115,7 @@ class Brand < ActiveRecord::Base
         domain_yml['title'] = location_yml['title']
         domain_yml['subdomain'] = location_yml['subdomain']
         domain_yml['application_domain'] = location_yml['application_domain']
+        domain_yml['google_analytics_code'] = location_yml['google_analytics_code']
         record = Brand.where(
           :title => location_yml['title'],
           :subdomain => location_yml['subdomain']).first || Brand.new
