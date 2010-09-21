@@ -69,18 +69,17 @@ function layout_respond() {
     left_offset -= 1;
     page_width += 2;
   }
-  else // For layouts with potential gaps in the center, ensure an even-number px width.
+
+  // For layouts with potential gaps in the center, ensure an even-number px width.
+  if( width_mod > 0)
   {
-    if( width_mod > 0)
-    {
-        page_width = total_width + (columns - width_mod);
-        left_offset = -((page_width - total_width)/2);
-    }
-    else
-    {
-        page_width = total_width;
-        left_offset = 0;
-    }
+      page_width = total_width + (columns - width_mod);
+      left_offset = -((page_width - total_width)/2);
+  }
+  else
+  {
+      page_width = total_width;
+      left_offset = 0;
   }
 
   jQuery('#content').width(page_width);
