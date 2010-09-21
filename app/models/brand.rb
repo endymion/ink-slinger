@@ -114,7 +114,9 @@ class Brand < ActiveRecord::Base
         domain_yml['title'] = location_yml['title']
         domain_yml['subdomain'] = location_yml['subdomain']
         domain_yml['application_domain'] = location_yml['application_domain']
-        record = Brand.new
+        record = Brand.where(
+          :title => location_yml['title'],
+          :subdomain => location_yml['subdomain']).first || Brand.new
         record.brand = domain_yml
         record
       }
