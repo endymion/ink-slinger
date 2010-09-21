@@ -1,6 +1,7 @@
 domain_names:
   - domain_name: the-master-brand.com
     asset_server: static.the-master-brand.com
+    default: true
     locations:
       - title: The Master Brand
         subdomain: www
