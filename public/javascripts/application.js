@@ -63,13 +63,6 @@ function layout_respond() {
   
   var width_mod = total_width % columns;
   
-  // Stretch width by 2px for layouts where sub-pixel rounding gaps will be at the edges.
-  if (total_width > 512 && total_width <= 768)
-  {
-    left_offset -= 1;
-    page_width += 2;
-  }
-
   // For layouts with potential gaps in the center, ensure an even-number px width.
   if( width_mod > 0)
   {
@@ -80,6 +73,13 @@ function layout_respond() {
   {
       page_width = total_width;
       left_offset = 0;
+  }
+
+  // Stretch width by 2px for layouts where sub-pixel rounding gaps will be at the edges.
+  if (total_width > 512 && total_width <= 768)
+  {
+    left_offset -= 1;
+    page_width += 3;
   }
 
   jQuery('#content').width(page_width);
