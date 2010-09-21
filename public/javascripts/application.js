@@ -63,21 +63,23 @@ function layout_respond() {
   
   var width_mod = total_width % columns;
   
-  if( width_mod > 0)
-  {
-      page_width = total_width + (columns - width_mod);
-      left_offset = -((page_width - total_width)/2);
-  }
-  else
-  {
-      page_width = total_width;
-      left_offset = 0;
-  }
-  
   if (total_width > 512 && total_width <= 768)
   {
     left_offset -= 1;
     page_width += 2;
+  }
+  else
+  {
+    if( width_mod > 0)
+    {
+        page_width = total_width + (columns - width_mod);
+        left_offset = -((page_width - total_width)/2);
+    }
+    else
+    {
+        page_width = total_width;
+        left_offset = 0;
+    }
   }
 
   jQuery('#content').width(page_width);
