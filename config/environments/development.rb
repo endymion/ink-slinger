@@ -1,4 +1,4 @@
-Reporter::Application.configure do
+InkSlinger::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
   # In the development environment your application's code is reloaded on
