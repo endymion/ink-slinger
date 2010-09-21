@@ -67,6 +67,12 @@ function layout_respond() {
   {
       page_width = total_width + (columns - width_mod);
       left_offset = -((page_width - total_width)/2);
+      
+      if (total_width > 512 && total_width <= 768)
+      {
+        left_offset -= 1;
+        page_width += 2;
+      }
   }
   else
   {
