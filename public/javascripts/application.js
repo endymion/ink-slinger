@@ -58,17 +58,18 @@ function layout_respond() {
   var left_offset = 0;
 
   var columns = 4; // Default is four columns.
-  if (total_width <= 768) { columns = 12; }
+  if (total_width <= 768) { columns = 12; } // 12%3 = 12%4 = 0
   if (total_width <= 512) { columns = 2; }
   
   var width_mod = total_width % columns;
   
+  // Stretch width by 2px for layouts where sub-pixel rounding gaps will be at the edges.
   if (total_width > 512 && total_width <= 768)
   {
     left_offset -= 1;
     page_width += 2;
   }
-  else
+  else // For layouts with potential gaps in the center, ensure an even-number px width.
   {
     if( width_mod > 0)
     {
