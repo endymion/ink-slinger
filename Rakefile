@@ -4,7 +4,7 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Rails::Application.load_tasks
+InkSlinger::Application.load_tasks
 
 require 'rake'
 require 'rspec/core/rake_task'
