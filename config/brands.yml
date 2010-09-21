@@ -5,7 +5,7 @@ domain_names:
     locations:
       - title: Brave New Media
         subdomain: www
-        google_analytics_code: 'UA-18662300-1'
+        google_analytics_code: UA-18662300-1
 
   - domain_name: nightlifechronicle.com
     asset_server: performing-arts-events.com
@@ -13,15 +13,18 @@ domain_names:
       - title: The Miami Nightlife Chronicle
         subdomain: miami
         application_domain: the
+        google_analytics_code: UA-18662300-2
       - title: The Los Angeles Nightlife Chronicle
         subdomain: los-angeles
         application_domain: the
+        google_analytics_code: UA-18662300-3
   - domain_name: nightlifeherald.com
     asset_server: performing-arts-events.com
     locations:
       - title: The New York Nightlife Herald
         subdomain: new-york
         application_domain: the
+        google_analytics_code: UA-18662300-4
 
   - domain_name: nightlifeglobe.com
     asset_server: night-club-events.com
@@ -29,21 +32,27 @@ domain_names:
       - title: The Los Angeles Nightlife Globe
         subdomain: los-angeles
         application_domain: the
+        google_analytics_code: UA-18662300-5
       - title: The New York Nightlife Globe
         subdomain: new-york
         application_domain: the
+        google_analytics_code: UA-18662300-6
       - title: The Las Vegas Nightlife Globe
         subdomain: las-vegas
         application_domain: the
+        google_analytics_code: UA-18662300-7
   - domain_name: nightlifeobserver.com
     asset_server: night-club-events.com
     locations:
       - title: The Boston Nightlife Observer
         subdomain: boston
         application_domain: the
+        google_analytics_code: UA-18662300-8
       - title: The Orange County Nightlife Observer
         subdomain: orange-county
         application_domain: the
+        google_analytics_code: UA-18662300-9
       - title: The Miami Nightlife Observer
         subdomain: miami
         application_domain: the
+        google_analytics_code: UA-18662300-10
