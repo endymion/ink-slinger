@@ -81,6 +81,7 @@ GEM
       builder
       mime-types
       xml-simple
+    babosa (0.2.0)
     bcrypt-ruby (2.1.2)
     builder (2.1.2)
     capistrano (2.5.19)
@@ -115,6 +116,8 @@ GEM
       rack (>= 1.0.1)
     ffi (0.6.3)
       rake (>= 0.8.7)
+    friendly_id (3.1.6)
+      babosa (~> 0.2.0)
     haml (3.0.18)
     highline (1.6.1)
     i18n (0.4.1)
@@ -216,6 +219,7 @@ DEPENDENCIES
   devise!
   factory_girl_rails
   formtastic (>= 1.1.0)!
+  friendly_id (~> 3.1)
   haml
   launchy
   nokogiri (= 1.4.1)

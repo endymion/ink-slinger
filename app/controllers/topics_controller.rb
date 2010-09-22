@@ -19,12 +19,15 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
 
+    redirect_to @topic, :status => :moved_permanently and return unless
+      @topic.friendly_id_status.best?
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @topic }
     end
   end
-
+  
   # GET /topics/new
   # GET /topics/new.xml
   def new

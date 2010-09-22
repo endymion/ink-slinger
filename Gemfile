@@ -30,6 +30,7 @@ gem 'annotate'
 gem 'devise', :git => "http://github.com/plataformatec/devise.git"
 gem 'oauth2'
 gem 'w3c_validators'
+gem "friendly_id", "~> 3.1"
 
 group :test do
   gem 'nokogiri', '1.4.1'
