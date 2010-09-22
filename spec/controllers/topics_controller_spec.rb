@@ -31,6 +31,12 @@ describe TopicsController do
       get :show, :id => "37"
       assigns(:topic).should be(mock_topic)
     end
+    
+    it "redirects to the best URL using the topic's friendly_id" do
+      it = Topic.create :title => 'thing'
+      get :show, :id => it.id
+      response.should redirect_to(topic_url(it))
+    end
   end
 
   describe "GET new" do

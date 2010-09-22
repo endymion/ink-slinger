@@ -14,7 +14,7 @@
 #
 
 class Topic < ActiveRecord::Base
-  has_friendly_id :title, :use_slug => true
+  has_friendly_id :title, :use_slug => true, :allow_nil => true
   
   has_many :images, :dependent => :destroy, :order => 'updated_at DESC'
   accepts_nested_attributes_for :images, :allow_destroy => true,
