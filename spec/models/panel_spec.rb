@@ -268,6 +268,7 @@ describe Panel do
         topic.images.first.panels.first.should_not be_nil
         topic.images.first.panels.first.arrangement.should == 'portrait'
         topic.images.first.panels.first.tile_256_file_name.should match /^a-test-topic.*\.jpg$/
+        topic.images.first.panels.first.tile_256_file_name.should_not match /--\d/
         # topic.images.first.panels.first.tile_512_file_name.should be_nil
       end
   

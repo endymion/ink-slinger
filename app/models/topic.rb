@@ -14,7 +14,10 @@
 #
 
 class Topic < ActiveRecord::Base
-  has_friendly_id :title, :use_slug => true, :allow_nil => true
+  has_friendly_id :seo_text, :use_slug => true, :allow_nil => true
+  def seo_text 
+    title
+  end
   
   has_many :images, :dependent => :destroy, :order => 'updated_at DESC'
   accepts_nested_attributes_for :images, :allow_destroy => true,
@@ -22,6 +25,9 @@ class Topic < ActiveRecord::Base
 
   has_many :panels, :dependent => :destroy, :order => 'updated_at DESC'
   accepts_nested_attributes_for :panels, :allow_destroy => true
+
+  # A simple hack to friendly_id to keep it from creating duplicate slugs during before_save.
+  attr_accessor :no_slug
 
   before_create :update_attachment_file_names
   before_save :update_attachment_file_names
@@ -33,6 +39,7 @@ class Topic < ActiveRecord::Base
     for image in old_images do
       new_image = Image.new
       new_image.topic = self
+      self.no_slug = true
       new_image.save
       unless image.tile_512.to_file.nil?
         new_image.tile_256 = image.tile_512.to_file
@@ -51,15 +58,7 @@ class Topic < ActiveRecord::Base
         new_panel = Panel.new(panel.attributes.reject{|attribute, value| attribute.first.match /tile_/})
         new_panel.topic = self
         new_panel.save
-        unless panel.tile_512.to_file.nil?
-          new_panel.tile_256 = panel.tile_512.to_file
-        else
-          unless panel.tile_256.to_file.nil?
-            new_panel.tile_256 = panel.tile_256.to_file
-          else
-            next
-          end
-        end
+        new_panel.reprocess_tiles
         new_image_panels << new_panel
         new_panel.save
       end

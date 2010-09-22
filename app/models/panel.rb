@@ -177,8 +177,6 @@ class Panel < ActiveRecord::Base
     end
   end
   
-  private
-
   def reprocess_tiles
     return if @reprocessed
     @reprocessed = true
