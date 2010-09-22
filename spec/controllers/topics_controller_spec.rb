@@ -37,6 +37,12 @@ describe TopicsController do
       get :show, :id => it.id
       response.should redirect_to(topic_url(it))
     end
+
+    it "doesn't redirect to another URL if the topic has no friendly_id" do
+      it = Topic.create
+      get :show, :id => it.id
+      response.should_not be_redirect
+    end
   end
 
   describe "GET new" do
