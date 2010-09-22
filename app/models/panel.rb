@@ -25,7 +25,7 @@
 class Panel < ActiveRecord::Base
   belongs_to :topic
   belongs_to :image
-  attr_accessible :topic, :image
+  attr_accessible :topic, :image, :image_id
   attr_accessible :tile_256, :tile_512
   attr_accessible :arrangement, :crop_x, :crop_y, :crop_w, :crop_h
 
@@ -124,6 +124,27 @@ class Panel < ActiveRecord::Base
     }
   }.merge(PAPERCLIP_CONFIG_PANELS)
 
+  before_post_process :topic_friendly_id_to_panel_file_names
+  def topic_friendly_id
+    if self.topic.nil?
+      tile_256_file_name.gsub(/\..*$/,'') unless tile_256_file_name.blank?
+    elsif (topic_id = self.topic.friendly_id).blank?
+      self.topic.id
+    else
+      topic_id
+    end
+  end
+  def topic_friendly_id_to_panel_file_names
+    unless tile_256_file_name.blank?
+      extension = File.extname(tile_256_file_name) 
+      self.tile_256.instance_write(:file_name, "#{topic_friendly_id}#{extension}") 
+    end
+    unless tile_512_file_name.blank?
+      extension = File.extname(tile_512_file_name) 
+      self.tile_512.instance_write(:file_name, "#{topic_friendly_id}#{extension}") 
+    end
+  end
+  
   def width(tile_width)
     if tile_width.eql? 512
       case arrangement

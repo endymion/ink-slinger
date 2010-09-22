@@ -93,4 +93,26 @@ describe Image do
     Image.for_topic(topic).size.should == 2
   end
   
+  describe 'file name SEO' do
+    describe 'should use the friendly_id for the topic as the file names for the image attachments.' do
+  
+      it 'with only a tile_256 image' do
+        image = Factory.create :image, :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_512.jpg')
+        topic = Factory.create :topic, :title => 'A test topic', :images => [image]
+        topic.images.first.should_not be_nil
+        topic.images.first.tile_256_file_name.should match /^a-test-topic.*\.jpg$/
+        topic.images.first.tile_512_file_name.should be_nil
+      end
+  
+      it 'with both a tile_256 image and a tile_512 image' do
+        image = Factory.create :image, :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_1024.jpg')
+        topic = Factory.create :topic, :title => 'A test topic', :images => [image]
+        topic.images.first.should_not be_nil
+        topic.images.first.tile_256_file_name.should match /^a-test-topic.*\.jpg$/
+        topic.images.first.tile_512_file_name.should match /^a-test-topic.*\.jpg$/
+      end
+  
+    end
+  end
+  
 end

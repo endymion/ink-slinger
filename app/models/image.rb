@@ -18,6 +18,7 @@
 
 class Image < ActiveRecord::Base
   belongs_to :topic
+  has_many :panels
 
   scope :for_topic, lambda {|topic|
     where("images.topic_id = #{topic.id}")
@@ -56,6 +57,27 @@ class Image < ActiveRecord::Base
     :convert_options => { :original => '-strip -quality 90' }
   }.merge(PAPERCLIP_CONFIG_IMAGES)
 
+  before_post_process :topic_friendly_id_to_image_file_names
+  def topic_friendly_id
+    if self.topic.nil?
+      tile_256_file_name.gsub(/\..*$/,'') unless tile_256_file_name.blank?
+    elsif (topic_id = self.topic.friendly_id).blank?
+      self.topic.id
+    else
+      topic_id
+    end
+  end
+  def topic_friendly_id_to_image_file_names
+    unless tile_256_file_name.blank?
+      extension = File.extname(tile_256_file_name) 
+      self.tile_256.instance_write(:file_name, "#{topic_friendly_id}#{extension}") 
+    end
+    unless tile_512_file_name.blank?
+      extension = File.extname(tile_512_file_name) 
+      self.tile_512.instance_write(:file_name, "#{topic_friendly_id}#{extension}") 
+    end
+  end
+    
   alias :paperclip_tile_256= :tile_256=
   def tile_256=(attachment)
     self.paperclip_tile_256 = attachment
@@ -69,5 +91,5 @@ class Image < ActiveRecord::Base
     return tile_256 if !tile_256_file_name.nil?
     nil
   end
-
+  
 end

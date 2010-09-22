@@ -41,7 +41,7 @@ describe Topic do
     before do
       %w{square portrait landscape}.each do |panel_type|
         rand(5).times do
-          @topic = Topic.new
+          @topic = Topic.create
           @topic.images << (image = Image.create :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_256.jpg'))
           @topic.panels << Panel.create(:image => image, :arrangement => panel_type)
         end
