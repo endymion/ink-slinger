@@ -66,12 +66,12 @@ end
 # config/environments/production.rb)
 PAPERCLIP_CONFIG = {}
 PAPERCLIP_CONFIG_IMAGES = {
-  :path => ":rails_root/public/system/images/:attachment/:id_partition/:basename.:extension",
-  :url => "/system/images/:attachment/:id_partition/:basename.:extension"
+  :path => ":rails_root/public/system/:rails_env/images/:attachment/:id_partition/:basename.:extension",
+  :url => "/system/:rails_env/images/:attachment/:id_partition/:basename.:extension"
 }
 PAPERCLIP_CONFIG_PANELS = {
-  :path => ":rails_root/public/system/panels/:attachment/:id_partition/:basename.:extension",
-  :url => "/system/panels/:attachment/:id_partition/:basename.:extension"
+  :path => ":rails_root/public/system/:rails_env/panels/:attachment/:id_partition/:basename.:extension",
+  :url => "/system/:rails_env/panels/:attachment/:id_partition/:basename.:extension"
 }
 
 # Hook into the Rails page caching mechanism, writing cached pages in /tmp and

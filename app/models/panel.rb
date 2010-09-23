@@ -82,7 +82,6 @@ class Panel < ActiveRecord::Base
       panel = image.instance
       original = {
         :geometry => "#{panel.width(256)}x#{panel.height(256)}!",
-        :quality => 10,
         :format => 'jpg'
       }
       if panel.image.nil? || panel.image.panel_source_image.nil?
@@ -97,7 +96,8 @@ class Panel < ActiveRecord::Base
       {
         :original => original
       }
-    }
+    },
+    :convert_options => { :original => '-strip -quality 50' }
   }.merge(PAPERCLIP_CONFIG_PANELS)
 
   has_attached_file :tile_512, {
@@ -106,7 +106,6 @@ class Panel < ActiveRecord::Base
       panel = image.instance
       original = {
         :geometry => "#{panel.width(512)}x#{panel.height(512)}!",
-        :quality => 10,
         :format => 'jpg'
       }
       if panel.image.nil? || panel.image.panel_source_image.nil?
@@ -121,7 +120,8 @@ class Panel < ActiveRecord::Base
       {
         :original => original
       }
-    }
+    },
+    :convert_options => { :original => '-strip -quality 50' }
   }.merge(PAPERCLIP_CONFIG_PANELS)
 
   before_post_process :topic_friendly_id_to_panel_file_names

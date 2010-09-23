@@ -39,7 +39,7 @@ class Image < ActiveRecord::Base
         }
       }
     },
-    :convert_options => { :original => '-strip -quality 90' }
+    :convert_options => { :original => '-strip -quality 40' }
   }.merge(PAPERCLIP_CONFIG_IMAGES)
   
   has_attached_file :tile_512, {
@@ -54,7 +54,7 @@ class Image < ActiveRecord::Base
         }
       }
     },
-    :convert_options => { :original => '-strip -quality 90' }
+    :convert_options => { :original => '-strip -quality 40' }
   }.merge(PAPERCLIP_CONFIG_IMAGES)
 
   before_post_process :topic_friendly_id_to_image_file_names
