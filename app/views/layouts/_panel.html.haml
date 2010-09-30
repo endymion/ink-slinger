@@ -1,6 +1,6 @@
 - unless panel[:id].blank?
   - if panel[:type].eql? :panel
-    = image_tag brand_asset_url(Panel.find(panel[:id]).tile_256(:original)), :class => 'stretch has512'
+    = image_tag brand_asset_url(Panel.find(panel[:id]).t_1(:original)), :class => 'stretch has512'
   - else
     - if panel[:arrangement].eql? :landscape
       = image_tag '/images/spacers/2x1.gif', :class => 'stretch spacer-2-1'

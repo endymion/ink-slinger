@@ -6,14 +6,14 @@
 #  topic_id              :integer
 #  created_at            :datetime
 #  updated_at            :datetime
-#  tile_512_file_name    :string(255)
-#  tile_512_content_type :string(255)
-#  tile_512_file_size    :integer
-#  tile_512_updated_at   :datetime
-#  tile_256_file_name    :string(255)
-#  tile_256_content_type :string(255)
-#  tile_256_file_size    :integer
-#  tile_256_updated_at   :datetime
+#  t_2_file_name    :string(255)
+#  t_2_content_type :string(255)
+#  t_2_file_size    :integer
+#  t_2_updated_at   :datetime
+#  t_1_file_name    :string(255)
+#  t_1_content_type :string(255)
+#  t_1_file_size    :integer
+#  t_1_updated_at   :datetime
 #
 
 class Image < ActiveRecord::Base
@@ -24,10 +24,10 @@ class Image < ActiveRecord::Base
     where("images.topic_id = #{topic.id}")
   }
 
-  # validates_attachment_size :tile_256, :less_than => 1.megabyte
-  # validates_attachment_size :tile_512, :less_than => 1.megabyte
+  # validates_attachment_size :t_1, :less_than => 1.megabyte
+  # validates_attachment_size :t_2, :less_than => 1.megabyte
 
-  has_attached_file :tile_256, {
+  has_attached_file :t_1, {
     :processors => [:original], # Don't touch the file unless it's too large.
     :styles => lambda { |image|
       panel = image.instance
@@ -42,7 +42,7 @@ class Image < ActiveRecord::Base
     :convert_options => { :original => '-strip -quality 40' }
   }.merge(PAPERCLIP_CONFIG_IMAGES)
   
-  has_attached_file :tile_512, {
+  has_attached_file :t_2, {
     :processors => [:original], # Don't touch the file unless it's too large.
     :styles => lambda { |image|
       panel = image.instance
@@ -60,7 +60,7 @@ class Image < ActiveRecord::Base
   before_post_process :topic_friendly_id_to_image_file_names
   def topic_friendly_id
     if self.topic.nil?
-      tile_256_file_name.gsub(/\..*$/,'') unless tile_256_file_name.blank?
+      t_1_file_name.gsub(/\..*$/,'') unless t_1_file_name.blank?
     elsif (topic_id = self.topic.friendly_id).blank?
       self.topic.id
     else
@@ -68,27 +68,27 @@ class Image < ActiveRecord::Base
     end
   end
   def topic_friendly_id_to_image_file_names
-    unless tile_256_file_name.blank?
-      extension = File.extname(tile_256_file_name) 
-      self.tile_256.instance_write(:file_name, "#{topic_friendly_id}#{extension}") 
+    unless t_1_file_name.blank?
+      extension = File.extname(t_1_file_name) 
+      self.t_1.instance_write(:file_name, "#{topic_friendly_id}#{extension}") 
     end
-    unless tile_512_file_name.blank?
-      extension = File.extname(tile_512_file_name) 
-      self.tile_512.instance_write(:file_name, "#{topic_friendly_id}#{extension}") 
+    unless t_2_file_name.blank?
+      extension = File.extname(t_2_file_name) 
+      self.t_2.instance_write(:file_name, "#{topic_friendly_id}#{extension}") 
     end
   end
     
-  alias :paperclip_tile_256= :tile_256=
-  def tile_256=(attachment)
-    self.paperclip_tile_256 = attachment
+  alias :paperclip_t_1= :t_1=
+  def t_1=(attachment)
+    self.paperclip_t_1 = attachment
     if Paperclip::Geometry.from_file(attachment).width.to_i > 512
-      self.tile_512 = attachment
+      self.t_2 = attachment
     end
   end
 
   def panel_source_image
-    return tile_512 if !tile_512_file_name.nil?
-    return tile_256 if !tile_256_file_name.nil?
+    return t_2 if !t_2_file_name.nil?
+    return t_1 if !t_1_file_name.nil?
     nil
   end
   

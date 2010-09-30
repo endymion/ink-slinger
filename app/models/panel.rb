@@ -7,14 +7,14 @@
 #  created_at            :datetime
 #  updated_at            :datetime
 #  topic_id              :integer
-#  tile_256_file_name    :string(255)
-#  tile_256_content_type :string(255)
-#  tile_256_file_size    :integer
-#  tile_256_updated_at   :datetime
-#  tile_512_file_name    :string(255)
-#  tile_512_content_type :string(255)
-#  tile_512_file_size    :integer
-#  tile_512_updated_at   :datetime
+#  t_1_file_name    :string(255)
+#  t_1_content_type :string(255)
+#  t_1_file_size    :integer
+#  t_1_updated_at   :datetime
+#  t_2_file_name    :string(255)
+#  t_2_content_type :string(255)
+#  t_2_file_size    :integer
+#  t_2_updated_at   :datetime
 #  image_id              :integer
 #  crop_x                :float
 #  crop_y                :float
@@ -26,7 +26,7 @@ class Panel < ActiveRecord::Base
   belongs_to :topic
   belongs_to :image
   attr_accessible :topic, :image, :image_id
-  attr_accessible :tile_256, :tile_512
+  attr_accessible :t_1, :t_2
   attr_accessible :arrangement, :crop_x, :crop_y, :crop_w, :crop_h
 
   before_save :default_crop, :unless => :cropping?
@@ -76,7 +76,7 @@ class Panel < ActiveRecord::Base
   scope :landscape, where("panels.arrangement = 'landscape'").order('updated_at DESC')
   scope :portrait, where("panels.arrangement = 'portrait'").order('updated_at DESC')
 
-  has_attached_file :tile_256, {
+  has_attached_file :t_1, {
     :processors => [:cropper],
     :styles => lambda { |image|
       panel = image.instance
@@ -100,7 +100,7 @@ class Panel < ActiveRecord::Base
     :convert_options => { :original => '-strip -quality 50' }
   }.merge(PAPERCLIP_CONFIG_PANELS)
 
-  has_attached_file :tile_512, {
+  has_attached_file :t_2, {
     :processors => [:cropper],
     :styles => lambda { |image|
       panel = image.instance
@@ -127,7 +127,7 @@ class Panel < ActiveRecord::Base
   before_post_process :topic_friendly_id_to_panel_file_names
   def topic_friendly_id
     if self.topic.nil?
-      tile_256_file_name.gsub(/\..*$/,'') unless tile_256_file_name.blank?
+      t_1_file_name.gsub(/\..*$/,'') unless t_1_file_name.blank?
     elsif (topic_id = self.topic.friendly_id).blank?
       self.topic.id
     else
@@ -135,13 +135,13 @@ class Panel < ActiveRecord::Base
     end
   end
   def topic_friendly_id_to_panel_file_names
-    unless tile_256_file_name.blank?
-      extension = File.extname(tile_256_file_name) 
-      self.tile_256.instance_write(:file_name, "#{topic_friendly_id}#{extension}") 
+    unless t_1_file_name.blank?
+      extension = File.extname(t_1_file_name) 
+      self.t_1.instance_write(:file_name, "#{topic_friendly_id}#{extension}") 
     end
-    unless tile_512_file_name.blank?
-      extension = File.extname(tile_512_file_name) 
-      self.tile_512.instance_write(:file_name, "#{topic_friendly_id}#{extension}") 
+    unless t_2_file_name.blank?
+      extension = File.extname(t_2_file_name) 
+      self.t_2.instance_write(:file_name, "#{topic_friendly_id}#{extension}") 
     end
   end
   
@@ -180,8 +180,8 @@ class Panel < ActiveRecord::Base
   def reprocess_tiles
     return if @reprocessed
     @reprocessed = true
-    self.tile_512 = image.panel_source_image.to_file(:original)
-    self.tile_256 = image.panel_source_image.to_file(:original)
+    self.t_2 = image.panel_source_image.to_file(:original)
+    self.t_1 = image.panel_source_image.to_file(:original)
     self.save
   end
   

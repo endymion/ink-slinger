@@ -15,7 +15,7 @@ namespace :db do
           puts "creating a topic for flyers/#{file}"
 
           topic = Topic.new
-          topic.images << (image = Image.create :tile_256 =>
+          topic.images << (image = Image.create :t_1 =>
             File.new(File.join(Rails.root, 'seed', 'flyers', file)))
 
           if (file_metadata = metadata[file]).nil?

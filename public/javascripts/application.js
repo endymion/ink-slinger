@@ -1,15 +1,15 @@
 jQuery.fn.switchTo512 = function() {
   return this.each( function() {
     var src= jQuery(this).attr('src'); // Initial src.
-    if (src.lastIndexOf('tile_256') == -1) return; // Abort if it's not there.
-    jQuery(this).attr('src', src.replace(/tile_256/, 'tile_512'));
+    if (src.lastIndexOf('t_1') == -1) return; // Abort if it's not there.
+    jQuery(this).attr('src', src.replace(/t_1/, 't_2'));
   });
 }
 jQuery.fn.switchTo256 = function() {
   return this.each( function() {
     var src= jQuery(this).attr('src');
-    if (src.lastIndexOf('tile_512') == -1) return; // Abort if it's not there.
-    jQuery(this).attr('src', src.replace(/tile_512/, 'tile_256'));
+    if (src.lastIndexOf('t_2') == -1) return; // Abort if it's not there.
+    jQuery(this).attr('src', src.replace(/t_2/, 't_1'));
   });
 }
 

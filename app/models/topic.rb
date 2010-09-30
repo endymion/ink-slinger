@@ -21,7 +21,7 @@ class Topic < ActiveRecord::Base
   
   has_many :images, :dependent => :destroy, :order => 'updated_at DESC'
   accepts_nested_attributes_for :images, :allow_destroy => true,
-    :reject_if => proc { |attrs| attrs['tile_256'].blank? }
+    :reject_if => proc { |attrs| attrs['t_1'].blank? }
 
   has_many :panels, :dependent => :destroy, :order => 'updated_at DESC'
   accepts_nested_attributes_for :panels, :allow_destroy => true
@@ -43,11 +43,11 @@ class Topic < ActiveRecord::Base
       self.no_slug = true
       new_image.save
       self.no_slug = false
-      unless image.tile_512.to_file.nil?
-        new_image.tile_256 = image.tile_512.to_file
+      unless image.t_2.to_file.nil?
+        new_image.t_1 = image.t_2.to_file
       else
-        unless image.tile_256.to_file.nil?
-          new_image.tile_256 = image.tile_256.to_file
+        unless image.t_1.to_file.nil?
+          new_image.t_1 = image.t_1.to_file
         else
           next
         end

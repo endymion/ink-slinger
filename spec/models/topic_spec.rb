@@ -23,7 +23,7 @@ describe Topic do
       rand(5).times { Topic.create } # Text topics.
       rand(5).times do
         topic = Topic.new
-        topic.images << (image = Image.create :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_256.jpg'))
+        topic.images << (image = Image.create :t_1 => File.new(Rails.root + 'spec/fixtures/images/test_256.jpg'))
         topic.panels << Panel.create(:image => image)
       end
     end
@@ -42,7 +42,7 @@ describe Topic do
       %w{square portrait landscape}.each do |panel_type|
         rand(5).times do
           @topic = Topic.create
-          @topic.images << (image = Image.create :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_256.jpg'))
+          @topic.images << (image = Image.create :t_1 => File.new(Rails.root + 'spec/fixtures/images/test_256.jpg'))
           @topic.panels << Panel.create(:image => image, :arrangement => panel_type)
         end
       end
@@ -59,15 +59,15 @@ describe Topic do
   describe 'file name SEO' do
     
     it 'should use the friendly_id for the topic as the file names for the image attachments.' do
-      image = Factory.create :image, :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_1024.jpg')
+      image = Factory.create :image, :t_1 => File.new(Rails.root + 'spec/fixtures/images/test_1024.jpg')
       topic = Factory.create :topic, :title => 'A test topic', :images => [image]
       topic.images.first.should_not be_nil
-      topic.images.first.tile_256_file_name.should match /^a-test-topic.*\.jpg$/
-      topic.images.first.tile_512_file_name.should match /^a-test-topic.*\.jpg$/
+      topic.images.first.t_1_file_name.should match /^a-test-topic.*\.jpg$/
+      topic.images.first.t_2_file_name.should match /^a-test-topic.*\.jpg$/
     end
     
     it 'should use the friendly_id for the topic as the file names for the panel attachments' do
-      image = Factory.create :image, :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_256.jpg')
+      image = Factory.create :image, :t_1 => File.new(Rails.root + 'spec/fixtures/images/test_256.jpg')
       panel = Panel.create :image => image, :arrangement => 'portrait'
       image.panels << panel
       image.save
@@ -75,12 +75,12 @@ describe Topic do
       first_panel = topic.images.first.panels.first
       first_panel.should_not be_nil
       first_panel.arrangement.should == 'portrait'
-      first_panel.tile_256_file_name.should match /^a-test-topic.*\.jpg$/
-      first_panel.tile_256_file_name.should_not match /--\d/
+      first_panel.t_1_file_name.should match /^a-test-topic.*\.jpg$/
+      first_panel.t_1_file_name.should_not match /--\d/
     end
 
     it 'should update the names of the attachments when the friendly_id on the parent Topic changes' do
-      image = Factory.create :image, :tile_256 => File.new(Rails.root + 'spec/fixtures/images/test_256.jpg')
+      image = Factory.create :image, :t_1 => File.new(Rails.root + 'spec/fixtures/images/test_256.jpg')
       panel = Panel.create :image => image, :arrangement => 'portrait'
       image.panels << panel
       image.save
@@ -89,8 +89,8 @@ describe Topic do
       topic.title = 'This is a different topic'
       topic.save
       first_panel = topic.images.first.panels.first
-      first_panel.tile_256_file_name.should match /^this-is-a-different-topic.*\.jpg$/
-      first_panel.tile_256_file_name.should_not match /--\d/
+      first_panel.t_1_file_name.should match /^this-is-a-different-topic.*\.jpg$/
+      first_panel.t_1_file_name.should_not match /--\d/
     end
 
   end

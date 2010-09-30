@@ -16,7 +16,7 @@ feature "Flyers" do
   scenario "Upload a flyer, crop it, and then delete it" do
     visit '/topics'
     click_link 'new topic'
-    attach_file('topic[images_attributes][0][tile_256]', File.join(Rails.root + 'spec/fixtures/images/test_1024.jpg'))
+    attach_file('topic[images_attributes][0][t_1]', File.join(Rails.root + 'spec/fixtures/images/test_1024.jpg'))
     click 'topic_submit'
     click 'topic_submit' # On crop page.
     click 'Topics'

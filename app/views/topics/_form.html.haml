@@ -16,10 +16,10 @@
     .panel.square
       = form.semantic_fields_for :images do |image|
         = image.inputs do
-          = image_tag image.object.tile_256(:original), :class => 'stretch' unless image.object.new_record?
+          = image_tag image.object.t_1(:original), :class => 'stretch' unless image.object.new_record?
           - if image.object.new_record?
             = image.label :new_image, :label => 'New Image'
-          = image.file_field :tile_256
+          = image.file_field :t_1
           - unless image.object.new_record?
             = image.check_box :_destroy
             = image.label :_destroy, :label => 'Remove'

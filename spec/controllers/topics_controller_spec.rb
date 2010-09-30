@@ -100,7 +100,7 @@ describe TopicsController do
               "0"=> {
                 "id"=>"1",
                 "_destroy"=>"0",
-                "tile_512"=>
+                "t_2"=>
                   File.join(Rails.root, 'spec', 'fixtures', 'images', 'test_512.jpg')
               }
             }
@@ -157,7 +157,7 @@ describe TopicsController do
               "0"=> {
                 "id"=>"1",
                 "_destroy"=>"0",
-                "tile_512"=>
+                "t_2"=>
                   File.join(Rails.root, 'spec', 'fixtures', 'images', 'test_512.jpg')
               }
             }

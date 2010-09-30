@@ -29,8 +29,8 @@
           = image_tag panel.object.image.panel_source_image.url(:original), :id => panel_id, :class => 'stretch'
         .panel.square
           %div{:id => "#{panel_id}-preview", :class => 'preview-image'}
-            - url = panel.object.tile_256.url(:original)
-            - url = panel.object.image.tile_256.url(:original) if panel.object.tile_256_file_name.nil?
+            - url = panel.object.t_1.url(:original)
+            - url = panel.object.image.t_1.url(:original) if panel.object.t_1_file_name.nil?
             = image_tag url, :id => panel_id + '-preview-image', :class => 'stretch'
           - arrangement_label = (panel.object.new_record?) ? '' : 'Arrangement'
           = panel.select :arrangement, options_for_select(['square', 'landscape', 'portrait'], panel.object.arrangement), {}, {:id => "#{panel_id}-arrangement"}
@@ -84,7 +84,7 @@
               marginTop: '-' + Math.round(normalized_y / normalized_h * preview_height) + 'px',
               maxWidth: 'none'
           	});
-          	$('##{panel_id}-preview-image').attr('src', '#{ panel.object.image.tile_256.url(:original) }');
+          	$('##{panel_id}-preview-image').attr('src', '#{ panel.object.image.t_1.url(:original) }');
 
           	update_crop('#{panel_id}',
           	  normalized_x, normalized_y, normalized_w, normalized_h);
