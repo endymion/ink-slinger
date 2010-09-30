@@ -58,7 +58,7 @@ module InkSlinger
         require processor # PVDB don't rescue LoadError... let it rip!
       end
     end
-    
+
   end
 end
 

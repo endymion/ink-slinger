@@ -29,8 +29,9 @@ class Topic < ActiveRecord::Base
   # A simple hack to friendly_id to keep it from creating duplicate slugs during before_save.
   attr_accessor :no_slug
 
-  before_create :update_attachment_file_names
-  before_save :update_attachment_file_names
+  after_create :update_attachment_file_names
+  after_update :update_attachment_file_names
+
   def update_attachment_file_names
     return true if @updating
     @updating = true
@@ -41,6 +42,7 @@ class Topic < ActiveRecord::Base
       new_image.topic = self
       self.no_slug = true
       new_image.save
+      self.no_slug = false
       unless image.tile_512.to_file.nil?
         new_image.tile_256 = image.tile_512.to_file
       else
@@ -51,7 +53,7 @@ class Topic < ActiveRecord::Base
         end
       end
      new_image.save # Redundant because of the one under the panels loop.
-
+    
       new_image_panels = []
       old_image_panels = image.panels.clone
       for panel in image.panels do
@@ -62,7 +64,7 @@ class Topic < ActiveRecord::Base
         new_image_panels << new_panel
         new_panel.save
       end
-
+    
       old_image_panels.each do |panel|
         image.panels.delete(panel)
         panel.destroy

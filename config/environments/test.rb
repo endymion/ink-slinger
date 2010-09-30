@@ -36,5 +36,8 @@ InkSlinger::Application.configure do
   Capybara.debug = true
   Capybara.ignore_hidden_elements = true
   Capybara.run_server = true
-  
+
+  # The Rails 3.0.0.rc told me to do this.
+  config.active_support.deprecation = :stderr
+
 end

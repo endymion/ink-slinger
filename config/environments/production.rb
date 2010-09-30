@@ -51,6 +51,10 @@ InkSlinger::Application.configure do
   config.i18n.fallbacks = true
   
   config.action_mailer.default_url_options = { :host => 'brave-new-media.com' }
+
+  # The Rails 3.0.0.rc told me to do this.
+  config.active_support.deprecation = :log
+
 end
 
 Sass::Plugin.options[:never_update] = true
