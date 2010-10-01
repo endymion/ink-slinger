@@ -33,8 +33,6 @@ class Topic < ActiveRecord::Base
   after_update :update_attachment_file_names
 
   def update_attachment_file_names
-    return true if @updating
-    @updating = true
     new_images = []
     old_images = images.clone
     for image in old_images do
@@ -80,7 +78,6 @@ class Topic < ActiveRecord::Base
       self.images.delete(image)
       image.destroy
     end
-    @updating = false
     true
   end
 
