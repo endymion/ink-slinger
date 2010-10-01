@@ -33,6 +33,14 @@ class Topic < ActiveRecord::Base
   after_update :update_attachment_file_names
 
   def update_attachment_file_names
+    do_update = images.inject(false) do |do_it, image|
+      do_it = true unless image.t_1_file_name =~ /#{friendly_id}/
+    end
+    
+    do_update_attachment_file_names if do_update
+  end
+  
+  def do_update_attachment_file_names
     new_images = []
     old_images = images.clone
     for image in old_images do

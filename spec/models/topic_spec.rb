@@ -79,17 +79,30 @@ describe Topic do
       first_panel.t_1_file_name.should_not match /--\d/
     end
 
-    it 'should update the names of the attachments when the friendly_id on the parent Topic changes' do
+    it 'should update the names of the attachments when the friendly_id on a Topic changes' do
       image = Factory.create :image, :t_1 => File.new(Rails.root + 'spec/fixtures/images/test_256.jpg')
       panel = Panel.create :image => image, :arrangement => 'portrait'
       image.panels << panel
       image.save
       topic = Factory.create :topic, :title => 'A test topic', :images => [image]
-      puts "done"
       topic.title = 'This is a different topic'
       topic.save
       first_panel = topic.images.first.panels.first
       first_panel.t_1_file_name.should match /^this-is-a-different-topic.*\.jpg$/
+      first_panel.t_1_file_name.should_not match /--\d/
+    end
+
+    it 'should not update the names of the attachments when the friendly_id a Topic does not change' do
+      image = Factory.create :image, :t_1 => File.new(Rails.root + 'spec/fixtures/images/test_256.jpg')
+      panel = Panel.create :image => image, :arrangement => 'portrait'
+      image.panels << panel
+      image.save
+      topic = Factory.create :topic, :title => 'A test topic', :images => [image]
+      topic.body = 'This an edit that does not change the friendly_id.'
+      topic.should_not_receive(:do_update_attachment_file_names)
+      topic.save
+      first_panel = topic.images.first.panels.first
+      first_panel.t_1_file_name.should match /^a-test-topic.*\.jpg$/
       first_panel.t_1_file_name.should_not match /--\d/
     end
 
