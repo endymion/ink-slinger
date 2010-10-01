@@ -11,7 +11,7 @@
 /* Body --------------------------------------------------------------*/
 
 body {
-  @include serif-family;
+  @include sans-family;
   color: $base;
 }
 
@@ -134,7 +134,7 @@ blockquote {
   };
   padding-left: $base-rhythm-unit;
   border-left: 1px solid;
-  @include serif-family;
+  @include sans-family;
   font-style: italic;
 }
 
