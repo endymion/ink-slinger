@@ -379,7 +379,7 @@ html > body {
 
 /* line 19, ../../app/stylesheets/screen.scss */
 body {
-  background-image: url("/images/paper-texture.jpg");
+  background: #EEE;
 }
 
 /* line 23, ../../app/stylesheets/screen.scss */
