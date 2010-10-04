@@ -31,6 +31,7 @@ gem 'devise', :git => "http://github.com/plataformatec/devise.git"
 gem 'oauth2'
 gem 'w3c_validators'
 gem "friendly_id", "~> 3.1"
+gem "state_machine"
 
 group :test do
   gem 'nokogiri', '1.4.1'
