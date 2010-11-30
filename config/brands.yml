@@ -7,6 +7,34 @@ domain_names:
         subdomain: www
         google_analytics_code: UA-18662300-1
 
+  - domain_name: nightlybriefing.com
+    asset_server: night-club-events.com
+    locations:
+      - title: The Miami Nightly Briefing
+        subdomain: miami
+        application_domain: the
+        google_analytics_code: UA-18662300-11
+      - title: The Los Angeles Nightly Briefing
+        subdomain: los-angeles
+        applicaiton_domain: the
+        google_analytics_code: UA-18662300-12
+      - title: The New York Nightly Briefing
+        subdomain: new-york
+        application_domain: the
+        google_analytics_code: UA-18662300-13
+      - title: The Boston Nightly Briefing
+        subdomain: boston
+        application_domain: the
+        google_analytics_code: UA-18662300-14
+      - title: The Las Vegas Nightly Briefing
+        subdomain: las-vegas
+        application_domain: the
+        google_analytics_code: UA-18662300-15
+      - title: The Orange County Nightly Briefing
+        subdomain: orange-county
+        application_domain: the
+        google_analytics_code: UA-18662300-16
+
   - domain_name: nightlifechronicle.com
     asset_server: performing-arts-events.com
     locations:
