@@ -29,6 +29,12 @@ class Topic < ActiveRecord::Base
   # A simple hack to friendly_id to keep it from creating duplicate slugs during before_save.
   attr_accessor :no_slug
 
+  state_machine :status, :initial => :draft do
+    event :publish do
+      transition any => :published
+    end
+  end
+
   after_create :update_attachment_file_names
   after_update :update_attachment_file_names
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100922121901) do
+ActiveRecord::Schema.define(:version => 20101004152848) do
 
   create_table "brands", :force => true do |t|
     t.string   "domain_name"
@@ -91,11 +91,11 @@ ActiveRecord::Schema.define(:version => 20100922121901) do
     t.string   "title"
     t.string   "panel"
     t.text     "body"
-    t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
     t.integer  "venue_id"
+    t.string   "status"
   end
 
   create_table "users", :force => true do |t|

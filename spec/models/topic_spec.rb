@@ -17,6 +17,23 @@ require 'spec_helper'
 
 describe Topic do
 
+  describe 'status' do
+
+    before do
+      @topic = Topic.new
+    end
+    
+    it 'should initially start in the :draft state' do
+      @topic.status.should == 'draft'
+    end
+    
+    it 'should move into the :published state after a publish! event' do
+      @topic.publish!
+      @topic.status.should == 'published'
+    end
+    
+  end
+
   describe 'named scope' do
 
     before do
@@ -40,7 +57,7 @@ describe Topic do
 
     before do
       %w{square portrait landscape}.each do |panel_type|
-        rand(5).times do
+        (rand(5)+1).times do
           @topic = Topic.create
           @topic.images << (image = Image.create :t_1 => File.new(Rails.root + 'spec/fixtures/images/test_256.jpg'))
           @topic.panels << Panel.create(:image => image, :arrangement => panel_type)
