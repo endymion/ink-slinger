@@ -42,8 +42,12 @@ $alt: #005498;
 	font-style: normal;
 }
 
+@mixin headline-family {
+  font-family: 'GraublauWebBold', "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
+}
+
 @mixin sans-family {
-  font-family: 'GraublauWebRegular', "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
 }
 
 @mixin serif-family {

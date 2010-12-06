@@ -1,0 +1,13 @@
+#header
+  #left
+    %h1= @current_brand.title
+    #section_navigation
+      %ul
+        %li.selected
+          = link_to 'News', root_path
+        %li
+          = link_to 'Calendar', root_path
+        %li
+          = link_to 'Forums', root_path
+  #right
+    #authentication-box

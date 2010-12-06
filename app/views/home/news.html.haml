@@ -1,3 +1,5 @@
+= render :partial => '/layouts/header'
+
 - @layout_pattern.each do |rack|
   .rack
     - rack.each do |section|
@@ -14,3 +16,5 @@
                   = render :partial => '/layouts/footer_panel'
                 - else
                   = render :partial => '/layouts/panel', :locals => { :panel => panel }
+                  
+= render :partial => '/layouts/footer'

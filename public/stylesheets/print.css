@@ -87,7 +87,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 /* Body --------------------------------------------------------------*/
 /* line 13, ../../app/stylesheets/_defaults.scss */
 body {
-  font-family: 'GraublauWebRegular', "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
   color: #4c4c4c;
 }
 
@@ -232,7 +232,7 @@ blockquote {
   margin-left: -1.5em;
   padding-left: 1.5em;
   border-left: 1px solid;
-  font-family: 'GraublauWebRegular', "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
   font-style: italic;
 }
 

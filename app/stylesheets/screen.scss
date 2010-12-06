@@ -16,9 +16,7 @@
 
 @include susy;
 
-body {
-  background: #EEE;
-}
+body { background-color: #666; }
 
 img { border: 0; }
 
@@ -46,58 +44,69 @@ img { border: 0; }
   clear: both;
 }
 
-#header_panel .copy.top {
-  #username {
-    width: 50%;
-    margin-right: 5%;
-  }
-  #password {
-    width: 45%;
-  }
-}
-#header_panel .copy {
+#header {
   margin: 0;
-  #post-your-event {
-    margin-top: 0.7em;
-    width: 45%;
-    float: left;
-    text-align: center;
-    #ad {
-      margin: 0 2em 0 2em;
-      padding: 1ex 0 1ex 0;
-      background: #CCC;
+  color: #EEE;
+  
+  $alt: #0cf;
+  a {
+    &:link, &:visited {
+      color: $alt;
+      text-decoration: none;
+    }
+    &:focus, &:hover, &:active {
+      color: darken($alt,5);
+      text-decoration: none;
+    }
+    img {
+      border: none;
     }
   }
-  #authentication-box {
-    margin-top: 0.7em;
-    width: 50%;
-    float: right;
-    font-size: 0.8em;
-    margin-right: 5%;
-    margin-bottom: 2em;
-    #oauth-links {
-      img {
-        margin-left: 1ex;
-        vertical-align: top;
+  
+  #left {
+    float: left;
+    margin: 0.4em 0 0 0.4em;
+    h1 {
+      text-shadow: 0.12em 0.12em black;
+      font-size: 2.1em;
+      @include headline-family;
+      margin-bottom: 0.1em;
+    }
+    #section_navigation {
+      font-size: 1.6em;
+      text-shadow: 0.12em 0.12em black;
+      margin: 0.4em 0 0 0;
+      ul {
+        margin: 0px;
+        padding: 0px;
+        white-space: nowrap;
+        li {
+          list-style-type: none;
+          display: inline;
+          padding-right: 0.6ex;
+        }
       }
     }
   }
-  #section_navigation {
-    width: 100%;
-    clear: both;
-    text-align: center;
-    font-size: 2.4em;
-    line-height: 1.6em;
-    ul {
-      margin: 0px;
-      padding: 0px;
-      white-space: nowrap;
-      li {
-        font-weight: bold;
-        list-style-type: none;
-        display: inline;
-        padding-left: 0.3ex;
-        padding-right: 0.3ex;
+  #right {
+    float: right;
+    #authentication-box {
+      font-size: 0.8em;
+      text-shadow: 0.15em 0.15em black;
+      line-height: 1.4em;
+      margin: 0 6px 0 0;
+      #username {
+        width: 50%;
+        margin-right: 5%;
+      }
+      #password {
+        width: 45%;
+      }
+      #oauth-links {
+        img {
+          margin-left: 1ex;
+          vertical-align: top;
+        }
       }
     }
   }
@@ -105,10 +114,11 @@ img { border: 0; }
 
 .headline {
   font-size: 1.2em;
-  font-weight: bold;
 }
 #footer {
   font-size: 0.8em;
+  color: #EEE;
+  text-shadow: 0.15em 0.15em black;
 }
 
 /* Styles --------------------------------------------------------------*/

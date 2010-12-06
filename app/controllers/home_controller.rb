@@ -26,10 +26,7 @@ class HomeController < ApplicationController
               :type => :square,
               :panels => [
                   { :arrangement => :landscape },
-                  {
-                    :arrangement => :landscape,
-                    :id => :header_panel
-                  }
+                  { :arrangement => :landscape }
                 ]
             }
           ],
@@ -117,10 +114,7 @@ class HomeController < ApplicationController
               :type => :flexible,
               :panels => [ # Multiple panels per mount
                   { :arrangement => :square },
-                  {
-                    :arrangement => :square,
-                    :id => :footer_panel
-                  }
+                  { :arrangement => :square }
               ]
             }
           ]
