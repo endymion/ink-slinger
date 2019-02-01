@@ -55,23 +55,38 @@ window.onload = function() {
         {
           id: 'panel-switcher',
           el: '.panel__switcher',
-          buttons: [{
+          buttons: [
+            {
               id: 'show-layers',
               active: true,
               label: 'Layers',
               command: 'show-layers',
               // Once activated disable the possibility to turn it off
               togglable: false,
-            }, {
+            },
+            {
               id: 'show-style',
               active: true,
               label: 'Styles',
               command: 'show-styles',
               togglable: false,
-          }],
+            },
+            {
+              id: 'show-traits',
+              active: true,
+              label: 'Traits',
+              command: 'show-traits',
+              togglable: false,
+            }
+          ]
         }
-      ]
+      ],
     },
+
+    traitManager: {
+      appendTo: '.traits-container',
+    },
+
     // The Selector Manager allows to assign classes and
     // different states (eg. :hover) on components.
     // Generally, it's used in conjunction with Style Manager
@@ -147,6 +162,18 @@ window.onload = function() {
     stop(editor, sender) {
       const smEl = this.getStyleEl(this.getRowEl(editor));
       smEl.style.display = 'none';
+    },
+  });
+  editor.Commands.add('show-traits', {
+    getTraitsEl(editor) {
+      const row = editor.getContainer().closest('.editor-row');
+      return row.querySelector('.traits-container');
+    },
+    run(editor, sender) {
+      this.getTraitsEl(editor).style.display = '';
+    },
+    stop(editor, sender) {
+      this.getTraitsEl(editor).style.display = 'none';
     },
   });
 
