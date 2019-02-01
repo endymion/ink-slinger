@@ -11,8 +11,6 @@ window.onload = function() {
     width: 'auto',
     // Disable the storage manager for the moment
     storageManager: { type: null },
-    // Avoid any default panel
-    panels: { defaults: [] },
 
     blockManager: {
       appendTo: '#blocks',
@@ -48,7 +46,21 @@ window.onload = function() {
     layerManager: {
       appendTo: '.layers-container'
     },
-    // ...
+
+    deviceManager: {
+      devices: [
+        {
+          name: 'Desktop',
+          width: '', // default size
+        },
+        {
+          name: 'Mobile',
+          width: '320px', // this value will be used on canvas width
+          widthMedia: '480px', // this value will be used in CSS @media
+        }
+      ]
+    },
+
     panels: {
       defaults: [
         // ...
@@ -79,6 +91,25 @@ window.onload = function() {
               togglable: false,
             }
           ]
+        },
+        {
+          id: 'panel-devices',
+          el: '.panel__devices',
+          buttons: [
+            {
+              id: 'device-desktop',
+              label: 'D',
+              command: 'set-device-desktop',
+              active: true,
+              togglable: false,
+            },
+            {
+              id: 'device-mobile',
+              label: 'M',
+              command: 'set-device-mobile',
+              togglable: false,
+            }
+          ],
         }
       ],
     },
@@ -175,6 +206,13 @@ window.onload = function() {
     stop(editor, sender) {
       this.getTraitsEl(editor).style.display = 'none';
     },
+  });
+
+  editor.Commands.add('set-device-desktop', {
+    run: editor => editor.setDevice('Desktop')
+  });
+  editor.Commands.add('set-device-mobile', {
+    run: editor => editor.setDevice('Mobile')
   });
 
   editor.Panels.addPanel({
